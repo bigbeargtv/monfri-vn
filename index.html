@@ -300,6 +300,155 @@ footer{background:#111;padding:3.5rem 0 2rem;color:rgba(255,255,255,.4)}
 
 @keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 .fu{opacity:0}.fu.on{animation:fu .5s ease forwards}
+
+/* ── PRODUCT DETAIL PAGE ── */
+#pg-pdp{display:none}
+.pdp-wrap{max-width:1320px;margin:0 auto;padding:2.5rem 2rem 5rem}
+.pdp-bc{font-size:12px;color:var(--mid);margin-bottom:1.5rem}
+.pdp-bc a{color:var(--mid);transition:color .2s}
+.pdp-bc a:hover{color:var(--red)}
+.pdp-bc span{color:var(--c)}
+
+.pdp-top{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-bottom:5rem}
+
+/* Gallery */
+.pdp-gallery{position:sticky;top:82px}
+.pdp-main-img{aspect-ratio:1/1;overflow:hidden;background:var(--warm);margin-bottom:.8rem;cursor:zoom-in}
+.pdp-main-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.pdp-main-img:hover img{transform:scale(1.05)}
+.pdp-thumbs{display:flex;gap:.6rem;flex-wrap:wrap}
+.pdp-thumb{width:72px;height:72px;overflow:hidden;cursor:pointer;border:2px solid transparent;background:var(--warm);transition:border-color .2s;flex-shrink:0}
+.pdp-thumb.on{border-color:var(--red)}
+.pdp-thumb img{width:100%;height:100%;object-fit:cover;transition:opacity .2s}
+.pdp-thumb:hover img{opacity:.8}
+
+/* Info panel */
+.pdp-info{}
+.pdp-cat{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:.4rem}
+.pdp-name{font-family:var(--serif);font-size:clamp(20px,2.5vw,28px);color:var(--c);font-weight:400;line-height:1.3;margin-bottom:.8rem}
+.pdp-rating-row{display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem;padding-bottom:1.2rem;border-bottom:1px solid var(--pale)}
+.pdp-stars{color:#e8b44b;font-size:14px}
+.pdp-rcnt{font-size:12px;color:var(--mid)}
+.pdp-rlink{font-size:12px;color:var(--red);text-decoration:underline;cursor:pointer}
+
+.pdp-prices{display:flex;align-items:baseline;gap:.8rem;margin-bottom:.5rem}
+.pdp-sale{font-family:var(--serif);font-size:28px;color:var(--c);font-weight:600}
+.pdp-orig{font-size:14px;color:var(--mid);text-decoration:line-through}
+.pdp-off{font-size:12px;color:var(--red);font-weight:600;background:#fff0f2;padding:.2rem .5rem}
+.pdp-savings{font-size:12px;color:var(--mid);margin-bottom:1.5rem}
+.pdp-savings b{color:var(--red)}
+
+/* Stats badges */
+.pdp-stats{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.8rem}
+.pdp-stat{background:var(--warm);border:1px solid var(--pale);padding:.4rem .9rem;font-size:11.5px;font-weight:500;color:var(--c);display:flex;align-items:center;gap:.4rem}
+.pdp-stat span{color:var(--red);font-weight:700;font-family:var(--serif);font-size:13px}
+
+/* Quantity + Add */
+.pdp-qty-row{display:flex;gap:.8rem;align-items:stretch;margin-bottom:.8rem}
+.pdp-qty{display:flex;align-items:center;border:1.5px solid var(--pale)}
+.pdp-qb{width:40px;height:48px;background:none;border:none;font-size:18px;color:var(--c);display:flex;align-items:center;justify-content:center;transition:background .15s}
+.pdp-qb:hover{background:var(--warm)}
+.pdp-qv{width:44px;text-align:center;font-size:15px;font-weight:500}
+.pdp-add{flex:1;background:var(--c);color:#fff;border:none;height:48px;font-size:13px;letter-spacing:.06em;transition:background .2s}
+.pdp-add:hover{background:var(--red)}
+.pdp-buy{width:100%;background:var(--red);color:#fff;border:none;height:48px;font-size:13px;letter-spacing:.06em;transition:background .2s;margin-bottom:1.5rem}
+.pdp-buy:hover{background:var(--red2)}
+
+/* Perks */
+.pdp-perks{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:1.8rem;padding:1.2rem;background:var(--warm);border:1px solid var(--pale)}
+.pdp-perk{display:flex;gap:.5rem;align-items:flex-start;font-size:12px;color:var(--mid)}
+.pdp-perk::before{content:'✓';color:var(--red);font-weight:700;flex-shrink:0}
+
+/* Accordion */
+.acc{border-top:1px solid var(--pale)}
+.acc-item{border-bottom:1px solid var(--pale)}
+.acc-head{width:100%;background:none;border:none;padding:1rem 0;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-size:13.5px;font-weight:500;color:var(--c);text-align:left}
+.acc-head svg{transition:transform .25s;flex-shrink:0}
+.acc-item.on .acc-head svg{transform:rotate(180deg)}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .32s ease}
+.acc-item.on .acc-body{max-height:800px}
+.acc-content{padding:.2rem 0 1.2rem;font-size:13px;color:var(--mid);line-height:1.85}
+.acc-content ul{margin-left:1rem;margin-top:.4rem}
+.acc-content li{margin-bottom:.3rem}
+
+/* Ingredients */
+.ingr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-top:.8rem}
+.ingr-item{background:var(--warm);padding:.7rem;text-align:center;border:1px solid var(--pale)}
+.ingr-ico{font-size:20px;margin-bottom:.3rem}
+.ingr-name{font-size:11px;font-weight:500;color:var(--c)}
+.ingr-desc{font-size:10.5px;color:var(--mid);margin-top:.2rem;line-height:1.4}
+
+/* PDP Bottom — tabs */
+.pdp-tabs{display:flex;gap:0;border-bottom:2px solid var(--pale);margin-bottom:3rem}
+.pdp-tab{background:none;border:none;padding:.9rem 1.5rem;font-size:13px;font-weight:500;color:var(--mid);cursor:pointer;position:relative;transition:color .2s}
+.pdp-tab::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:2px;background:var(--red);transform:scaleX(0);transition:transform .2s}
+.pdp-tab.on{color:var(--red)}
+.pdp-tab.on::after{transform:scaleX(1)}
+.pdp-tab-panel{display:none}
+.pdp-tab-panel.on{display:block}
+
+/* How to use */
+.how-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:2rem}
+.how-step{text-align:center;padding:1.5rem;background:var(--warm);border:1px solid var(--pale)}
+.how-num{font-family:var(--serif);font-size:32px;color:var(--red);line-height:1;margin-bottom:.5rem}
+.how-t{font-size:13px;font-weight:600;color:var(--c);margin-bottom:.3rem}
+.how-d{font-size:12px;color:var(--mid);line-height:1.6}
+
+/* Reviews section */
+.rev-summary{display:grid;grid-template-columns:200px 1fr;gap:2.5rem;padding:2rem;background:var(--warm);border:1px solid var(--pale);margin-bottom:2.5rem;align-items:center}
+.rev-big{text-align:center}
+.rev-score{font-family:var(--serif);font-size:56px;color:var(--c);line-height:1;font-weight:600}
+.rev-big-stars{color:#e8b44b;font-size:18px;margin:.2rem 0}
+.rev-total{font-size:12px;color:var(--mid)}
+.rev-bars{display:flex;flex-direction:column;gap:.5rem}
+.rev-bar-row{display:flex;align-items:center;gap:.8rem;font-size:12px;color:var(--mid)}
+.rev-bar-label{width:32px;text-align:right;flex-shrink:0}
+.rev-bar-track{flex:1;height:6px;background:var(--pale);border-radius:3px;overflow:hidden}
+.rev-bar-fill{height:100%;background:var(--red);border-radius:3px}
+.rev-bar-cnt{width:28px;flex-shrink:0}
+
+.rev-filter{display:flex;gap:.5rem;margin-bottom:1.8rem;flex-wrap:wrap}
+.rev-ft{padding:.35rem 1rem;font-size:12px;border:1px solid var(--pale);background:#fff;color:var(--mid);transition:all .18s}
+.rev-ft.on,.rev-ft:hover{background:var(--c);color:#fff;border-color:var(--c)}
+
+.rev-list{display:flex;flex-direction:column;gap:1.5rem}
+.rev-item{border-bottom:1px solid var(--pale);padding-bottom:1.5rem}
+.rev-item:last-child{border:none}
+.rev-item-head{display:flex;align-items:center;gap:1rem;margin-bottom:.6rem}
+.rev-avatar{width:36px;height:36px;border-radius:50%;background:var(--warm);border:1px solid var(--pale);overflow:hidden;flex-shrink:0}
+.rev-avatar img{width:100%;height:100%;object-fit:cover}
+.rev-uname{font-size:13px;font-weight:500;color:var(--c)}
+.rev-date{font-size:11px;color:var(--mid)}
+.rev-item-stars{color:#e8b44b;font-size:12px;margin-bottom:.4rem}
+.rev-item-txt{font-size:13px;color:var(--mid);line-height:1.75;margin-bottom:.8rem}
+.rev-item-imgs{display:flex;gap:.5rem;flex-wrap:wrap}
+.rev-img{width:80px;height:80px;overflow:hidden;cursor:pointer;background:var(--warm)}
+.rev-img img{width:100%;height:100%;object-fit:cover;transition:opacity .2s}
+.rev-img:hover img{opacity:.85}
+.rev-verified{font-size:10.5px;color:#2d8a4e;font-weight:500;display:flex;align-items:center;gap:.3rem;margin-top:.4rem}
+.rev-helpful{font-size:11.5px;color:var(--mid);margin-top:.5rem}
+.rev-helpful button{background:none;border:1px solid var(--pale);padding:.2rem .7rem;font-size:11px;color:var(--mid);transition:all .15s}
+.rev-helpful button:hover{border-color:var(--c);color:var(--c)}
+
+/* Related products */
+.rel-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+
+/* Lightbox */
+.lb{position:fixed;inset:0;z-index:700;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .25s}
+.lb.on{opacity:1;visibility:visible}
+.lb img{max-width:90vw;max-height:88vh;object-fit:contain}
+.lb-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;color:#fff;font-size:28px;cursor:pointer}
+
+@media(max-width:900px){
+  .pdp-top{grid-template-columns:1fr;gap:2rem}
+  .pdp-gallery{position:static}
+  .how-steps{grid-template-columns:1fr}
+  .rev-summary{grid-template-columns:1fr}
+  .rel-grid{grid-template-columns:repeat(2,1fr)}
+  .ingr-grid{grid-template-columns:repeat(2,1fr)}
+  .pdp-perks{grid-template-columns:1fr}
+}
+
 </style>
 </head>
 <body>
@@ -994,6 +1143,389 @@ function toast(m){
   clearTimeout(tt);tt=setTimeout(()=>el.classList.remove('on'),3000);
 }
 
+
+
+/* ══════════════════════════════════════
+   PRODUCT DETAIL PAGE DATA & LOGIC
+══════════════════════════════════════ */
+
+// Extended product data cho PDP
+const PDP_DATA = {
+  // Gallery images (clean, multiple angles)
+  galleries: {
+    hair: [
+      'https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=700&q=85',
+      'https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=700&q=85',
+      'https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=700&q=85',
+      'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=700&q=85',
+    ],
+    body: [
+      'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=700&q=85',
+      'https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=700&q=85',
+      'https://images.unsplash.com/photo-1607602132700-068258431c8d?w=700&q=85',
+      'https://images.unsplash.com/photo-1557053910-d9eadeed1c58?w=700&q=85',
+    ],
+    hand: [
+      'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=700&q=85',
+      'https://images.unsplash.com/photo-1617897903246-719242758050?w=700&q=85',
+      'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=700&q=85',
+    ],
+    set: [
+      'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=700&q=85',
+      'https://images.unsplash.com/photo-1629198688000-71f23e745b6e?w=700&q=85',
+      'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=700&q=85',
+    ],
+  },
+
+  // How-to-use steps by category
+  howto: {
+    hair: [
+      {n:'01', t:'Làm ướt tóc', d:'Làm ướt hoàn toàn tóc và da đầu bằng nước ấm trước khi gội.'},
+      {n:'02', t:'Thoa dầu gội', d:'Lấy lượng vừa đủ, tạo bọt trên lòng bàn tay rồi thoa đều lên da đầu.'},
+      {n:'03', t:'Massage nhẹ nhàng', d:'Massage da đầu bằng đầu ngón tay 2–3 phút để kích thích tuần hoàn máu.'},
+      {n:'04', t:'Xả sạch', d:'Xả sạch với nước ấm. Dùng kèm dầu xả Monfri để tăng hiệu quả.'},
+      {n:'05', t:'Kết quả', d:'Dùng đều đặn 3–4 lần/tuần. Thấy cải thiện rõ sau 4 tuần.'},
+    ],
+    body: [
+      {n:'01', t:'Làm ướt cơ thể', d:'Tắm với nước ấm để mở lỗ chân lông, giúp sản phẩm thấm sâu hơn.'},
+      {n:'02', t:'Thoa sữa tắm', d:'Lấy lượng vừa đủ ra tay hoặc bông tắm, tạo bọt rồi thoa đều toàn thân.'},
+      {n:'03', t:'Massage nhẹ', d:'Massage nhẹ nhàng theo chuyển động tròn 1–2 phút, chú ý vùng da dầu mụn.'},
+      {n:'04', t:'Xả sạch', d:'Xả sạch với nước. Dùng thêm sữa dưỡng thể Monfri sau khi tắm khi da còn ẩm.'},
+    ],
+    hand: [
+      {n:'01', t:'Làm ướt tay', d:'Làm ướt tay bằng nước trước khi dùng nước rửa tay.'},
+      {n:'02', t:'Bơm 1–2 lần', d:'Bơm 1–2 lần lượng vừa đủ vào lòng bàn tay.'},
+      {n:'03', t:'Tạo bọt & rửa', d:'Tạo bọt, rửa kỹ 20 giây. Với kem dưỡng: thoa lên tay khô, massage nhẹ đến khi thấm.'},
+    ],
+    set: [
+      {n:'01', t:'Bắt đầu với dầu gội', d:'Gội tóc với dầu gội trong bộ set, massage da đầu 2–3 phút.'},
+      {n:'02', t:'Dùng dầu xả', d:'Sau gội, thoa dầu xả từ giữa tóc đến ngọn, để 2–3 phút rồi xả sạch.'},
+      {n:'03', t:'Tắm với sữa tắm', d:'Dùng sữa tắm trong set để hoàn thiện quy trình chăm sóc toàn thân.'},
+    ],
+  },
+
+  // Ingredients by category
+  ingredients: {
+    hair_exosome: [
+      {ico:'🧬', n:'Nano Exosome', d:'Thấm sâu vào nang tóc, tái tạo tế bào'},
+      {ico:'🌿', n:'Centella Asiatica', d:'Làm dịu da đầu, giảm viêm'},
+      {ico:'💊', n:'Biotin', d:'Vitamin B7, nuôi dưỡng nang tóc'},
+      {ico:'🍺', n:'Beer Yeast Extract', d:'Protein tự nhiên tăng thể tích tóc'},
+      {ico:'🌸', n:'Camellia Oil', d:'Dưỡng bóng, giảm xơ rối'},
+      {ico:'🧪', n:'Keratin', d:'Phục hồi cấu trúc tóc hư tổn'},
+    ],
+    hair_beer: [
+      {ico:'🍺', n:'Beer Yeast', d:'Men bia Đức, protein tự nhiên'},
+      {ico:'💪', n:'Hydrolyzed Keratin', d:'Keratin thủy phân phục hồi tóc'},
+      {ico:'🌱', n:'Biotin Complex', d:'Tăng cường nang tóc'},
+      {ico:'🌺', n:'Panthenol (B5)', d:'Dưỡng ẩm, tăng độ bóng'},
+      {ico:'🍃', n:'Green Tea Extract', d:'Chống oxy hóa, bảo vệ tóc'},
+      {ico:'💧', n:'Hyaluronic Acid', d:'Giữ ẩm cho da đầu'},
+    ],
+    body_acne: [
+      {ico:'🌿', n:'Centella Asiatica', d:'Làm dịu, chống viêm mụn'},
+      {ico:'⚗️', n:'Salicylic Acid', d:'BHA làm sạch lỗ chân lông'},
+      {ico:'🌊', n:'Sea Salt Extract', d:'Kháng khuẩn tự nhiên'},
+      {ico:'🌲', n:'Tea Tree Oil', d:'Kháng khuẩn, kiểm soát dầu'},
+      {ico:'💧', n:'Niacinamide', d:'Thu nhỏ lỗ chân lông'},
+      {ico:'🌸', n:'Allantoin', d:'Làm dịu và tái tạo da'},
+    ],
+    body_aroma: [
+      {ico:'💜', n:'Lavender Essential Oil', d:'Thư giãn, khử mùi tự nhiên'},
+      {ico:'🌿', n:'Organic Jojoba Oil', d:'Dưỡng ẩm sâu, mềm da'},
+      {ico:'🌸', n:'Rose Extract', d:'Chống oxy hóa, làm sáng da'},
+      {ico:'🥥', n:'Coconut Oil', d:'Nuôi dưỡng, làm mềm da'},
+      {ico:'🌾', n:'Vitamin E', d:'Bảo vệ và tái tạo da'},
+      {ico:'💧', n:'Aloe Vera', d:'Dưỡng ẩm, làm mát da'},
+    ],
+    body_lotion: [
+      {ico:'🧈', n:'Cupuaçu Butter', d:'Dưỡng ẩm 270%, thấm nhanh'},
+      {ico:'🌿', n:'Organic Argan Oil', d:'Nuôi dưỡng sâu, chống lão hóa'},
+      {ico:'🥛', n:'Almond Milk', d:'Làm mềm da, hương thơm nhẹ'},
+      {ico:'💧', n:'Hyaluronic Acid', d:'Giữ ẩm 24 giờ'},
+      {ico:'🌺', n:'Shea Butter', d:'Dưỡng ẩm, phục hồi da khô'},
+      {ico:'🌸', n:'Centella Asiatica', d:'Phục hồi da, chống viêm'},
+    ],
+    hand: [
+      {ico:'🧈', n:'Cupuaçu Butter', d:'Dưỡng ẩm sâu, không nhờn'},
+      {ico:'🌿', n:'Centella Asiatica', d:'Phục hồi da tay khô nứt'},
+      {ico:'🌸', n:'Allantoin', d:'Làm mềm và tái tạo da'},
+      {ico:'💧', n:'Glycerin', d:'Giữ ẩm tự nhiên lâu dài'},
+      {ico:'🌾', n:'Vitamin E', d:'Chống oxy hóa, bảo vệ da'},
+      {ico:'🌲', n:'Hinoki Extract', d:'Kháng khuẩn, hương thơm tinh tế'},
+    ],
+  },
+
+  // Real user reviews with photos (Unsplash lifestyle shots)
+  reviews: [
+    {
+      id:1, user:'Minh Anh', loc:'Hà Nội', date:'12/03/2026', stars:5,
+      text:'Mình dùng dầu gội Exosome được 1 tháng rồi, thực sự thấy tóc rụng giảm rõ rệt. Trước mỗi lần gội tóc rụng đầy tay, sau khoảng 3 tuần thấy giảm hẳn. Da đầu cũng đỡ ngứa hơn. Mùi hương Darjeeling rất dễ chịu, không quá nặng. Sẽ tiếp tục mua lại!',
+      imgs:['https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=200&q=80','https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=200&q=80'],
+      verified:true, helpful:24, cat:['hair']
+    },
+    {
+      id:2, user:'Thu Hằng', loc:'TP. Hồ Chí Minh', date:'08/03/2026', stars:5,
+      text:'Sữa tắm Acne Care giải quyết được vấn đề mụn lưng mình đã khổ sở từ lâu. Dùng được 2 tuần là thấy da lưng thông thoáng hơn rõ rệt, mụn không còn nổi nhiều. Hương Aqua Forest rất mát, cảm giác tắm xong sảng khoái lắm. Chai to dùng được lâu rất tiết kiệm.',
+      imgs:['https://images.unsplash.com/photo-1556228720-195a672e8a03?w=200&q=80'],
+      verified:true, helpful:18, cat:['body']
+    },
+    {
+      id:3, user:'Phương Linh', loc:'Đà Nẵng', date:'05/03/2026', stars:5,
+      text:'Mua bộ set 3 món về dùng thử, không ngờ chất lượng tốt đến vậy. Dầu gội tạo bọt nhiều, mùi thơm nhẹ nhàng. Dầu xả làm tóc mềm mượt sau lần đầu dùng. Sữa tắm mùi dễ chịu, da mềm sau tắm. Giá hợp lý hơn nhiều so với mua ở Hàn trực tiếp.',
+      imgs:['https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=200&q=80','https://images.unsplash.com/photo-1629198688000-71f23e745b6e?w=200&q=80'],
+      verified:true, helpful:31, cat:['set','hair','body']
+    },
+    {
+      id:4, user:'Ngọc Khánh', loc:'Hà Nội', date:'01/03/2026', stars:5,
+      text:'Kem dưỡng tay của Monfri là sản phẩm mình dùng đi dùng lại nhiều nhất. Thấm nhanh, không nhờn, da tay mềm và không bị khô nứt dù trời lạnh. Hộp 2 cái để 1 ở bàn làm việc, 1 trong túi xách. Mùi hơi nhẹ nhàng không gắt, rất phù hợp dùng ở văn phòng.',
+      imgs:['https://images.unsplash.com/photo-1617897903246-719242758050?w=200&q=80'],
+      verified:true, helpful:15, cat:['hand']
+    },
+    {
+      id:5, user:'Tuấn Minh', loc:'Hải Phòng', date:'26/02/2026', stars:5,
+      text:'Ban đầu mình mua vì thấy sale, không kỳ vọng nhiều vì chưa biết Monfri. Sau khi dùng hết 1 bộ thì đã order thêm 2 bộ nữa. Chất lượng vượt kỳ vọng, đặc biệt dầu xả làm tóc cực kỳ mềm. Giao hàng nhanh, đóng gói cẩn thận.',
+      imgs:[],
+      verified:true, helpful:9, cat:['hair','set']
+    },
+    {
+      id:6, user:'Bảo Châu', loc:'Cần Thơ', date:'20/02/2026', stars:4,
+      text:'Sữa tắm Lavender Soap mùi thơm rất dễ chịu, da mềm sau tắm. Trừ 1 sao vì mình thấy bọt không nhiều như kỳ vọng, nhưng bù lại da không bị khô. Sẽ thử thêm các mùi khác xem thế nào.',
+      imgs:['https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=200&q=80'],
+      verified:true, helpful:7, cat:['body']
+    },
+    {
+      id:7, user:'Hương Trà', loc:'Hà Nội', date:'15/02/2026', stars:5,
+      text:'Nước rửa tay Hinoki Forest thơm thật sự, mùi kéo dài rất lâu sau khi rửa. Bọt mịn, không làm khô tay. Mua bộ 3 chai dùng cả gia đình, kinh tế hơn nhiều. Đây là lần thứ 3 mình mua lại sản phẩm này rồi.',
+      imgs:['https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=200&q=80'],
+      verified:true, helpful:22, cat:['hand']
+    },
+  ],
+};
+
+// Get ingredient type for a product
+function getIngredientKey(p) {
+  if(p.id===1||p.id===2) return 'hair_exosome';
+  if(['hair'].includes(p.cat)&&p.id<=7) return 'hair_beer';
+  if(p.cat==='body'&&p.note.includes('bã nhờn')) return 'body_acne';
+  if(p.cat==='body'&&p.note.includes('mùi')) return 'body_aroma';
+  if(p.cat==='body'&&p.note.includes('ẩm')) return 'body_lotion';
+  if(p.cat==='hand') return 'hand';
+  if(p.cat==='set') return 'hair_exosome'; // sets use hair data
+  return 'hair_beer';
+}
+
+// Get howto type
+function getHowtoKey(p) {
+  if(p.cat==='set') return 'set';
+  return p.cat;
+}
+
+/* ── OPEN PDP ── */
+let pdpProd = null, pdpQty = 1, activeTab = 'howto';
+
+function goPDP(id) {
+  const p = P.find(x=>x.id===id);
+  if(!p) return;
+  pdpProd = p;
+  pdpQty = 1;
+  activeTab = 'howto';
+
+  // Show page
+  document.getElementById('pg-home').style.display='none';
+  document.getElementById('pg-plp').style.display='none';
+  document.getElementById('pg-pdp').style.display='block';
+  scrollTo({top:0,behavior:'smooth'});
+
+  // Breadcrumb
+  document.getElementById('pdp-bc-cat').textContent=p.cat_name;
+  document.getElementById('pdp-bc-cat').onclick=function(){goPlp(p.cat);return false};
+  document.getElementById('pdp-bc-name').textContent=p.name.replace(/&amp;/g,'&').substring(0,50)+'...';
+
+  // Gallery
+  const galleries = PDP_DATA.galleries[p.cat]||PDP_DATA.galleries.hair;
+  const imgs = [p.img, ...galleries.slice(0,3)];
+  document.getElementById('pdp-main-img').src=p.img;
+  document.getElementById('pdp-main-img').onerror=function(){this.src=p.fb};
+  document.getElementById('pdp-main-img').referrerPolicy='no-referrer';
+
+  const thumbsEl = document.getElementById('pdp-thumbs');
+  thumbsEl.innerHTML = imgs.map((src,i)=>`
+    <div class="pdp-thumb${i===0?' on':''}" onclick="switchMainImg(this,'${src}')">
+      <img src="${src}" alt="" referrerpolicy="no-referrer" onerror="this.src='${p.fb}'">
+    </div>`).join('');
+
+  // Info
+  document.getElementById('pdp-cat').textContent=p.cat_name;
+  document.getElementById('pdp-name').innerHTML=p.name;
+  document.getElementById('pdp-rcnt').textContent=`${p.cnt} đánh giá`;
+  document.getElementById('pdp-tab-rcnt').textContent=p.cnt;
+  document.getElementById('pdp-rev-total').textContent=`${p.cnt} đánh giá`;
+
+  const saved = p.orig - p.sale;
+  document.getElementById('pdp-prices').innerHTML=`
+    <span class="pdp-sale">${p.sale.toLocaleString('vi-VN')}đ</span>
+    <span class="pdp-orig">${p.orig.toLocaleString('vi-VN')}đ</span>
+    <span class="pdp-off">${p.off}</span>`;
+  document.getElementById('pdp-savings').innerHTML=`Tiết kiệm <b>${saved.toLocaleString('vi-VN')}đ</b> so với giá tham chiếu`;
+
+  // Stats badges
+  const statsMap = {
+    'Giảm rụng tóc 70%': ['70%','Giảm rụng tóc'],
+    'Giảm rụng tóc 35%': ['35%','Giảm rụng tóc'],
+    'Tăng độ bóng 51%': ['51%','Tăng độ bóng'],
+    'Cải thiện tóc gãy 21%': ['21%','Phục hồi tóc'],
+    'Giảm bã nhờn 98%': ['98%','Giảm bã nhờn'],
+    'Giảm mùi cơ thể 95%': ['95%','Giảm mùi cơ thể'],
+    'Dưỡng ẩm 270%': ['270%','Tăng độ ẩm'],
+    'Dưỡng ẩm sâu 24%': ['24%','Dưỡng ẩm sâu'],
+    '97% nguyên liệu tự nhiên': ['97%','Tự nhiên'],
+    'Thu nhỏ lỗ chân lông 24%': ['24%','Thu nhỏ lỗ chân lông'],
+    'Cải thiện da sần 97%': ['97%','Cải thiện da'],
+    'Phiên bản boxed': ['📦','Hộp quà tặng'],
+    'Bộ đôi chăm sóc tóc': ['💝','Tiết kiệm 35%'],
+    'Set tiết kiệm nhất': ['💝','Tiết kiệm 35%'],
+    'Bộ đôi Exosome': ['🧬','Exosome'],
+    'Bộ đôi da mềm mịn': ['✨','Body Set'],
+    'Tiết kiệm nhất': ['💝','Best Value'],
+    'Bộ đôi dưỡng da': ['💝','Body Set'],
+    'Combo giảm mụn lưng': ['✨','Acne Set'],
+    'Phiên bản boxed': ['📦','Quà tặng'],
+    'Dưỡng sáng tông da': ['✨','Tone Up'],
+    'Dưỡng da ngọt dịu': ['🥛','Almond Milk'],
+  };
+  const stat = statsMap[p.note]||[p.note,''];
+  document.getElementById('pdp-stats').innerHTML=`
+    <div class="pdp-stat"><span>${stat[0]}</span>${stat[1]}</div>
+    <div class="pdp-stat"><span>97%</span>Tự nhiên</div>
+    <div class="pdp-stat"><span>🇰🇷</span>Chính hãng HQ</div>
+    <div class="pdp-stat"><span>✓</span>Lâm sàng</div>`;
+
+  document.getElementById('pdp-qv').textContent=1;
+  document.getElementById('pdp-desc-acc').innerHTML=`<p>${p.desc}</p>`;
+  document.getElementById('pdp-info-vol').innerHTML=`<b>Dung tích:</b> ${p.name.match(/\d+ml/)?p.name.match(/\d+ml/)[0]:'—'}`;
+
+  // How to use
+  const htKey = getHowtoKey(p);
+  const steps = PDP_DATA.howto[htKey]||PDP_DATA.howto.hair;
+  document.getElementById('pdp-how-steps').innerHTML=steps.map(s=>`
+    <div class="how-step">
+      <div class="how-num">${s.n}</div>
+      <div class="how-t">${s.t}</div>
+      <div class="how-d">${s.d}</div>
+    </div>`).join('');
+
+  // Ingredients
+  const ingKey = getIngredientKey(p);
+  const ingrs = PDP_DATA.ingredients[ingKey]||PDP_DATA.ingredients.hair_beer;
+  document.getElementById('pdp-ingr-grid').innerHTML=ingrs.map(i=>`
+    <div class="ingr-item">
+      <div class="ingr-ico">${i.ico}</div>
+      <div class="ingr-name">${i.n}</div>
+      <div class="ingr-desc">${i.d}</div>
+    </div>`).join('');
+  document.getElementById('pdp-full-ingr').innerHTML=`
+    <strong style="color:var(--c)">Thành phần đầy đủ:</strong><br>
+    <span style="font-size:11.5px">${ingrs.map(i=>i.n).join(', ')}, Aqua, Sodium Laureth Sulfate, Cocamidopropyl Betaine, Glycerin, Citric Acid, Sodium Benzoate, Parfum.</span>`;
+  document.getElementById('pdp-ingr-acc').innerHTML=`<div class="ingr-grid" style="margin-top:.5rem">${ingrs.slice(0,4).map(i=>`<div class="ingr-item"><div class="ingr-ico">${i.ico}</div><div class="ingr-name">${i.n}</div></div>`).join('')}</div>`;
+
+  // Reviews
+  renderRevs('all');
+
+  // Related
+  const related = P.filter(x=>x.id!==p.id&&(x.cat===p.cat||x.isBest)).slice(0,4);
+  document.getElementById('pdp-related').innerHTML=related.map(cardHTML).join('');
+
+  // Reset tabs
+  switchTab('howto');
+}
+
+function renderRevs(filter) {
+  const p = pdpProd;
+  let revs = PDP_DATA.reviews;
+  if(filter==='5') revs=revs.filter(r=>r.stars===5);
+  if(filter==='4') revs=revs.filter(r=>r.stars===4);
+  if(filter==='photo') revs=revs.filter(r=>r.imgs.length>0);
+
+  document.getElementById('pdp-revs').innerHTML=revs.map(r=>`
+    <div class="rev-item">
+      <div class="rev-item-head">
+        <div class="rev-avatar">
+          <img src="https://i.pravatar.cc/36?u=${r.id}" alt="${r.user}">
+        </div>
+        <div>
+          <div class="rev-uname">${r.user} <span style="font-size:10.5px;color:var(--mid);font-weight:300">— ${r.loc}</span></div>
+          <div class="rev-date">${r.date}</div>
+        </div>
+      </div>
+      <div class="rev-item-stars">${'★'.repeat(r.stars)}${'☆'.repeat(5-r.stars)}</div>
+      <div class="rev-item-txt">${r.text}</div>
+      ${r.imgs.length?`<div class="rev-item-imgs">${r.imgs.map(src=>`<div class="rev-img" onclick="openLb('${src}')"><img src="${src}" alt="review photo" loading="lazy"></div>`).join('')}</div>`:''}
+      ${r.verified?`<div class="rev-verified">✓ Đã mua hàng · Đánh giá có xác minh</div>`:''}
+      <div class="rev-helpful">
+        Đánh giá này hữu ích không? &nbsp;
+        <button onclick="this.textContent='👍 '+((parseInt(this.textContent.replace(/\D/g,''))||${r.helpful})+1);this.disabled=true">👍 ${r.helpful}</button>
+      </div>
+    </div>`).join('');
+}
+
+function revFilter(f, btn) {
+  document.querySelectorAll('.rev-ft').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  renderRevs(f);
+}
+
+/* ── GALLERY SWITCH ── */
+function switchMainImg(thumb, src) {
+  document.querySelectorAll('.pdp-thumb').forEach(t=>t.classList.remove('on'));
+  thumb.classList.add('on');
+  const mi = document.getElementById('pdp-main-img');
+  mi.style.opacity='0';
+  mi.style.transform='scale(0.97)';
+  setTimeout(()=>{
+    mi.src=src;
+    mi.style.transition='opacity .3s,transform .3s';
+    mi.style.opacity='1';
+    mi.style.transform='scale(1)';
+  },150);
+}
+
+/* ── TABS ── */
+function switchTab(name) {
+  document.querySelectorAll('.pdp-tab').forEach((t,i)=>{
+    const tabs=['howto','ingr','reviews','related'];
+    t.classList.toggle('on', tabs[i]===name);
+  });
+  document.querySelectorAll('.pdp-tab-panel').forEach(p=>p.classList.remove('on'));
+  document.getElementById('tab-'+name).classList.add('on');
+  activeTab=name;
+}
+
+/* ── ACCORDION ── */
+function toggleAcc(btn) {
+  const item = btn.closest('.acc-item');
+  item.classList.toggle('on');
+}
+
+/* ── QTY & CART ── */
+function pdpChQ(d){pdpQty=Math.max(1,pdpQty+d);document.getElementById('pdp-qv').textContent=pdpQty}
+function pdpAdd(){
+  cart+=pdpQty;
+  document.getElementById('cbg').textContent=cart;
+  toast(`✓ Đã thêm ${pdpQty} sản phẩm vào giỏ hàng`);
+}
+
+/* ── LIGHTBOX ── */
+function openLb(src){
+  document.getElementById('lb-img').src=src;
+  document.getElementById('lb').classList.add('on');
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('lb').classList.remove('on')});
+
+/* ── PATCH cardHTML to go to PDP instead of openM ── */
+// Override openM to go to PDP
+function openM(id){goPDP(id)}
+
 /* ═══ INIT ═══ */
 renderGrid('h-grid','all');
 setTimeout(()=>{
@@ -1002,5 +1534,160 @@ setTimeout(()=>{
   });
 },80);
 </script>
+
+<!-- ══════ PRODUCT DETAIL PAGE ══════ -->
+<div id="pg-pdp">
+  <div class="pdp-wrap">
+    <!-- Breadcrumb -->
+    <div class="pdp-bc">
+      <a href="#" onclick="goHome();return false">Trang chủ</a> /
+      <a href="#" id="pdp-bc-cat" onclick="return false">Sản phẩm</a> /
+      <span id="pdp-bc-name">Chi tiết</span>
+    </div>
+
+    <!-- Top: Gallery + Info -->
+    <div class="pdp-top">
+      <!-- Gallery -->
+      <div class="pdp-gallery">
+        <div class="pdp-main-img" id="pdp-main" onclick="openLb(this.querySelector('img').src)">
+          <img id="pdp-main-img" src="" alt="">
+        </div>
+        <div class="pdp-thumbs" id="pdp-thumbs"></div>
+      </div>
+
+      <!-- Info -->
+      <div class="pdp-info">
+        <div class="pdp-cat" id="pdp-cat"></div>
+        <h1 class="pdp-name" id="pdp-name"></h1>
+        <div class="pdp-rating-row">
+          <span class="pdp-stars">★★★★★</span>
+          <span class="pdp-rcnt" id="pdp-rcnt"></span>
+          <a class="pdp-rlink" onclick="switchTab('reviews')">Xem đánh giá ↓</a>
+        </div>
+        <div class="pdp-prices" id="pdp-prices"></div>
+        <p class="pdp-savings" id="pdp-savings"></p>
+        <div class="pdp-stats" id="pdp-stats"></div>
+
+        <div class="pdp-qty-row">
+          <div class="pdp-qty">
+            <button class="pdp-qb" onclick="pdpChQ(-1)">−</button>
+            <span class="pdp-qv" id="pdp-qv">1</span>
+            <button class="pdp-qb" onclick="pdpChQ(1)">+</button>
+          </div>
+          <button class="pdp-add" onclick="pdpAdd()">🛒 Thêm vào giỏ hàng</button>
+        </div>
+        <button class="pdp-buy" onclick="pdpAdd();toast('Đang chuyển đến thanh toán...')">Mua ngay</button>
+
+        <div class="pdp-perks">
+          <div class="pdp-perk">Freeship đơn từ 499.000đ</div>
+          <div class="pdp-perk">Đổi trả miễn phí 30 ngày</div>
+          <div class="pdp-perk">Chính hãng ArtheL Korea</div>
+          <div class="pdp-perk">CO/CQ nhập khẩu đầy đủ</div>
+          <div class="pdp-perk">Không paraben, không silicon</div>
+          <div class="pdp-perk">Kiểm nghiệm lâm sàng HQ</div>
+        </div>
+
+        <!-- Accordion -->
+        <div class="acc">
+          <div class="acc-item on">
+            <button class="acc-head" onclick="toggleAcc(this)">
+              Mô tả sản phẩm
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="acc-body">
+              <div class="acc-content" id="pdp-desc-acc"></div>
+            </div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-head" onclick="toggleAcc(this)">
+              Thành phần chính
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="acc-body">
+              <div class="acc-content" id="pdp-ingr-acc"></div>
+            </div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-head" onclick="toggleAcc(this)">
+              Thông tin sản phẩm
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="acc-body">
+              <div class="acc-content">
+                <ul>
+                  <li><b>Thương hiệu:</b> Monfri (ArtheL Co., Ltd.)</li>
+                  <li><b>Xuất xứ:</b> Hàn Quốc</li>
+                  <li><b>Nhà phân phối:</b> Monfri Vietnam (độc quyền)</li>
+                  <li id="pdp-info-vol"></li>
+                  <li><b>Hạn sử dụng:</b> 36 tháng kể từ ngày sản xuất</li>
+                  <li><b>Bảo quản:</b> Nơi khô ráo, tránh ánh nắng trực tiếp</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Tabs -->
+    <div class="pdp-tabs">
+      <button class="pdp-tab on" onclick="switchTab('howto')">Cách dùng</button>
+      <button class="pdp-tab" onclick="switchTab('ingr')">Thành phần</button>
+      <button class="pdp-tab" onclick="switchTab('reviews')">Đánh giá (<span id="pdp-tab-rcnt">0</span>)</button>
+      <button class="pdp-tab" onclick="switchTab('related')">Sản phẩm liên quan</button>
+    </div>
+
+    <!-- How to use -->
+    <div class="pdp-tab-panel on" id="tab-howto">
+      <div class="how-steps" id="pdp-how-steps"></div>
+    </div>
+
+    <!-- Ingredients detail -->
+    <div class="pdp-tab-panel" id="tab-ingr">
+      <div class="ingr-grid" id="pdp-ingr-grid"></div>
+      <div style="margin-top:1.5rem;padding:1rem;background:var(--warm);border:1px solid var(--pale);font-size:12.5px;color:var(--mid);line-height:1.8" id="pdp-full-ingr"></div>
+    </div>
+
+    <!-- Reviews -->
+    <div class="pdp-tab-panel" id="tab-reviews">
+      <div class="rev-summary">
+        <div class="rev-big">
+          <div class="rev-score">4.9</div>
+          <div class="rev-big-stars">★★★★★</div>
+          <div class="rev-total" id="pdp-rev-total"></div>
+        </div>
+        <div class="rev-bars">
+          <div class="rev-bar-row"><span class="rev-bar-label">5★</span><div class="rev-bar-track"><div class="rev-bar-fill" style="width:87%"></div></div><span class="rev-bar-cnt">87%</span></div>
+          <div class="rev-bar-row"><span class="rev-bar-label">4★</span><div class="rev-bar-track"><div class="rev-bar-fill" style="width:9%"></div></div><span class="rev-bar-cnt">9%</span></div>
+          <div class="rev-bar-row"><span class="rev-bar-label">3★</span><div class="rev-bar-track"><div class="rev-bar-fill" style="width:3%"></div></div><span class="rev-bar-cnt">3%</span></div>
+          <div class="rev-bar-row"><span class="rev-bar-label">2★</span><div class="rev-bar-track"><div class="rev-bar-fill" style="width:1%"></div></div><span class="rev-bar-cnt">1%</span></div>
+          <div class="rev-bar-row"><span class="rev-bar-label">1★</span><div class="rev-bar-track"><div class="rev-bar-fill" style="width:0%"></div></div><span class="rev-bar-cnt">0%</span></div>
+        </div>
+      </div>
+
+      <div class="rev-filter">
+        <button class="rev-ft on" onclick="revFilter('all',this)">Tất cả</button>
+        <button class="rev-ft" onclick="revFilter('5',this)">5 sao</button>
+        <button class="rev-ft" onclick="revFilter('4',this)">4 sao</button>
+        <button class="rev-ft" onclick="revFilter('photo',this)">Có ảnh</button>
+      </div>
+
+      <div class="rev-list" id="pdp-revs"></div>
+    </div>
+
+    <!-- Related -->
+    <div class="pdp-tab-panel" id="tab-related">
+      <div class="rel-grid" id="pdp-related"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <button class="lb-close" onclick="document.getElementById('lb').classList.remove('on')">✕</button>
+  <img id="lb-img" src="" alt="">
+</div>
+
 </body>
 </html>
