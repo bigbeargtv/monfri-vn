@@ -3,782 +3,538 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Monfri Vietnam — Chăm Sóc Tóc & Da Chuẩn Hàn</title>
-<meta name="description" content="Monfri Vietnam — Nhà phân phối độc quyền thương hiệu Monfri Hàn Quốc tại Việt Nam. Dầu gội trị rụng tóc, sữa tắm, kem dưỡng tay nhập khẩu chính hãng.">
+<title>Monfri Vietnam — Mỹ Phẩm Chính Hãng Hàn Quốc</title>
+<meta name="description" content="Nhà phân phối độc quyền Monfri tại Việt Nam. Dầu gội ngừa rụng tóc, sữa tắm, kem dưỡng tay Hàn Quốc chính hãng.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;font-weight:300;color:#1a1410;background:#faf8f5;overflow-x:hidden}
+body{font-family:'Be Vietnam Pro',sans-serif;color:#1a1410;background:#fafaf8;overflow-x:hidden}
 img{display:block;max-width:100%}
 a{text-decoration:none;color:inherit}
-button{font-family:'DM Sans',sans-serif;cursor:pointer}
+button{font-family:'Be Vietnam Pro',sans-serif;cursor:pointer}
 
 :root{
-  --cream:#faf8f5;--warm:#f5f0eb;--charcoal:#1a1410;--mid:#5c4f43;
-  --pale:#e8e0d8;--red:#c0253c;--red-dark:#8f1626;--red-light:#f5e6e9;
-  --serif:'Playfair Display',Georgia,serif;
-  --tr:0.28s cubic-bezier(0.25,0.46,0.45,0.94);
+  --c:#1a1410;--mid:#6b5f54;--pale:#e8e2db;--bg:#fafaf8;--warm:#f4f0ea;
+  --red:#c0253c;--red2:#8f1626;--gold:#b8860b;
+  --serif:'Playfair Display',serif;
+  --t:.26s cubic-bezier(.4,0,.2,1);
 }
 
-/* ── ANNOUNCE ── */
-.announce{background:var(--charcoal);color:rgba(255,255,255,.85);text-align:center;font-size:11.5px;letter-spacing:.06em;padding:8px 1rem;position:relative;z-index:100}
-.announce b{color:var(--red)}
+/* ── TOP BAR ── */
+.topbar{background:var(--c);color:rgba(255,255,255,.75);font-size:11.5px;letter-spacing:.05em;text-align:center;padding:7px 1rem}
+.topbar b{color:#fff}
 
 /* ── HEADER ── */
-header{position:sticky;top:0;z-index:90;background:rgba(250,248,245,.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--pale);transition:box-shadow var(--tr)}
-header.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.07)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:1280px;margin:0 auto;padding:0 2rem}
+header{position:sticky;top:0;z-index:90;background:rgba(250,250,248,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--pale)}
+.hdr{max-width:1320px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-family:var(--serif);font-size:22px;font-weight:600;letter-spacing:.06em;cursor:pointer}
+.logo em{color:var(--red);font-style:normal}
 
-.logo{font-family:var(--serif);font-size:22px;font-weight:400;letter-spacing:.06em;flex-shrink:0}
-.logo span{color:var(--red)}
+/* Nav */
+.nav{display:flex;gap:0;list-style:none}
+.nav a{display:block;padding:0 .9rem;font-size:12.5px;font-weight:400;color:var(--mid);line-height:62px;letter-spacing:.03em;transition:color var(--t)}
+.nav a:hover{color:var(--red)}
+.nav a.act{color:var(--c);font-weight:500}
 
-.nav-links{display:flex;list-style:none;position:absolute;left:50%;transform:translateX(-50%)}
-.nav-links > li > a{display:block;padding:0 1rem;font-size:13px;letter-spacing:.03em;color:var(--charcoal);line-height:64px;position:relative;transition:color var(--tr)}
-.nav-links > li > a::after{content:'';position:absolute;bottom:0;left:1rem;right:1rem;height:2px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform var(--tr)}
-.nav-links > li:hover > a{color:var(--red)}
-.nav-links > li:hover > a::after{transform:scaleX(1)}
-
-/* Dropdown */
-.has-drop{position:relative}
-.drop{position:absolute;top:100%;left:0;background:#fff;border:1px solid var(--pale);border-top:2px solid var(--red);min-width:200px;padding:.6rem 0;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .22s;z-index:200;box-shadow:0 8px 24px rgba(0,0,0,.08)}
-.has-drop:hover .drop{opacity:1;visibility:visible;transform:translateY(0)}
-.drop a{display:block;padding:.6rem 1.3rem;font-size:12.5px;color:var(--mid);transition:all .15s}
-.drop a:hover{color:var(--charcoal);background:var(--warm);padding-left:1.6rem}
-
-.nav-actions{display:flex;align-items:center;gap:.6rem;flex-shrink:0}
-.icon-btn{background:none;border:none;color:var(--charcoal);padding:.4rem;display:flex;align-items:center;transition:color var(--tr)}
+/* Actions */
+.hdr-r{display:flex;align-items:center;gap:.5rem}
+.icon-btn{background:none;border:none;color:var(--c);padding:.4rem;display:flex;align-items:center;transition:color var(--t)}
 .icon-btn:hover{color:var(--red)}
-.cart-badge{background:var(--red);color:#fff;width:16px;height:16px;border-radius:50%;font-size:9px;font-weight:500;display:flex;align-items:center;justify-content:center}
-.btn-login{background:var(--charcoal);color:#fff;padding:.45rem 1.2rem;font-size:12px;letter-spacing:.06em;border:none;transition:background var(--tr)}
-.btn-login:hover{background:var(--red)}
-.menu-btn{display:none;background:none;border:none;color:var(--charcoal);padding:.3rem}
-
-/* ── SEARCH OVERLAY ── */
-.search-ov{position:fixed;inset:0;z-index:400;background:rgba(26,20,16,.96);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .3s}
-.search-ov.open{opacity:1;visibility:visible}
-.search-box{display:flex;align-items:center;gap:1rem;width:100%;max-width:580px;padding:0 2rem}
-.search-box input{flex:1;background:transparent;border:none;border-bottom:2px solid rgba(255,255,255,.4);color:#fff;font-size:26px;font-family:var(--serif);padding:.4rem 0;outline:none;transition:border-color .2s}
-.search-box input:focus{border-color:#fff}
-.search-box input::placeholder{color:rgba(255,255,255,.3)}
-.search-close-btn{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:rgba(255,255,255,.6);font-size:26px;transition:color .2s}
-.search-close-btn:hover{color:#fff}
-
-/* ── MOBILE DRAWER ── */
-.drawer-ov{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:480;opacity:0;visibility:hidden;transition:all .3s}
-.drawer-ov.open{opacity:1;visibility:visible}
-.drawer{position:fixed;top:0;right:0;bottom:0;width:300px;background:#fff;z-index:490;transform:translateX(100%);transition:transform .32s ease;padding:1.5rem;overflow-y:auto}
-.drawer.open{transform:translateX(0)}
-.drawer-logo{font-family:var(--serif);font-size:20px;margin-bottom:1.5rem}
-.drawer-logo span{color:var(--red)}
-.drawer-close{background:none;border:none;margin-bottom:1rem;color:var(--charcoal)}
-.drawer-nav{list-style:none}
-.drawer-nav li{border-bottom:1px solid var(--pale)}
-.drawer-nav > li > a{display:block;padding:.9rem 0;font-size:14px;color:var(--charcoal)}
-.drawer-sub{padding:.3rem 0 .8rem 1rem;display:none}
-.drawer-sub a{display:block;padding:.35rem 0;font-size:13px;color:var(--mid)}
-.drawer-nav > li.open .drawer-sub{display:block}
+.cbadge{background:var(--red);color:#fff;width:16px;height:16px;border-radius:50%;font-size:9px;font-weight:600;display:flex;align-items:center;justify-content:center}
+.hbtn{background:var(--c);color:#fff;border:none;padding:.45rem 1.2rem;font-size:12px;letter-spacing:.05em;transition:background var(--t)}
+.hbtn:hover{background:var(--red)}
+.mbtn{display:none;background:none;border:none;color:var(--c);padding:.3rem}
 
 /* ── HERO ── */
-.hero{display:flex;min-height:86vh;overflow:hidden}
-.hero-img{flex:0 0 54%;position:relative;overflow:hidden;background:linear-gradient(135deg,#1a0d08,#8b1626)}
-.hero-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.04);transition:transform 8s ease}
-.hero:hover .hero-img img{transform:scale(1)}
-.hero-caption{position:absolute;bottom:2.5rem;left:2.5rem;color:#fff}
-.hero-caption .eyebrow{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6)}
-.hero-caption h3{font-family:var(--serif);font-size:26px;font-weight:400;margin-top:.3rem;text-shadow:0 2px 12px rgba(0,0,0,.3)}
-
-.hero-text{flex:1;background:var(--charcoal);display:flex;flex-direction:column;justify-content:center;padding:5rem 4rem;position:relative;overflow:hidden}
-.hero-text::before{content:'';position:absolute;top:-80px;right:-80px;width:340px;height:340px;border-radius:50%;border:1px solid rgba(255,255,255,.04)}
-.hero-eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);font-weight:500;margin-bottom:1.2rem}
-.hero-h1{font-family:var(--serif);font-size:clamp(34px,4vw,52px);color:#fff;font-weight:400;line-height:1.12;margin-bottom:1.4rem}
-.hero-h1 em{font-style:italic;color:rgba(255,255,255,.55)}
-.hero-sub{font-size:14px;color:rgba(255,255,255,.5);line-height:1.9;max-width:340px;margin-bottom:2.5rem}
-.hero-stats{display:flex;gap:2.5rem;margin-bottom:2.8rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.07)}
-.stat-num{font-family:var(--serif);font-size:30px;color:#fff;line-height:1}
-.stat-label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:.3rem}
-.hero-btns{display:flex;gap:1rem;align-items:center}
-.btn-primary{background:var(--red);color:#fff;padding:.8rem 2rem;font-size:13px;letter-spacing:.06em;border:none;transition:background var(--tr)}
-.btn-primary:hover{background:var(--red-dark)}
-.btn-ghost{background:transparent;color:rgba(255,255,255,.55);font-size:13px;border:none;display:flex;align-items:center;gap:.5rem;transition:color var(--tr)}
+.hero{background:var(--c);display:grid;grid-template-columns:1fr 1fr;min-height:80vh;overflow:hidden}
+.hero-img{position:relative;overflow:hidden}
+.hero-img img{width:100%;height:100%;object-fit:cover;opacity:.85;transition:transform 8s ease}
+.hero:hover .hero-img img{transform:scale(1.04)}
+.hero-txt{display:flex;flex-direction:column;justify-content:center;padding:5rem 4.5rem;position:relative;overflow:hidden}
+.hero-txt::before{content:'';position:absolute;top:-100px;right:-100px;width:360px;height:360px;border-radius:50%;border:1px solid rgba(255,255,255,.04)}
+.h-tag{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:1.2rem}
+.h-title{font-family:var(--serif);font-size:clamp(36px,4vw,54px);color:#fff;font-weight:400;line-height:1.1;margin-bottom:1.4rem}
+.h-title i{font-style:italic;color:rgba(255,255,255,.5)}
+.h-sub{font-size:14px;color:rgba(255,255,255,.45);line-height:1.95;margin-bottom:2.5rem;max-width:360px;font-weight:300}
+.h-stats{display:flex;gap:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:2.5rem}
+.hs-n{font-family:var(--serif);font-size:28px;color:#fff;line-height:1}
+.hs-l{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:.3rem}
+.h-btns{display:flex;gap:1rem;align-items:center}
+.btn-red{background:var(--red);color:#fff;border:none;padding:.8rem 2rem;font-size:13px;letter-spacing:.06em;transition:background var(--t)}
+.btn-red:hover{background:var(--red2)}
+.btn-ghost{background:none;border:none;color:rgba(255,255,255,.5);font-size:13px;display:flex;align-items:center;gap:.5rem;transition:color var(--t)}
 .btn-ghost:hover{color:#fff}
 
 /* ── MARQUEE ── */
-.marquee-wrap{overflow:hidden;background:var(--warm);border-top:1px solid var(--pale);border-bottom:1px solid var(--pale);padding:.85rem 0}
-.marquee-inner{display:flex;gap:2.5rem;white-space:nowrap;animation:marquee 26s linear infinite}
-.mq-item{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mid);display:flex;align-items:center;gap:1rem;flex-shrink:0}
-.mq-item::after{content:'·';color:var(--pale)}
-@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.mq{overflow:hidden;background:var(--warm);border-top:1px solid var(--pale);border-bottom:1px solid var(--pale);padding:.8rem 0}
+.mq-tr{display:flex;gap:2.5rem;white-space:nowrap;animation:mq 30s linear infinite}
+.mq-i{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mid);display:flex;align-items:center;gap:1rem;flex-shrink:0}
+.mq-i::after{content:'·';color:var(--pale)}
+@keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-/* ── PAGE / PRODUCT LIST VIEW ── */
-#page-home{display:block}
-#page-products{display:none}
-#page-detail{display:none}
-
-/* ── SECTION HELPERS ── */
-.container{max-width:1280px;margin:0 auto;padding:0 2rem}
-.sec-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);font-weight:500;margin-bottom:.5rem}
-.sec-title{font-family:var(--serif);font-size:clamp(26px,3vw,36px);font-weight:400;color:var(--charcoal);line-height:1.2}
-.sec-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:2.8rem}
-.link-more{font-size:12px;letter-spacing:.1em;color:var(--mid);border-bottom:1px solid var(--pale);padding-bottom:2px;transition:all .2s}
-.link-more:hover{color:var(--charcoal);border-color:var(--charcoal)}
-
-/* ── CATEGORY GRID ── */
-.cat-section{padding:5rem 0}
-.cat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem}
-.cat-card{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:3/4;background:var(--warm)}
-.cat-card:first-child{grid-column:span 2}
-.cat-card:nth-child(2){grid-column:span 2}
-.cat-img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
-.cat-card:hover .cat-img{transform:scale(1.05)}
-.cat-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)}
-.cat-info{position:absolute;bottom:1.4rem;left:1.4rem;right:1.4rem;color:#fff}
-.cat-info .eyebrow{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6)}
-.cat-name{font-family:var(--serif);font-size:19px;font-weight:400;margin-top:.3rem}
+/* ── LAYOUT ── */
+.wrap{max-width:1320px;margin:0 auto;padding:0 2rem}
+.sec{padding:5rem 0}
+.sec-bg{background:var(--warm)}
+.sh{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:2.8rem}
+.sl{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:.4rem}
+.st{font-family:var(--serif);font-size:clamp(24px,2.8vw,34px);color:var(--c);font-weight:400;line-height:1.2}
+.lm{font-size:12px;color:var(--mid);border-bottom:1px solid var(--pale);padding-bottom:2px;transition:all .2s}
+.lm:hover{color:var(--c);border-color:var(--c)}
 
 /* ── FILTER TABS ── */
-.filter-row{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:2.5rem}
-.ftab{padding:.45rem 1.2rem;font-size:12px;letter-spacing:.06em;border:1px solid var(--pale);background:#fff;color:var(--mid);transition:all .18s}
-.ftab:hover,.ftab.active{background:var(--charcoal);color:#fff;border-color:var(--charcoal)}
+.ftabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.ft{padding:.42rem 1.1rem;font-size:12px;letter-spacing:.05em;border:1px solid var(--pale);background:#fff;color:var(--mid);transition:all .18s}
+.ft:hover,.ft.on{background:var(--c);color:#fff;border-color:var(--c)}
 
 /* ── PRODUCTS GRID ── */
-.products-section{padding:5rem 0;background:var(--warm)}
-.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.pg{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
 
-.pcard{background:#fff;cursor:pointer;transition:transform var(--tr);position:relative}
-.pcard:hover{transform:translateY(-5px)}
-.pcard-img{position:relative;overflow:hidden;aspect-ratio:3/4;background:var(--cream)}
-.pcard-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
-.pcard:hover .pcard-img img{transform:scale(1.05)}
-.pbadge{position:absolute;top:.8rem;left:.8rem;background:var(--red);color:#fff;font-size:9.5px;letter-spacing:.06em;padding:.2rem .6rem;font-weight:500;z-index:2;text-transform:uppercase}
-.pbadge.new{background:var(--charcoal)}
-.pbadge.sale{background:#b87800}
+.pc{background:#fff;position:relative;cursor:pointer;transition:transform var(--t);border:1px solid transparent}
+.pc:hover{transform:translateY(-4px);border-color:var(--pale)}
+.pc-img{position:relative;overflow:hidden;aspect-ratio:1/1;background:var(--warm)}
+.pc-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.pc:hover .pc-img img{transform:scale(1.06)}
 
-.pcard-actions{position:absolute;bottom:.8rem;right:.8rem;display:flex;flex-direction:column;gap:.4rem;opacity:0;transform:translateX(8px);transition:all .22s;z-index:2}
-.pcard:hover .pcard-actions{opacity:1;transform:translateX(0)}
-.pact{width:36px;height:36px;background:#fff;border:none;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.1);transition:background .18s}
-.pact:hover{background:var(--red)}
-.pact:hover svg{stroke:#fff}
-.pact svg{stroke:var(--charcoal);transition:stroke .18s;flex-shrink:0}
+.pbadge{position:absolute;top:.7rem;left:.7rem;font-size:9px;letter-spacing:.06em;padding:.2rem .55rem;font-weight:600;z-index:2;text-transform:uppercase}
+.pbadge.b{background:var(--red);color:#fff}
+.pbadge.n{background:var(--c);color:#fff}
+.pbadge.s{background:var(--gold);color:#fff}
 
-.pcard-info{padding:1rem 1rem 1.2rem}
-.pcat{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--red);font-weight:500;margin-bottom:.25rem}
-.pname{font-size:13.5px;color:var(--charcoal);line-height:1.45;margin-bottom:.55rem}
-.pprices{display:flex;gap:.5rem;align-items:baseline}
-.psale{font-family:var(--serif);font-size:17px;color:var(--charcoal)}
-.porig{font-size:12px;color:var(--mid);text-decoration:line-through}
-.poff{font-size:10.5px;color:var(--red);font-weight:500}
-.prating{display:flex;align-items:center;gap:.3rem;margin-top:.35rem}
-.stars{color:#e8b84b;font-size:11px}
-.rcount{font-size:11px;color:var(--mid)}
+.pactions{position:absolute;bottom:.7rem;right:.7rem;display:flex;flex-direction:column;gap:.35rem;opacity:0;transform:translateX(8px);transition:all .22s;z-index:2}
+.pc:hover .pactions{opacity:1;transform:translateX(0)}
+.pa{width:34px;height:34px;background:#fff;border:none;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.1);transition:background .18s}
+.pa:hover{background:var(--red)}
+.pa:hover svg{stroke:#fff}
+.pa svg{stroke:var(--c);transition:stroke .18s}
 
-/* ── BRAND SECTION ── */
-.brand-sec{display:grid;grid-template-columns:1fr 1fr;min-height:580px}
-.brand-vis{position:relative;overflow:hidden;background:linear-gradient(135deg,#1a0d08,#2d1a10)}
-.brand-vis img{width:100%;height:100%;object-fit:cover}
-.brand-vis-ov{position:absolute;inset:0;background:linear-gradient(135deg,rgba(192,37,60,.12),transparent 60%)}
-.brand-cont{background:var(--charcoal);padding:5rem 4.5rem;display:flex;flex-direction:column;justify-content:center}
-.brand-cont .sec-label{color:var(--red)}
-.brand-title{font-family:var(--serif);font-size:clamp(26px,3vw,40px);color:#fff;font-weight:400;line-height:1.2;margin-bottom:1.2rem}
-.brand-title em{font-style:italic;color:rgba(255,255,255,.45)}
-.brand-text{font-size:13.5px;color:rgba(255,255,255,.5);line-height:1.95;max-width:400px;margin-bottom:2rem}
-.brand-pillars{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:2.5rem}
-.pillar{padding:1.1rem;border:1px solid rgba(255,255,255,.07)}
-.pillar-ico{width:28px;height:28px;background:var(--red);display:flex;align-items:center;justify-content:center;border-radius:2px;margin-bottom:.7rem}
-.pillar-t{font-size:12px;font-weight:500;color:#fff;margin-bottom:.2rem}
-.pillar-d{font-size:11.5px;color:rgba(255,255,255,.35);line-height:1.55}
-.brand-link{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#fff;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:3px;width:fit-content;display:flex;align-items:center;gap:.6rem;transition:border-color .2s}
-.brand-link:hover{border-color:#fff}
+.pinfo{padding:.9rem 1rem 1.1rem}
+.pcat{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:.2rem}
+.pname{font-size:13px;color:var(--c);line-height:1.45;margin-bottom:.5rem;font-weight:400}
+.ppr{display:flex;gap:.5rem;align-items:baseline;flex-wrap:wrap}
+.pp{font-family:var(--serif);font-size:17px;color:var(--c);font-weight:600}
+.po{font-size:11.5px;color:var(--mid);text-decoration:line-through}
+.pd{font-size:10.5px;color:var(--red);font-weight:600}
+.prt{display:flex;align-items:center;gap:.3rem;margin-top:.3rem}
+.stars{color:#e8b44b;font-size:11px}
+.rcnt{font-size:11px;color:var(--mid)}
+
+/* ── BRAND STRIP ── */
+.brand{display:grid;grid-template-columns:1fr 1fr;min-height:520px}
+.bv{position:relative;overflow:hidden;background:linear-gradient(135deg,#1a0d08,#2d1a10)}
+.bv img{width:100%;height:100%;object-fit:cover;opacity:.85}
+.bc{background:var(--c);padding:5rem 4.5rem;display:flex;flex-direction:column;justify-content:center}
+.bc .sl{color:var(--red)}
+.bt{font-family:var(--serif);font-size:clamp(24px,2.8vw,36px);color:#fff;font-weight:400;line-height:1.2;margin-bottom:1.2rem}
+.bt i{font-style:italic;color:rgba(255,255,255,.4)}
+.bd{font-size:13.5px;color:rgba(255,255,255,.45);line-height:1.95;max-width:400px;margin-bottom:2rem;font-weight:300}
+.bpillars{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2.5rem}
+.bp{padding:1rem;border:1px solid rgba(255,255,255,.06)}
+.bp-t{font-size:12px;font-weight:500;color:#fff;margin-bottom:.2rem}
+.bp-d{font-size:11px;color:rgba(255,255,255,.35);line-height:1.5}
+.blink{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#fff;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:3px;display:inline-flex;align-items:center;gap:.6rem;transition:border-color .2s;cursor:pointer}
+.blink:hover{border-color:#fff}
 
 /* ── FEATURES ── */
-.features{background:#fff;border-top:1px solid var(--pale);border-bottom:1px solid var(--pale)}
-.feat-grid{display:grid;grid-template-columns:repeat(4,1fr)}
-.feat{padding:2.4rem 2rem;border-right:1px solid var(--pale);text-align:center}
-.feat:last-child{border-right:none}
-.feat-ico{font-size:26px;margin-bottom:.9rem;display:block}
-.feat-t{font-size:13px;font-weight:500;color:var(--charcoal);margin-bottom:.35rem}
-.feat-d{font-size:12px;color:var(--mid);line-height:1.6}
+.feats{border-top:1px solid var(--pale);border-bottom:1px solid var(--pale);background:#fff}
+.fg{display:grid;grid-template-columns:repeat(4,1fr)}
+.fi{padding:2.2rem 1.8rem;border-right:1px solid var(--pale);text-align:center}
+.fi:last-child{border:none}
+.fi-ico{font-size:24px;margin-bottom:.8rem;display:block}
+.fi-t{font-size:13px;font-weight:600;color:var(--c);margin-bottom:.3rem}
+.fi-d{font-size:12px;color:var(--mid);line-height:1.6}
 
-/* ── PROMO BANNERS ── */
-.promo-sec{padding:5rem 0}
-.promo-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-.promo-card{position:relative;overflow:hidden;min-height:420px;display:flex;flex-direction:column;justify-content:flex-end;padding:2.5rem;cursor:pointer;background:var(--charcoal)}
-.promo-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .6s ease}
-.promo-card:hover .promo-bg{transform:scale(1.04)}
-.promo-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.72) 0%,rgba(0,0,0,.15) 55%,transparent 80%)}
-.promo-cont{position:relative;z-index:2;color:#fff}
-.promo-tag{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:.5rem}
-.promo-title{font-family:var(--serif);font-size:26px;font-weight:400;line-height:1.2;margin-bottom:.7rem}
-.promo-sub{font-size:13px;color:rgba(255,255,255,.6);margin-bottom:1.2rem;line-height:1.6}
-.promo-link{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#fff;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:2px;display:inline-block}
-
-/* ── TESTIMONIALS ── */
-.reviews-sec{padding:5rem 0;background:var(--cream)}
-.reviews-wrap{overflow:hidden}
-.reviews-track{display:flex;gap:1.5rem;transition:transform .5s ease}
-.rcard{flex:0 0 calc(33.333% - 1rem);background:#fff;border:1px solid var(--pale);padding:2rem;position:relative}
-.rquote{font-family:var(--serif);font-size:60px;color:var(--red-light);line-height:.4;margin-bottom:1rem}
-.rtext{font-family:var(--serif);font-style:italic;font-size:14.5px;line-height:1.8;color:var(--charcoal);margin-bottom:1.4rem}
-.rmeta{display:flex;align-items:center;gap:.8rem}
-.ravatar{width:36px;height:36px;border-radius:50%;background:var(--red-light);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;color:var(--red);flex-shrink:0}
-.rname{font-size:12px;font-weight:500;color:var(--charcoal)}
-.rloc{font-size:11px;color:var(--mid)}
-.rstars{color:#e8b84b;font-size:11px;margin-top:.1rem}
-.rev-nav{display:flex;gap:.8rem;margin-top:2.5rem;justify-content:center}
-.rnav{width:36px;height:36px;border:1px solid var(--pale);background:#fff;display:flex;align-items:center;justify-content:center;transition:all .18s}
-.rnav:hover{background:var(--charcoal);border-color:var(--charcoal)}
-.rnav:hover svg{stroke:#fff}
-.rnav svg{stroke:var(--charcoal);transition:stroke .18s}
-
-/* ── HOW TO ORDER ── */
-.howto-sec{padding:5rem 0}
-.howto-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:6rem;align-items:center}
-.steps{display:flex;flex-direction:column}
-.step{display:flex;gap:1.5rem;padding:1.5rem 0;border-bottom:1px solid var(--pale)}
-.step:last-child{border:none}
-.step-num{font-family:var(--serif);font-size:34px;color:var(--red-light);line-height:1;flex-shrink:0;width:2rem}
-.step-t{font-size:14px;font-weight:500;margin-bottom:.3rem}
-.step-d{font-size:13px;color:var(--mid);line-height:1.7}
-.howto-vis{position:relative}
-.howto-img{width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--warm)}
-.howto-badge{position:absolute;bottom:-1.5rem;left:-1.5rem;background:var(--charcoal);color:#fff;padding:1.5rem;width:175px}
-.howto-badge .bnum{font-family:var(--serif);font-size:40px;color:var(--red);line-height:1}
-.howto-badge .blabel{font-size:10.5px;color:rgba(255,255,255,.5);margin-top:.3rem;line-height:1.4}
-
-/* ── INSTAGRAM ── */
-.insta-sec{padding:5rem 0;background:var(--warm)}
-.insta-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:.7rem;margin-top:2.5rem}
-.insta-item{aspect-ratio:1;overflow:hidden;cursor:pointer;position:relative;background:var(--pale)}
-.insta-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
-.insta-item:hover img{transform:scale(1.08)}
-.insta-hover{position:absolute;inset:0;background:rgba(192,37,60,.72);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .28s;color:#fff;font-size:11px;letter-spacing:.08em}
-.insta-item:hover .insta-hover{opacity:1}
+/* ── REVIEWS ── */
+.rv-wrap{overflow:hidden}
+.rv-tr{display:flex;gap:1.5rem;transition:transform .5s ease}
+.rv{flex:0 0 calc(33.333% - 1rem);background:#fff;border:1px solid var(--pale);padding:1.8rem}
+.rq{font-family:var(--serif);font-size:52px;color:#f0e8e4;line-height:.3;margin-bottom:.9rem}
+.rt{font-family:var(--serif);font-style:italic;font-size:14px;line-height:1.8;color:var(--c);margin-bottom:1.2rem}
+.rm{display:flex;gap:.7rem;align-items:center}
+.ra{width:34px;height:34px;border-radius:50%;background:#f0e8e4;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:var(--red);flex-shrink:0}
+.rn{font-size:12px;font-weight:600;color:var(--c)}
+.rl{font-size:11px;color:var(--mid)}
+.rs{color:#e8b44b;font-size:11px;margin-top:.1rem}
+.rv-nav{display:flex;gap:.7rem;margin-top:2rem;justify-content:center}
+.rn2{width:34px;height:34px;border:1px solid var(--pale);background:#fff;display:flex;align-items:center;justify-content:center;transition:all .18s}
+.rn2:hover{background:var(--c);border-color:var(--c)}
+.rn2:hover svg{stroke:#fff}
+.rn2 svg{stroke:var(--c);transition:stroke .18s}
 
 /* ── NEWSLETTER ── */
-.nl-sec{background:var(--charcoal);padding:5rem 0;position:relative;overflow:hidden}
-.nl-sec::before{content:'MONFRI';position:absolute;font-family:var(--serif);font-size:160px;color:rgba(255,255,255,.025);top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none}
-.nl-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
-.nl-title{font-family:var(--serif);font-size:34px;color:#fff;font-weight:400;line-height:1.2;margin-bottom:1rem}
-.nl-sub{font-size:14px;color:rgba(255,255,255,.4);line-height:1.85}
-.nl-form{display:flex;gap:.8rem;margin-bottom:.8rem}
-.nl-input{flex:1;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#fff;font-size:14px;padding:.8rem 1rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
-.nl-input:focus{border-color:rgba(255,255,255,.3)}
-.nl-input::placeholder{color:rgba(255,255,255,.3)}
-.nl-btn{background:var(--red);color:#fff;border:none;padding:.8rem 1.6rem;font-size:12px;letter-spacing:.08em;white-space:nowrap;transition:background .2s}
-.nl-btn:hover{background:var(--red-dark)}
+.nl{background:var(--c);padding:4.5rem 0;position:relative;overflow:hidden}
+.nl::before{content:'MONFRI';position:absolute;font-family:var(--serif);font-size:140px;color:rgba(255,255,255,.022);top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none}
+.nl-g{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.nl-t{font-family:var(--serif);font-size:30px;color:#fff;font-weight:400;line-height:1.2;margin-bottom:.8rem}
+.nl-s{font-size:13.5px;color:rgba(255,255,255,.4);line-height:1.85}
+.nl-f{display:flex;gap:.7rem;margin-bottom:.7rem}
+.nl-i{flex:1;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#fff;font-size:13.5px;padding:.75rem 1rem;outline:none;transition:border-color .2s;font-family:'Be Vietnam Pro',sans-serif}
+.nl-i:focus{border-color:rgba(255,255,255,.3)}
+.nl-i::placeholder{color:rgba(255,255,255,.28)}
+.nl-b{background:var(--red);color:#fff;border:none;padding:.75rem 1.5rem;font-size:12px;letter-spacing:.07em;white-space:nowrap;transition:background .2s}
+.nl-b:hover{background:var(--red2)}
 .nl-note{font-size:11px;color:rgba(255,255,255,.2);line-height:1.6}
-.nl-contact{margin-top:1.5rem;padding:1rem;border:1px solid rgba(255,255,255,.08);display:flex;gap:.8rem;align-items:center}
-.nl-contact .ico{font-size:22px}
-.nl-contact .info{font-size:13px;color:#fff}
-.nl-contact .info span{color:var(--red);font-weight:500}
 
 /* ── FOOTER ── */
-footer{background:#111;padding:4rem 0 2rem;color:rgba(255,255,255,.4)}
-.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:2rem}
-.flogo{font-family:var(--serif);font-size:20px;margin-bottom:.8rem}
-.flogo span{color:var(--red)}
-.fdesc{font-size:12.5px;line-height:1.8;color:rgba(255,255,255,.28);margin-bottom:1rem}
-.fcol-t{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:500;margin-bottom:1.1rem}
-.flinks{list-style:none;display:flex;flex-direction:column;gap:.55rem}
-.flinks a{font-size:12.5px;color:rgba(255,255,255,.3);transition:color .2s}
-.flinks a:hover{color:#fff}
-.fcontact{font-size:12.5px;color:rgba(255,255,255,.3);margin-bottom:.45rem;line-height:1.6}
-.fcontact b{color:rgba(255,255,255,.55)}
-.f-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-.fcopy{font-size:11px;color:rgba(255,255,255,.18)}
-.flegal{display:flex;gap:1.5rem}
-.flegal a{font-size:11px;color:rgba(255,255,255,.22);transition:color .2s}
-.flegal a:hover{color:#fff}
+footer{background:#111;padding:3.5rem 0 2rem;color:rgba(255,255,255,.4)}
+.fg2{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:1.5rem}
+.flo{font-family:var(--serif);font-size:20px;font-weight:600;margin-bottom:.7rem;color:#fff}
+.flo em{color:var(--red);font-style:normal}
+.fdesc{font-size:12px;line-height:1.8;color:rgba(255,255,255,.28);margin-bottom:.8rem}
+.fc-t{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:600;margin-bottom:1rem}
+.fl{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.fl a{font-size:12px;color:rgba(255,255,255,.28);transition:color .2s}
+.fl a:hover{color:#fff}
+.fci{font-size:12px;color:rgba(255,255,255,.28);margin-bottom:.4rem;line-height:1.6}
+.fci b{color:rgba(255,255,255,.5)}
+.fb{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem}
+.fcp{font-size:11px;color:rgba(255,255,255,.18)}
+.fleg{display:flex;gap:1.2rem}
+.fleg a{font-size:11px;color:rgba(255,255,255,.2);transition:color .2s}
+.fleg a:hover{color:#fff}
 
 /* ── MODAL ── */
-.modal{position:fixed;inset:0;z-index:600;display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;visibility:hidden;transition:all .28s}
-.modal.open{opacity:1;visibility:visible}
-.modal-bg{position:absolute;inset:0;background:rgba(0,0,0,.55)}
-.modal-box{position:relative;z-index:2;background:#fff;max-width:860px;width:100%;display:grid;grid-template-columns:1fr 1fr;max-height:90vh;overflow:hidden}
-.modal-img-wrap{background:var(--cream)}
-.modal-img-wrap img{width:100%;height:100%;object-fit:cover}
-.modal-body{padding:2.2rem 2rem;overflow-y:auto}
-.modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:20px;color:var(--mid);z-index:3}
-.modal-cat{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:.4rem}
-.modal-name{font-family:var(--serif);font-size:20px;line-height:1.3;margin-bottom:.8rem}
-.modal-prices{display:flex;align-items:baseline;gap:.7rem;margin-bottom:.6rem}
-.modal-sale{font-family:var(--serif);font-size:22px;color:var(--charcoal)}
-.modal-orig{font-size:12px;color:var(--mid);text-decoration:line-through}
-.modal-off{font-size:11px;color:var(--red);font-weight:500}
-.modal-stars{color:#e8b84b;font-size:12px;margin-bottom:1.2rem}
-.modal-desc{font-size:13px;color:var(--mid);line-height:1.85;border-top:1px solid var(--pale);padding-top:1rem;margin-bottom:1.5rem}
-.qty-row{display:flex;gap:1rem;align-items:center;margin-bottom:1.5rem}
-.qty-ctrl{display:flex;align-items:center;border:1px solid var(--pale)}
-.qbtn{width:34px;height:34px;background:none;border:none;font-size:16px;color:var(--charcoal);display:flex;align-items:center;justify-content:center;transition:background .15s}
-.qbtn:hover{background:var(--warm)}
-.qval{width:38px;text-align:center;font-size:14px}
-.add-btn{flex:1;background:var(--charcoal);color:#fff;border:none;height:44px;font-size:13px;letter-spacing:.05em;transition:background .2s}
-.add-btn:hover{background:var(--red)}
-.modal-perks{list-style:none;display:flex;flex-direction:column;gap:.45rem}
-.modal-perks li{font-size:12px;color:var(--mid);display:flex;gap:.5rem;align-items:flex-start}
-.modal-perks li::before{content:'✓';color:var(--red);flex-shrink:0}
+.modal{position:fixed;inset:0;z-index:600;display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;visibility:hidden;transition:all .25s}
+.modal.on{opacity:1;visibility:visible}
+.mbg{position:absolute;inset:0;background:rgba(0,0,0,.5)}
+.mbox{position:relative;z-index:2;background:#fff;max-width:820px;width:100%;display:grid;grid-template-columns:1fr 1fr;max-height:88vh;overflow:hidden}
+.mimg{background:var(--warm)}
+.mimg img{width:100%;height:100%;object-fit:cover}
+.mbody{padding:2rem 1.8rem;overflow-y:auto}
+.mclose{position:absolute;top:.9rem;right:.9rem;background:none;border:none;font-size:18px;color:var(--mid);z-index:3;transition:color .2s}
+.mclose:hover{color:var(--red)}
+.mcat{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:.4rem}
+.mname{font-family:var(--serif);font-size:19px;line-height:1.3;margin-bottom:.7rem}
+.mpr{display:flex;align-items:baseline;gap:.7rem;margin-bottom:.5rem}
+.mp{font-family:var(--serif);font-size:22px;color:var(--c);font-weight:600}
+.mo{font-size:12px;color:var(--mid);text-decoration:line-through}
+.md2{font-size:11px;color:var(--red);font-weight:600}
+.mstars{color:#e8b44b;font-size:12px;margin-bottom:1rem}
+.mdesc{font-size:13px;color:var(--mid);line-height:1.85;border-top:1px solid var(--pale);padding-top:1rem;margin-bottom:1.3rem}
+.qrow{display:flex;gap:.8rem;align-items:center;margin-bottom:1.3rem}
+.qctrl{display:flex;align-items:center;border:1px solid var(--pale)}
+.qb{width:32px;height:32px;background:none;border:none;font-size:15px;color:var(--c);display:flex;align-items:center;justify-content:center;transition:background .15s}
+.qb:hover{background:var(--warm)}
+.qv{width:36px;text-align:center;font-size:14px}
+.addbtn{flex:1;background:var(--c);color:#fff;border:none;height:42px;font-size:13px;letter-spacing:.05em;transition:background .2s}
+.addbtn:hover{background:var(--red)}
+.mperks{list-style:none;display:flex;flex-direction:column;gap:.4rem}
+.mperks li{font-size:12px;color:var(--mid);display:flex;gap:.5rem}
+.mperks li::before{content:'✓';color:var(--red);flex-shrink:0}
 
-/* ── PRODUCT LIST PAGE ── */
-.plp-header{background:var(--warm);padding:3rem 0 2rem;border-bottom:1px solid var(--pale)}
-.plp-title{font-family:var(--serif);font-size:clamp(28px,3.5vw,44px);font-weight:400;color:var(--charcoal);margin-bottom:.3rem}
-.plp-sub{font-size:13px;color:var(--mid)}
-.plp-body{padding:3rem 0}
+/* ── PLP ── */
+#pg-plp{display:none}
+.plp-hdr{background:var(--warm);padding:2.5rem 0 2rem;border-bottom:1px solid var(--pale)}
+.plp-bc{font-size:12px;color:var(--mid);margin-bottom:.4rem}
+.plp-bc a{color:var(--mid);transition:color .2s}
+.plp-bc a:hover{color:var(--red)}
+.plp-t{font-family:var(--serif);font-size:clamp(26px,3.5vw,40px);font-weight:400;color:var(--c);margin-bottom:.3rem}
+.plp-s{font-size:13px;color:var(--mid)}
+
+/* ── DRAWER ── */
+.dov{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:480;opacity:0;visibility:hidden;transition:all .3s}
+.dov.on{opacity:1;visibility:visible}
+.drw{position:fixed;top:0;right:0;bottom:0;width:290px;background:#fff;z-index:490;transform:translateX(100%);transition:transform .3s ease;padding:1.5rem;overflow-y:auto}
+.drw.on{transform:translateX(0)}
+.drw-logo{font-family:var(--serif);font-size:20px;font-weight:600;margin-bottom:1.3rem}
+.drw-logo em{color:var(--red);font-style:normal}
+.dclose{background:none;border:none;margin-bottom:.8rem;color:var(--c)}
+.dnav{list-style:none}
+.dnav li{border-bottom:1px solid var(--pale)}
+.dnav a{display:block;padding:.85rem 0;font-size:14px;color:var(--c);transition:color .2s}
+.dnav a:hover{color:var(--red)}
+
+/* ── SEARCH ── */
+.sov{position:fixed;inset:0;z-index:400;background:rgba(26,20,16,.96);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .28s}
+.sov.on{opacity:1;visibility:visible}
+.sf{display:flex;align-items:center;gap:1rem;width:100%;max-width:560px;padding:0 2rem}
+.sf input{flex:1;background:transparent;border:none;border-bottom:2px solid rgba(255,255,255,.35);color:#fff;font-size:24px;font-family:var(--serif);padding:.4rem 0;outline:none;transition:border-color .2s}
+.sf input:focus{border-color:#fff}
+.sf input::placeholder{color:rgba(255,255,255,.28)}
+.scbtn{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:rgba(255,255,255,.5);font-size:24px;transition:color .2s}
+.scbtn:hover{color:#fff}
 
 /* ── BACK TO TOP ── */
-#btt{position:fixed;bottom:2rem;right:2rem;z-index:80;width:44px;height:44px;background:var(--charcoal);color:#fff;border:none;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(10px);transition:all .28s;box-shadow:0 4px 16px rgba(0,0,0,.18)}
-#btt.vis{opacity:1;transform:translateY(0)}
+#btt{position:fixed;bottom:1.8rem;right:1.8rem;z-index:80;width:42px;height:42px;background:var(--c);color:#fff;border:none;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(8px);transition:all .28s;box-shadow:0 4px 16px rgba(0,0,0,.18)}
+#btt.on{opacity:1;transform:translateY(0)}
 #btt:hover{background:var(--red)}
 
 /* ── TOAST ── */
-#toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(70px);background:var(--charcoal);color:#fff;padding:.75rem 1.5rem;font-size:13px;z-index:999;opacity:0;transition:all .28s;pointer-events:none;white-space:nowrap}
-#toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+#toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(60px);background:var(--c);color:#fff;padding:.72rem 1.4rem;font-size:12.5px;z-index:999;opacity:0;transition:all .26s;pointer-events:none;white-space:nowrap;letter-spacing:.03em}
+#toast.on{transform:translateX(-50%) translateY(0);opacity:1}
+
+/* ── PRICE CALC INFO BOX ── */
+.price-note{background:var(--warm);border:1px solid var(--pale);padding:1.2rem 1.5rem;margin-bottom:2rem;font-size:12.5px;color:var(--mid);line-height:1.7;border-left:3px solid var(--red)}
+.price-note strong{color:var(--c)}
 
 /* ── RESPONSIVE ── */
-@media(max-width:1024px){
-  .nav-links{display:none}
-  .menu-btn{display:flex}
-  .grid-4{grid-template-columns:repeat(3,1fr)}
-  .footer-grid{grid-template-columns:1fr 1fr}
-  .howto-grid{grid-template-columns:1fr}
-  .nl-grid{grid-template-columns:1fr}
-  .brand-sec{grid-template-columns:1fr}
-  .brand-vis{min-height:320px}
-  .brand-cont{padding:3rem 2rem}
+@media(max-width:1100px){
+  .nav{display:none}.mbtn{display:flex}
+  .pg{grid-template-columns:repeat(3,1fr)}
+  .fg2{grid-template-columns:1fr 1fr}
 }
 @media(max-width:768px){
-  .hero{flex-direction:column;min-height:auto}
-  .hero-img{flex:0 0 340px}
-  .hero-text{padding:3rem 2rem}
-  .grid-4{grid-template-columns:repeat(2,1fr);gap:1rem}
-  .feat-grid{grid-template-columns:repeat(2,1fr)}
-  .promo-grid{grid-template-columns:1fr}
-  .insta-grid{grid-template-columns:repeat(3,1fr)}
-  .reviews-track{flex-direction:column}
-  .rcard{flex:none}
-  .cat-grid{grid-template-columns:repeat(2,1fr)}
-  .cat-card:first-child,.cat-card:nth-child(2){grid-column:span 1}
-  .nl-form{flex-direction:column}
-  .modal-box{grid-template-columns:1fr}
-  .modal-img-wrap{max-height:260px}
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-img{height:320px}
+  .hero-txt{padding:3rem 2rem}
+  .pg{grid-template-columns:repeat(2,1fr);gap:.8rem}
+  .fg{grid-template-columns:repeat(2,1fr)}
+  .brand{grid-template-columns:1fr}
+  .bv{min-height:280px}
+  .bc{padding:3rem 2rem}
+  .nl-g{grid-template-columns:1fr}
+  .nl-f{flex-direction:column}
+  .rv-tr{flex-direction:column}
+  .rv{flex:none}
+  .mbox{grid-template-columns:1fr}
+  .mimg{max-height:240px}
 }
 @media(max-width:480px){
-  .container{padding:0 1.2rem}
-  .grid-4{gap:.8rem}
-  .hero-stats{gap:1.2rem}
+  .wrap{padding:0 1.2rem}
+  .hdr{padding:0 1.2rem}
+  .h-stats{gap:1rem}
+  .hs-n{font-size:22px}
 }
 
-@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
-.fade-up{opacity:0}
-.fade-up.vis{animation:fadeUp .55s ease forwards}
+@keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.fu{opacity:0}.fu.on{animation:fu .5s ease forwards}
 </style>
 </head>
 <body>
 
-<!-- ANNOUNCE -->
-<div class="announce">
-  🇰🇷 Nhà phân phối <b>độc quyền</b> Monfri Việt Nam &nbsp;·&nbsp;
-  Miễn phí vận chuyển đơn từ <b>499.000đ</b> &nbsp;·&nbsp;
-  Hàng chính hãng nhập khẩu trực tiếp
-</div>
+<!-- TOP BAR -->
+<div class="topbar">🇰🇷 Nhà phân phối <b>độc quyền</b> Monfri Hàn Quốc tại Việt Nam &nbsp;·&nbsp; Freeship từ <b>499.000đ</b> &nbsp;·&nbsp; Đổi trả 30 ngày</div>
 
 <!-- SEARCH -->
-<div class="search-ov" id="sov">
-  <button class="search-close-btn" id="sclose">✕</button>
-  <div class="search-box">
-    <input type="text" placeholder="Tìm sản phẩm..." id="sinput" autocomplete="off">
-    <svg width="22" height="22" fill="none" stroke="#fff" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+<div class="sov" id="sov">
+  <button class="scbtn" id="scbtn">✕</button>
+  <div class="sf">
+    <input type="text" placeholder="Tìm sản phẩm..." id="sinp" autocomplete="off">
+    <svg width="20" height="20" fill="none" stroke="#fff" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
   </div>
 </div>
 
 <!-- DRAWER -->
-<div class="drawer-ov" id="dov"></div>
-<div class="drawer" id="drawer">
-  <button class="drawer-close" id="dclose">
-    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
-  </button>
-  <div class="drawer-logo">MON<span>FRI</span></div>
-  <ul class="drawer-nav" id="dnav">
-    <li><a href="#" onclick="showPLP('all');closeDrawer()">Tất cả sản phẩm</a></li>
-    <li><a href="#" onclick="showPLP('hair');closeDrawer()">Chăm sóc tóc</a></li>
-    <li><a href="#" onclick="showPLP('body');closeDrawer()">Chăm sóc da</a></li>
-    <li><a href="#" onclick="showPLP('hand');closeDrawer()">Chăm sóc tay</a></li>
-    <li><a href="#" onclick="showPLP('set');closeDrawer()">Bộ set</a></li>
-    <li><a href="#" onclick="scrollToSection('brand');closeDrawer()">Về Monfri</a></li>
-    <li><a href="#" onclick="scrollToSection('nl');closeDrawer()">Liên hệ</a></li>
+<div class="dov" id="dov"></div>
+<div class="drw" id="drw">
+  <button class="dclose" id="dclose"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  <div class="drw-logo">MON<em>FRI</em></div>
+  <ul class="dnav">
+    <li><a href="#" onclick="goPlp('all');cdrw()">Tất cả sản phẩm</a></li>
+    <li><a href="#" onclick="goPlp('hair');cdrw()">Chăm sóc tóc</a></li>
+    <li><a href="#" onclick="goPlp('body');cdrw()">Chăm sóc da</a></li>
+    <li><a href="#" onclick="goPlp('hand');cdrw()">Chăm sóc tay</a></li>
+    <li><a href="#" onclick="goPlp('set');cdrw()">Bộ set</a></li>
+    <li><a href="#" onclick="goPlp('best');cdrw()">Best Seller</a></li>
+    <li><a href="#" onclick="goHome();cdrw()">Trang chủ</a></li>
   </ul>
 </div>
 
 <!-- HEADER -->
 <header id="hdr">
-  <div class="nav-inner">
-    <a href="#" class="logo" onclick="showHome()">MON<span>FRI</span></a>
-    <ul class="nav-links">
-      <li class="has-drop">
-        <a href="#">Sản phẩm</a>
-        <div class="drop">
-          <a href="#" onclick="showPLP('all');return false">Tất cả sản phẩm</a>
-          <a href="#" onclick="showPLP('hair');return false">Chăm sóc tóc</a>
-          <a href="#" onclick="showPLP('body');return false">Chăm sóc da</a>
-          <a href="#" onclick="showPLP('hand');return false">Chăm sóc tay</a>
-          <a href="#" onclick="showPLP('set');return false">Bộ set</a>
-        </div>
-      </li>
-      <li class="has-drop">
-        <a href="#">Theo vấn đề</a>
-        <div class="drop">
-          <a href="#" onclick="showPLP('hair');return false">Rụng tóc &amp; hư tổn</a>
-          <a href="#" onclick="showPLP('body');return false">Mùi cơ thể &amp; mụn lưng</a>
-          <a href="#" onclick="showPLP('body');return false">Lỗ chân lông &amp; bã nhờn</a>
-          <a href="#" onclick="showPLP('body');return false">Khô &amp; thiếu ẩm</a>
-        </div>
-      </li>
-      <li><a href="#" onclick="showPLP('best');return false">Best Seller</a></li>
-      <li><a href="#" onclick="showPLP('sale');return false">Khuyến mãi</a></li>
-      <li class="has-drop">
-        <a href="#">Monfri</a>
-        <div class="drop">
-          <a href="#" onclick="scrollToSection('brand');return false">Câu chuyện thương hiệu</a>
-          <a href="#" onclick="scrollToSection('brand');return false">Phân phối độc quyền</a>
-          <a href="#" onclick="scrollToSection('nl');return false">Liên hệ</a>
-        </div>
-      </li>
+  <div class="hdr">
+    <div class="logo" onclick="goHome()">MON<em>FRI</em></div>
+    <ul class="nav" id="nav">
+      <li><a href="#" id="na-all" onclick="goPlp('all');return false">Tất cả</a></li>
+      <li><a href="#" id="na-hair" onclick="goPlp('hair');return false">Tóc &amp; Da đầu</a></li>
+      <li><a href="#" id="na-body" onclick="goPlp('body');return false">Cơ thể</a></li>
+      <li><a href="#" id="na-hand" onclick="goPlp('hand');return false">Chăm sóc tay</a></li>
+      <li><a href="#" id="na-set" onclick="goPlp('set');return false">Bộ set</a></li>
+      <li><a href="#" id="na-best" onclick="goPlp('best');return false">Best Seller</a></li>
     </ul>
-    <div class="nav-actions">
-      <button class="icon-btn" id="sbtn" title="Tìm kiếm">
-        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <div class="hdr-r">
+      <button class="icon-btn" id="sbtn"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
+      <button class="icon-btn" onclick="toast('Giỏ hàng đang trống')">
+        <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cbadge" id="cbg">0</span>
       </button>
-      <button class="icon-btn" onclick="toast('Giỏ hàng đang trống')" title="Giỏ hàng">
-        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></svg>
-        <span class="cart-badge" id="cbadge">0</span>
-      </button>
-      <button class="btn-login" onclick="toast('Tính năng đang phát triển')">Đăng nhập</button>
-      <button class="menu-btn" id="mbtn">
-        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
-      </button>
+      <button class="hbtn" onclick="toast('Tính năng đang phát triển')">Đăng nhập</button>
+      <button class="mbtn" id="mbtn"><svg width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
     </div>
   </div>
 </header>
 
-<!-- ═══════════════ HOME PAGE ═══════════════ -->
-<div id="page-home">
+<!-- ══════ HOME ══════ -->
+<div id="pg-home">
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-img">
     <img src="https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=1200&q=85" alt="Monfri hero" loading="eager">
-    <div class="hero-caption">
-      <div class="eyebrow">Thương hiệu Hàn Quốc</div>
-      <h3>Monfri Exosome Line</h3>
-    </div>
   </div>
-  <div class="hero-text">
-    <div class="hero-eyebrow">Nhà phân phối độc quyền tại Việt Nam</div>
-    <h1 class="hero-h1">Chăm sóc tóc<br>chuẩn <em>Hàn Quốc</em><br>mỗi ngày</h1>
-    <p class="hero-sub">Monfri — thương hiệu wellness Hàn Quốc với công thức thiên nhiên độc quyền, được kiểm nghiệm lâm sàng. Chính thức có mặt tại Việt Nam.</p>
-    <div class="hero-stats">
-      <div><div class="stat-num">70%</div><div class="stat-label">Giảm rụng tóc</div></div>
-      <div><div class="stat-num">97%</div><div class="stat-label">Tự nhiên</div></div>
-      <div><div class="stat-num">98%</div><div class="stat-label">Giảm bã nhờn</div></div>
+  <div class="hero-txt">
+    <div class="h-tag">Nhà phân phối độc quyền tại Việt Nam</div>
+    <h1 class="h-title">Chăm sóc tóc<br>chuẩn <i>Hàn Quốc</i><br>mỗi ngày</h1>
+    <p class="h-sub">Monfri — thương hiệu wellness từ ArtheL, Hàn Quốc. Công nghệ nano exosome &amp; thiên nhiên 97%. Kiểm nghiệm lâm sàng.</p>
+    <div class="h-stats">
+      <div><div class="hs-n">70%</div><div class="hs-l">Giảm rụng tóc</div></div>
+      <div><div class="hs-n">97%</div><div class="hs-l">Tự nhiên</div></div>
+      <div><div class="hs-n">98%</div><div class="hs-l">Giảm bã nhờn</div></div>
     </div>
-    <div class="hero-btns">
-      <button class="btn-primary" onclick="showPLP('all')">Khám phá sản phẩm</button>
-      <button class="btn-ghost" onclick="scrollToSection('brand')">
-        Về Monfri
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
-      </button>
+    <div class="h-btns">
+      <button class="btn-red" onclick="goPlp('all')">Xem sản phẩm</button>
+      <button class="btn-ghost" onclick="goPlp('best')">Best Seller <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></button>
     </div>
   </div>
 </section>
 
 <!-- MARQUEE -->
-<div class="marquee-wrap">
-  <div class="marquee-inner">
-    <div class="mq-item">Giảm rụng tóc 70%</div><div class="mq-item">Giảm bã nhờn 98%</div>
-    <div class="mq-item">Dưỡng ẩm 270%</div><div class="mq-item">Giảm mùi cơ thể 95%</div>
-    <div class="mq-item">97% thành phần tự nhiên</div><div class="mq-item">Chính hãng Hàn Quốc</div>
-    <div class="mq-item">Kiểm nghiệm lâm sàng</div><div class="mq-item">Tăng độ bóng tóc 51%</div>
-    <div class="mq-item">Giảm rụng tóc 70%</div><div class="mq-item">Giảm bã nhờn 98%</div>
-    <div class="mq-item">Dưỡng ẩm 270%</div><div class="mq-item">Giảm mùi cơ thể 95%</div>
-    <div class="mq-item">97% thành phần tự nhiên</div><div class="mq-item">Chính hãng Hàn Quốc</div>
-    <div class="mq-item">Kiểm nghiệm lâm sàng</div><div class="mq-item">Tăng độ bóng tóc 51%</div>
-  </div>
-</div>
+<div class="mq"><div class="mq-tr">
+  <div class="mq-i">Giảm rụng tóc 70%</div><div class="mq-i">Giảm bã nhờn 98%</div>
+  <div class="mq-i">Dưỡng ẩm 270%</div><div class="mq-i">Giảm mùi cơ thể 95%</div>
+  <div class="mq-i">97% thành phần tự nhiên</div><div class="mq-i">Chính hãng ArtheL Korea</div>
+  <div class="mq-i">Kiểm nghiệm lâm sàng</div><div class="mq-i">Tăng độ bóng tóc 51%</div>
+  <div class="mq-i">Giảm rụng tóc 70%</div><div class="mq-i">Giảm bã nhờn 98%</div>
+  <div class="mq-i">Dưỡng ẩm 270%</div><div class="mq-i">Giảm mùi cơ thể 95%</div>
+  <div class="mq-i">97% thành phần tự nhiên</div><div class="mq-i">Chính hãng ArtheL Korea</div>
+  <div class="mq-i">Kiểm nghiệm lâm sàng</div><div class="mq-i">Tăng độ bóng tóc 51%</div>
+</div></div>
 
-<!-- CATEGORIES -->
-<section class="cat-section">
-  <div class="container">
-    <div class="sec-head fade-up">
-      <div><div class="sec-label">Danh mục</div><h2 class="sec-title">Chăm sóc toàn diện<br>từ tóc đến da</h2></div>
-      <a class="link-more" href="#" onclick="showPLP('all');return false">Xem tất cả →</a>
+<!-- HOME PRODUCTS -->
+<section class="sec sec-bg">
+  <div class="wrap">
+    <div class="sh fu">
+      <div><div class="sl">Sản phẩm nổi bật</div><h2 class="st">Được chọn nhiều nhất</h2></div>
+      <a class="lm" href="#" onclick="goPlp('all');return false">Xem tất cả →</a>
     </div>
-    <div class="cat-grid">
-      <div class="cat-card" style="grid-column:span 2" onclick="showPLP('hair')">
-        <img class="cat-img" src="https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=900&q=80" alt="Chăm sóc tóc">
-        <div class="cat-ov"></div>
-        <div class="cat-info"><div class="eyebrow">Bestseller</div><div class="cat-name">Chăm sóc tóc &amp; Da đầu</div></div>
-      </div>
-      <div class="cat-card" style="grid-column:span 2" onclick="showPLP('body')">
-        <img class="cat-img" src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=900&q=80" alt="Chăm sóc da">
-        <div class="cat-ov"></div>
-        <div class="cat-info"><div class="eyebrow">Hot</div><div class="cat-name">Chăm sóc da &amp; Cơ thể</div></div>
-      </div>
-      <div class="cat-card" onclick="showPLP('hand')">
-        <img class="cat-img" src="https://images.unsplash.com/photo-1617897903246-719242758050?w=600&q=80" alt="Chăm sóc tay">
-        <div class="cat-ov"></div>
-        <div class="cat-info"><div class="eyebrow">Mới</div><div class="cat-name">Chăm sóc tay</div></div>
-      </div>
-      <div class="cat-card" onclick="showPLP('set')">
-        <img class="cat-img" src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=600&q=80" alt="Bộ set">
-        <div class="cat-ov"></div>
-        <div class="cat-info"><div class="eyebrow">Tiết kiệm</div><div class="cat-name">Bộ Set</div></div>
-      </div>
-      <div class="cat-card" onclick="showPLP('best')">
-        <img class="cat-img" src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&q=80" alt="Best">
-        <div class="cat-ov"></div>
-        <div class="cat-info"><div class="eyebrow">Top</div><div class="cat-name">Best Seller</div></div>
-      </div>
-      <div class="cat-card" onclick="showPLP('sale')">
-        <img class="cat-img" src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=600&q=80" alt="Khuyến mãi">
-        <div class="cat-ov"></div>
-        <div class="cat-info"><div class="eyebrow">Ưu đãi</div><div class="cat-name">Đang Giảm Giá</div></div>
-      </div>
+    <div class="ftabs" id="h-ft">
+      <button class="ft on" onclick="hFilter('all',this)">Tất cả</button>
+      <button class="ft" onclick="hFilter('hair',this)">Chăm sóc tóc</button>
+      <button class="ft" onclick="hFilter('body',this)">Chăm sóc da</button>
+      <button class="ft" onclick="hFilter('hand',this)">Chăm sóc tay</button>
+      <button class="ft" onclick="hFilter('set',this)">Bộ set</button>
+      <button class="ft" onclick="hFilter('best',this)">Best Seller</button>
     </div>
-  </div>
-</section>
-
-<!-- HOME PRODUCT GRID -->
-<section class="products-section">
-  <div class="container">
-    <div class="sec-head fade-up">
-      <div><div class="sec-label">Sản phẩm nổi bật</div><h2 class="sec-title">Được lựa chọn<br>nhiều nhất</h2></div>
-      <a class="link-more" href="#" onclick="showPLP('all');return false">Xem tất cả →</a>
-    </div>
-    <div class="filter-row" id="home-filters">
-      <button class="ftab active" onclick="homeFilter('all',this)">Tất cả</button>
-      <button class="ftab" onclick="homeFilter('hair',this)">Chăm sóc tóc</button>
-      <button class="ftab" onclick="homeFilter('body',this)">Chăm sóc da</button>
-      <button class="ftab" onclick="homeFilter('hand',this)">Chăm sóc tay</button>
-      <button class="ftab" onclick="homeFilter('set',this)">Bộ set</button>
-    </div>
-    <div class="grid-4" id="home-grid"></div>
+    <div class="pg" id="h-grid"></div>
   </div>
 </section>
 
 <!-- BRAND -->
-<section class="brand-sec" id="brand">
-  <div class="brand-vis">
+<section class="brand">
+  <div class="bv">
     <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?w=900&q=85" alt="Monfri brand">
-    <div class="brand-vis-ov"></div>
   </div>
-  <div class="brand-cont">
-    <div class="sec-label">Câu chuyện thương hiệu</div>
-    <h2 class="brand-title">Tinh thần Dr. Monfri —<br><em>Thiên nhiên &amp; Khoa học</em></h2>
-    <p class="brand-text">Monfri được khai sinh từ triết lý của Dr. Monfri — người tin rằng sức mạnh chữa lành thật sự đến từ thiên nhiên, được tăng cường bởi khoa học hiện đại. Mỗi sản phẩm là sự kết hợp giữa chiết xuất thực vật thuần khiết và công nghệ nano tiên tiến của Hàn Quốc.</p>
-    <p class="brand-text">Là nhà phân phối <strong style="color:rgba(255,255,255,.7)">độc quyền tại Việt Nam</strong>, chúng tôi cam kết 100% sản phẩm chính hãng, nhập khẩu trực tiếp với đầy đủ chứng nhận CO/CQ.</p>
-    <div class="brand-pillars">
-      <div class="pillar">
-        <div class="pillar-ico"><svg width="14" height="14" fill="none" stroke="#fff" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
-        <div class="pillar-t">Không Paraben</div><div class="pillar-d">Loại bỏ chất bảo quản độc hại</div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-ico"><svg width="14" height="14" fill="none" stroke="#fff" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M8 12s1-2 4-2 4 2 4 2"/></svg></div>
-        <div class="pillar-t">Thiên nhiên 97%</div><div class="pillar-d">Chiết xuất thực vật cao cấp</div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-ico"><svg width="14" height="14" fill="none" stroke="#fff" stroke-width="1.5" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M9 8H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h-4"/></svg></div>
-        <div class="pillar-t">Kiểm nghiệm lâm sàng</div><div class="pillar-d">Bác sĩ da liễu Hàn chứng nhận</div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-ico"><svg width="14" height="14" fill="none" stroke="#fff" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <div class="pillar-t">Chính hãng 100%</div><div class="pillar-d">Nhập khẩu trực tiếp, CO/CQ đủ</div>
-      </div>
+  <div class="bc">
+    <div class="sl">Thương hiệu Monfri</div>
+    <h2 class="bt">Được tạo ra từ<br><i>Thiên nhiên &amp; Khoa học</i></h2>
+    <p class="bd">Monfri là thương hiệu của công ty ArtheL (주식회사 아더엘), trụ sở tại Namyangju, Hàn Quốc. Mỗi sản phẩm kết hợp chiết xuất thực vật thuần khiết với công nghệ nano tiên tiến, đã được kiểm nghiệm lâm sàng bởi bác sĩ da liễu Hàn Quốc.</p>
+    <div class="bpillars">
+      <div class="bp"><div class="bp-t">Không Paraben</div><div class="bp-d">Không chất bảo quản độc hại</div></div>
+      <div class="bp"><div class="bp-t">Thiên nhiên 97%</div><div class="bp-d">Chiết xuất thực vật cao cấp</div></div>
+      <div class="bp"><div class="bp-t">Kiểm nghiệm lâm sàng</div><div class="bp-d">Chứng nhận bởi bác sĩ HQ</div></div>
+      <div class="bp"><div class="bp-t">Chính hãng 100%</div><div class="bp-d">CO/CQ đầy đủ, nhập khẩu trực tiếp</div></div>
     </div>
-    <a href="#" class="brand-link" onclick="showPLP('all');return false">
-      Xem toàn bộ sản phẩm
-      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
-    </a>
+    <span class="blink" onclick="goPlp('all')">Xem toàn bộ sản phẩm <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span>
   </div>
 </section>
 
 <!-- FEATURES -->
-<div class="features">
-  <div class="container">
-    <div class="feat-grid">
-      <div class="feat"><span class="feat-ico">🚚</span><div class="feat-t">Giao hàng toàn quốc</div><div class="feat-d">Miễn phí đơn từ 499.000đ. Giao nhanh 1–3 ngày</div></div>
-      <div class="feat"><span class="feat-ico">🇰🇷</span><div class="feat-t">Chính hãng Hàn Quốc</div><div class="feat-d">Nhập khẩu trực tiếp, có CO/CQ đầy đủ</div></div>
-      <div class="feat"><span class="feat-ico">↩️</span><div class="feat-t">Đổi trả 30 ngày</div><div class="feat-d">Không hài lòng — hoàn tiền 100%</div></div>
-      <div class="feat"><span class="feat-ico">💬</span><div class="feat-t">Tư vấn tận tâm</div><div class="feat-d">Hotline &amp; Zalo hỗ trợ 8h–21h mỗi ngày</div></div>
+<div class="feats">
+  <div class="wrap">
+    <div class="fg">
+      <div class="fi"><span class="fi-ico">🚚</span><div class="fi-t">Giao toàn quốc</div><div class="fi-d">Freeship đơn từ 499.000đ<br>Giao nhanh 1–3 ngày</div></div>
+      <div class="fi"><span class="fi-ico">🇰🇷</span><div class="fi-t">Chính hãng Hàn Quốc</div><div class="fi-d">Nhập khẩu từ ArtheL<br>CO/CQ đầy đủ</div></div>
+      <div class="fi"><span class="fi-ico">↩️</span><div class="fi-t">Đổi trả 30 ngày</div><div class="fi-d">Không hài lòng<br>Hoàn tiền 100%</div></div>
+      <div class="fi"><span class="fi-ico">💬</span><div class="fi-t">Tư vấn 8h–21h</div><div class="fi-d">Hotline &amp; Zalo<br>hỗ trợ mỗi ngày</div></div>
     </div>
   </div>
 </div>
 
-<!-- PROMO -->
-<section class="promo-sec">
-  <div class="container">
-    <div class="promo-grid">
-      <div class="promo-card">
-        <div class="promo-bg" style="background-image:url('https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=1200&q=85')"></div>
-        <div class="promo-ov"></div>
-        <div class="promo-cont">
-          <div class="promo-tag">Dòng đặc biệt</div>
-          <h3 class="promo-title">Exosome<br>Anti Hair-Loss</h3>
-          <p class="promo-sub">Công nghệ nano exosome — giảm rụng tóc đến 70% sau 4 tuần kiểm nghiệm lâm sàng</p>
-          <a href="#" class="promo-link" onclick="showPLP('hair');return false">Xem ngay →</a>
-        </div>
-      </div>
-      <div class="promo-card">
-        <div class="promo-bg" style="background-image:url('https://images.unsplash.com/photo-1607602132700-068258431c8d?w=1200&q=85')"></div>
-        <div class="promo-ov"></div>
-        <div class="promo-cont">
-          <div class="promo-tag">Mới nhất 2025</div>
-          <h3 class="promo-title">Body Care<br>Collection 2025</h3>
-          <p class="promo-sub">Dòng chăm sóc cơ thể cao cấp với tinh dầu hữu cơ &amp; Centella Asiatica</p>
-          <a href="#" class="promo-link" onclick="showPLP('body');return false">Khám phá →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- REVIEWS -->
-<section class="reviews-sec">
-  <div class="container">
-    <div class="sec-head fade-up">
-      <div><div class="sec-label">Đánh giá thực tế</div><h2 class="sec-title">Khách hàng<br>nói gì?</h2></div>
-      <div class="rev-nav">
-        <button class="rnav" id="rprev"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></button>
-        <button class="rnav" id="rnext"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></button>
+<section class="sec">
+  <div class="wrap">
+    <div class="sh fu">
+      <div><div class="sl">Đánh giá thực tế</div><h2 class="st">Khách hàng nói gì?</h2></div>
+      <div class="rv-nav">
+        <button class="rn2" id="rvp"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></button>
+        <button class="rn2" id="rvn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></button>
       </div>
     </div>
-    <div class="reviews-wrap"><div class="reviews-track" id="rtrack">
-      <div class="rcard"><div class="rquote">"</div><p class="rtext">Dùng dầu gội Exosome được 3 tuần, tóc rụng giảm thấy rõ rệt. Trước mỗi lần gội tóc rụng đầy tay, giờ gần như không còn. Hương thơm nhẹ nhàng, không hóa chất.</p><div class="rmeta"><div class="ravatar">MA</div><div><div class="rname">Minh Anh</div><div class="rloc">Hà Nội · Dầu gội Exosome</div><div class="rstars">★★★★★</div></div></div></div>
-      <div class="rcard"><div class="rquote">"</div><p class="rtext">Sữa tắm Acne hiệu quả với mụn lưng của mình. Da lưng cải thiện sau 2 tuần, không khô hay kích ứng. Mùi Aqua Forest cực dễ chịu, như đang ở spa.</p><div class="rmeta"><div class="ravatar">TH</div><div><div class="rname">Thu Hằng</div><div class="rloc">TP. HCM · Sữa tắm Acne</div><div class="rstars">★★★★★</div></div></div></div>
-      <div class="rcard"><div class="rquote">"</div><p class="rtext">Mua bộ set 3 món — dầu gội, dầu xả, sữa tắm. Tất cả đều cực kỳ ưng ý. Tóc mềm mượt sau lần đầu xả. Giá so với chất lượng Hàn thì quá tốt.</p><div class="rmeta"><div class="ravatar">PL</div><div><div class="rname">Phương Linh</div><div class="rloc">Đà Nẵng · Bộ set 3 món</div><div class="rstars">★★★★★</div></div></div></div>
-      <div class="rcard"><div class="rquote">"</div><p class="rtext">Kem dưỡng tay thấm cực nhanh, không nhờn. Mình dùng cả ngày ở văn phòng, da tay mềm mịn. Hộp 2 cái dùng được rất lâu, rất đáng tiền.</p><div class="rmeta"><div class="ravatar">NK</div><div><div class="rname">Ngọc Khánh</div><div class="rloc">Hà Nội · Kem dưỡng tay</div><div class="rstars">★★★★★</div></div></div></div>
+    <div class="rv-wrap"><div class="rv-tr" id="rvtr">
+      <div class="rv"><div class="rq">"</div><p class="rt">Dùng dầu gội Exosome 3 tuần, tóc rụng giảm rõ rệt. Trước gội tóc rụng đầy tay, giờ gần như không còn. Hương thơm nhẹ nhàng, không hóa chất.</p><div class="rm"><div class="ra">MA</div><div><div class="rn">Minh Anh</div><div class="rl">Hà Nội · Exosome Shampoo</div><div class="rs">★★★★★</div></div></div></div>
+      <div class="rv"><div class="rq">"</div><p class="rt">Sữa tắm Acne Care Aqua Forest cải thiện mụn lưng sau 2 tuần. Không khô hay kích ứng. Mùi rất dễ chịu như đang ở spa. Sẽ tiếp tục dùng.</p><div class="rm"><div class="ra">TH</div><div><div class="rn">Thu Hằng</div><div class="rl">TP. HCM · Acne Body Wash</div><div class="rs">★★★★★</div></div></div></div>
+      <div class="rv"><div class="rq">"</div><p class="rt">Mua bộ set 3 món, tất cả đều ưng. Tóc mềm mượt sau lần đầu xả. Giá so với chất lượng Hàn thì quá tốt, sẽ mua lại cho cả nhà dùng.</p><div class="rm"><div class="ra">PL</div><div><div class="rn">Phương Linh</div><div class="rl">Đà Nẵng · Bộ set 3 món</div><div class="rs">★★★★★</div></div></div></div>
+      <div class="rv"><div class="rq">"</div><p class="rt">Kem dưỡng tay thấm nhanh, không nhờn. Mình dùng cả ngày văn phòng vẫn ổn. Hộp 2 cái dùng được rất lâu, đáng đồng tiền bỏ ra.</p><div class="rm"><div class="ra">NK</div><div><div class="rn">Ngọc Khánh</div><div class="rl">Hà Nội · Hand Cream</div><div class="rs">★★★★★</div></div></div></div>
     </div></div>
   </div>
 </section>
 
-<!-- HOW TO ORDER -->
-<section class="howto-sec">
-  <div class="container">
-    <div class="howto-grid">
-      <div>
-        <div class="sec-label">Mua hàng đơn giản</div>
-        <h2 class="sec-title" style="margin-bottom:2rem">Đặt hàng<br>trong 3 bước</h2>
-        <div class="steps">
-          <div class="step"><div class="step-num">01</div><div><div class="step-t">Chọn sản phẩm phù hợp</div><div class="step-d">Tư vấn miễn phí qua Zalo/hotline để chọn đúng theo vấn đề da/tóc.</div></div></div>
-          <div class="step"><div class="step-num">02</div><div><div class="step-t">Đặt hàng &amp; thanh toán</div><div class="step-d">COD, chuyển khoản, ví điện tử. An toàn và bảo mật 100%.</div></div></div>
-          <div class="step"><div class="step-num">03</div><div><div class="step-t">Nhận hàng &amp; trải nghiệm</div><div class="step-d">Giao 1–3 ngày toàn quốc. Đổi trả miễn phí 30 ngày.</div></div></div>
-        </div>
-      </div>
-      <div class="howto-vis">
-        <img class="howto-img" src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=900&q=85" alt="Monfri products">
-        <div class="howto-badge"><div class="bnum">4.9</div><div class="blabel">Điểm đánh giá<br>trung bình</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- INSTAGRAM -->
-<section class="insta-sec">
-  <div class="container">
-    <div class="sec-head fade-up">
-      <div><div class="sec-label">Cộng đồng Monfri</div><h2 class="sec-title">@monfrivietnam</h2></div>
-      <a class="link-more" href="#">Follow →</a>
-    </div>
-    <div class="insta-grid">
-      <div class="insta-item"><img src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=400&q=80" alt="insta"><div class="insta-hover">Xem thêm</div></div>
-      <div class="insta-item"><img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400&q=80" alt="insta"><div class="insta-hover">Xem thêm</div></div>
-      <div class="insta-item"><img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&q=80" alt="insta"><div class="insta-hover">Xem thêm</div></div>
-      <div class="insta-item"><img src="https://images.unsplash.com/photo-1600428853876-fb7ea814e7a0?w=400&q=80" alt="insta"><div class="insta-hover">Xem thêm</div></div>
-      <div class="insta-item"><img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&q=80" alt="insta"><div class="insta-hover">Xem thêm</div></div>
-      <div class="insta-item"><img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=400&q=80" alt="insta"><div class="insta-hover">Xem thêm</div></div>
-    </div>
-  </div>
-</section>
-
 <!-- NEWSLETTER -->
-<section class="nl-sec" id="nl">
-  <div class="container">
-    <div class="nl-grid">
+<section class="nl">
+  <div class="wrap">
+    <div class="nl-g">
       <div>
-        <div class="sec-label" style="color:var(--red)">Đặc quyền thành viên</div>
-        <h2 class="nl-title">Nhận ưu đãi<br>độc quyền 15%</h2>
-        <p class="nl-sub">Đăng ký để nhận mã giảm giá đơn đầu tiên và cập nhật sản phẩm mới từ Monfri Vietnam.</p>
-        <div class="nl-contact" style="margin-top:1.5rem">
-          <span class="ico">📦</span>
-          <div class="info">Hotline: <span>0123 456 789</span> &nbsp;|&nbsp; Zalo: <span>Monfri VN</span></div>
+        <div class="sl" style="color:var(--red)">Ưu đãi thành viên</div>
+        <h2 class="nl-t">Nhận ngay mã giảm 15%</h2>
+        <p class="nl-s">Đăng ký nhận bản tin để có mã giảm đơn đầu tiên &amp; cập nhật sản phẩm mới.</p>
+        <div style="margin-top:1.2rem;font-size:13px;color:rgba(255,255,255,.5)">
+          📦 Hotline: <b style="color:#fff">0123 456 789</b> &nbsp;|&nbsp; Zalo: <b style="color:#fff">Monfri VN</b>
         </div>
       </div>
       <div>
-        <div class="nl-form">
-          <input class="nl-input" type="email" placeholder="Email của bạn..." id="nlemail">
-          <button class="nl-btn" onclick="handleNL()">Đăng ký</button>
+        <div class="nl-f">
+          <input class="nl-i" type="email" placeholder="Email của bạn..." id="nle">
+          <button class="nl-b" onclick="doNL()">Đăng ký</button>
         </div>
-        <p class="nl-note">Chúng tôi tôn trọng quyền riêng tư. Hủy đăng ký bất kỳ lúc nào.</p>
+        <p class="nl-note">Chúng tôi không spam. Hủy bất kỳ lúc nào.</p>
       </div>
     </div>
   </div>
 </section>
 
-</div><!-- /page-home -->
+</div><!-- /pg-home -->
 
-<!-- ═══════════════ PRODUCT LIST PAGE ═══════════════ -->
-<div id="page-products">
-  <div class="plp-header">
-    <div class="container">
-      <div style="font-size:12px;color:var(--mid);margin-bottom:.5rem">
-        <a href="#" onclick="showHome();return false" style="color:var(--mid)">Trang chủ</a> / <span id="plp-breadcrumb">Tất cả sản phẩm</span>
-      </div>
-      <h1 class="plp-title" id="plp-title">Tất cả sản phẩm</h1>
-      <p class="plp-sub" id="plp-sub">Toàn bộ dòng sản phẩm Monfri chính hãng từ Hàn Quốc</p>
+<!-- ══════ PLP ══════ -->
+<div id="pg-plp">
+  <div class="plp-hdr">
+    <div class="wrap">
+      <div class="plp-bc"><a href="#" onclick="goHome();return false">Trang chủ</a> / <span id="plp-bc">Sản phẩm</span></div>
+      <h1 class="plp-t" id="plp-t">Tất cả sản phẩm</h1>
+      <p class="plp-s" id="plp-s">Toàn bộ dòng sản phẩm Monfri chính hãng từ Hàn Quốc</p>
     </div>
   </div>
-  <div class="plp-body">
-    <div class="container">
-      <div class="filter-row" id="plp-filters">
-        <button class="ftab active" onclick="plpFilter('all',this)">Tất cả</button>
-        <button class="ftab" onclick="plpFilter('hair',this)">Chăm sóc tóc</button>
-        <button class="ftab" onclick="plpFilter('body',this)">Chăm sóc da</button>
-        <button class="ftab" onclick="plpFilter('hand',this)">Chăm sóc tay</button>
-        <button class="ftab" onclick="plpFilter('set',this)">Bộ set</button>
-        <button class="ftab" onclick="plpFilter('best',this)">Best Seller</button>
-        <button class="ftab" onclick="plpFilter('sale',this)">Đang giảm giá</button>
+  <section class="sec sec-bg">
+    <div class="wrap">
+      <div class="ftabs" id="plp-ft">
+        <button class="ft on" onclick="plpFilter('all',this)">Tất cả</button>
+        <button class="ft" onclick="plpFilter('hair',this)">Chăm sóc tóc</button>
+        <button class="ft" onclick="plpFilter('body',this)">Chăm sóc da</button>
+        <button class="ft" onclick="plpFilter('hand',this)">Chăm sóc tay</button>
+        <button class="ft" onclick="plpFilter('set',this)">Bộ set</button>
+        <button class="ft" onclick="plpFilter('best',this)">Best Seller</button>
       </div>
-      <div class="grid-4" id="plp-grid"></div>
+      <div class="pg" id="plp-grid"></div>
     </div>
-  </div>
+  </section>
 </div>
 
 <!-- MODAL -->
 <div class="modal" id="modal">
-  <div class="modal-bg" onclick="closeModal()"></div>
-  <div class="modal-box">
-    <div class="modal-img-wrap"><img id="mimg" src="" alt=""></div>
-    <div class="modal-body">
-      <button class="modal-close" onclick="closeModal()">✕</button>
-      <div class="modal-cat" id="mcat"></div>
-      <h3 class="modal-name" id="mname"></h3>
-      <div class="modal-prices" id="mprices"></div>
-      <div class="modal-stars">★★★★★ <span style="color:var(--mid);font-size:11px">(128 đánh giá)</span></div>
-      <div class="modal-desc" id="mdesc"></div>
-      <div class="qty-row">
-        <div class="qty-ctrl">
-          <button class="qbtn" onclick="chgQty(-1)">−</button>
-          <span class="qval" id="qval">1</span>
-          <button class="qbtn" onclick="chgQty(1)">+</button>
+  <div class="mbg" onclick="closeModal()"></div>
+  <div class="mbox">
+    <div class="mimg"><img id="mimg" src="" alt=""></div>
+    <div class="mbody">
+      <button class="mclose" onclick="closeModal()">✕</button>
+      <div class="mcat" id="mcat"></div>
+      <h3 class="mname" id="mname"></h3>
+      <div class="mpr" id="mpr"></div>
+      <div class="mstars">★★★★★ <span style="color:var(--mid);font-size:11px">(đánh giá từ khách hàng)</span></div>
+      <div class="mdesc" id="mdesc"></div>
+      <div class="qrow">
+        <div class="qctrl">
+          <button class="qb" onclick="chQ(-1)">−</button>
+          <span class="qv" id="qv">1</span>
+          <button class="qb" onclick="chQ(1)">+</button>
         </div>
-        <button class="add-btn" onclick="addCart()">Thêm vào giỏ hàng</button>
+        <button class="addbtn" onclick="doAdd()">Thêm vào giỏ hàng</button>
       </div>
-      <ul class="modal-perks">
-        <li>Nguyên liệu tự nhiên 97%, không paraben, không silicon</li>
+      <ul class="mperks">
+        <li>Nguyên liệu tự nhiên 97%, không paraben</li>
         <li>Kiểm nghiệm lâm sàng tại Hàn Quốc</li>
-        <li>Nhập khẩu chính hãng, CO/CQ đầy đủ</li>
-        <li>Miễn phí vận chuyển đơn từ 499.000đ</li>
-        <li>Đổi trả miễn phí trong 30 ngày</li>
+        <li>Nhập khẩu chính hãng từ ArtheL Korea</li>
+        <li>Freeship đơn từ 499.000đ · Đổi trả 30 ngày</li>
       </ul>
     </div>
   </div>
@@ -786,428 +542,465 @@ footer{background:#111;padding:4rem 0 2rem;color:rgba(255,255,255,.4)}
 
 <!-- FOOTER -->
 <footer>
-  <div class="container">
-    <div class="footer-grid">
+  <div class="wrap">
+    <div class="fg2">
       <div>
-        <div class="flogo">MON<span>FRI</span></div>
-        <p class="fdesc">Nhà phân phối độc quyền thương hiệu Monfri Hàn Quốc tại Việt Nam. Cam kết 100% chính hãng, nhập khẩu trực tiếp.</p>
-        <div style="font-size:11px;color:rgba(255,255,255,.18);line-height:1.7">Đang trong quá trình đăng ký GPKD<br>© 2025 Monfri Vietnam</div>
+        <div class="flo">MON<em>FRI</em></div>
+        <p class="fdesc">Nhà phân phối độc quyền Monfri (ArtheL, Hàn Quốc) tại Việt Nam. Cam kết 100% chính hãng, nhập khẩu trực tiếp.</p>
+        <div style="font-size:11px;color:rgba(255,255,255,.18);line-height:1.8">
+          Công ty: đang đăng ký GPKD<br>
+          © 2025 Monfri Vietnam. All rights reserved.
+        </div>
       </div>
       <div>
-        <div class="fcol-t">Sản phẩm</div>
-        <ul class="flinks">
-          <li><a href="#" onclick="showPLP('hair');return false">Dầu gội trị rụng tóc</a></li>
-          <li><a href="#" onclick="showPLP('hair');return false">Dầu xả phục hồi tóc</a></li>
-          <li><a href="#" onclick="showPLP('body');return false">Sữa tắm Acne Care</a></li>
-          <li><a href="#" onclick="showPLP('body');return false">Sữa tắm thơm cao cấp</a></li>
-          <li><a href="#" onclick="showPLP('hand');return false">Kem dưỡng tay</a></li>
-          <li><a href="#" onclick="showPLP('set');return false">Bộ set tiết kiệm</a></li>
+        <div class="fc-t">Sản phẩm</div>
+        <ul class="fl">
+          <li><a href="#" onclick="goPlp('hair');return false">Dầu gội ngừa rụng tóc</a></li>
+          <li><a href="#" onclick="goPlp('hair');return false">Dầu xả phục hồi tóc</a></li>
+          <li><a href="#" onclick="goPlp('body');return false">Sữa tắm Acne Care</a></li>
+          <li><a href="#" onclick="goPlp('body');return false">Sữa tắm thơm cao cấp</a></li>
+          <li><a href="#" onclick="goPlp('hand');return false">Kem dưỡng tay &amp; Xà phòng</a></li>
+          <li><a href="#" onclick="goPlp('set');return false">Bộ set tiết kiệm</a></li>
         </ul>
       </div>
       <div>
-        <div class="fcol-t">Về chúng tôi</div>
-        <ul class="flinks">
-          <li><a href="#" onclick="scrollToSection('brand');return false">Câu chuyện thương hiệu</a></li>
+        <div class="fc-t">Thông tin</div>
+        <ul class="fl">
+          <li><a href="#">Về Monfri Vietnam</a></li>
           <li><a href="#">Phân phối độc quyền</a></li>
-          <li><a href="#">Chứng nhận chính hãng</a></li>
-          <li><a href="#">Tin tức &amp; Blog</a></li>
+          <li><a href="#">Chứng nhận nhập khẩu</a></li>
           <li><a href="#">Chính sách đại lý</a></li>
+          <li><a href="#">Chính sách đổi trả</a></li>
         </ul>
       </div>
       <div>
-        <div class="fcol-t">Hỗ trợ</div>
-        <div class="fcontact"><b>Hotline:</b> 0123 456 789</div>
-        <div class="fcontact"><b>Zalo:</b> Monfri Vietnam</div>
-        <div class="fcontact"><b>Email:</b> info@monfrivn.com</div>
-        <div class="fcontact" style="margin-top:.8rem"><b>Giờ làm việc:</b><br>T2–T6: 8:00–21:00<br>T7–CN: 9:00–18:00</div>
+        <div class="fc-t">Liên hệ</div>
+        <div class="fci"><b>Hotline:</b> 0123 456 789</div>
+        <div class="fci"><b>Zalo:</b> Monfri Vietnam</div>
+        <div class="fci"><b>Email:</b> info@monfrivn.com</div>
+        <div class="fci" style="margin-top:.7rem"><b>Giờ hỗ trợ:</b><br>T2–CN: 8:00–21:00</div>
       </div>
     </div>
-    <div class="f-bottom">
-      <span class="fcopy">© 2025 Monfri Vietnam. Nhà phân phối độc quyền. All rights reserved.</span>
-      <div class="flegal"><a href="#">Chính sách bảo mật</a><a href="#">Điều khoản</a><a href="#">Đổi trả</a></div>
+    <div class="fb">
+      <span class="fcp">© 2025 Monfri Vietnam · Nhà phân phối độc quyền ArtheL Korea tại Việt Nam</span>
+      <div class="fleg"><a href="#">Bảo mật</a><a href="#">Điều khoản</a><a href="#">Đổi trả</a></div>
     </div>
   </div>
 </footer>
 
-<button id="btt" onclick="scrollTo({top:0,behavior:'smooth'})">
-  <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></svg>
-</button>
+<button id="btt" onclick="scrollTo({top:0,behavior:'smooth'})"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></svg></button>
 <div id="toast"></div>
 
 <script>
-/* ══════════════════════════════════════════
-   FULL PRODUCT CATALOG — Monfri Vietnam
-   Dữ liệu thực từ monfri.co.kr, dịch sang tiếng Việt
-══════════════════════════════════════════ */
-const PRODUCTS = [
-  // ── HAIR CARE ──
-  {id:1,cat:'hair',badge:'best',
+/* ═══════════════════════════════════════════════════
+   MONFRI VIETNAM — PRODUCT CATALOG
+   
+   BẢNG TÍNH GIÁ BÁN VIỆT NAM:
+   Supply price (KRW) × 18 (tỷ giá) = VND gốc
+   + Thuế NK mỹ phẩm 10% + VAT 10% = ×1.21
+   + Chi phí logistics/lưu kho ~20% = ×1.20
+   + Phí sàn TMĐT (Shopee/TikTok) ~13% = ×1.13
+   + Biên lợi nhuận nhà phân phối ~35% = ×1.35
+   → Làm tròn đến x9.000đ, ưu tiên giá tốt cho khách
+
+   VÍ DỤ: Supply 7.000 KRW
+   7.000 × 18 = 126.000đ base
+   × 1.21 = 152.460đ (thuế)
+   × 1.20 = 182.952đ (logistics)
+   × 1.13 = 206.736đ (phí sàn)
+   × 1.35 = 279.093đ → làm tròn ~279.000–299.000đ
+   
+   MSRP Hàn (36.900 KRW) × 18 = 664.200đ → tham chiếu
+═══════════════════════════════════════════════════ */
+
+const P = [
+  // ── CHĂM SÓC TÓC ──
+  {id:1, cat:'hair', badge:'best',
    img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260204/105f5c438924f4cf113f3b80481466f9.jpg',
-   imgFb:'https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=600&q=80',
-   name:'Dầu gội Exosome chuyên sâu ngừa rụng tóc 519ml (bộ 2)',
-   cat_name:'Chăm sóc tóc',sale:559000,orig:1098000,off:'-49%',
-   highlight:'Giảm rụng tóc 70%',rating:'★★★★★',count:247,
-   desc:'Công nghệ nano exosome thế hệ mới thấm sâu vào nang tóc, giảm rụng tóc đến 70% sau 4 tuần. Hương Darjeeling Tea sang trọng, dịu nhẹ.'},
-  {id:2,cat:'hair',badge:'new',
+   fb:'https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=600&q=80',
+   name:'Dầu gội Exosome chuyên sâu ngừa rụng tóc — Darjeeling Tea 519ml (bộ 2)',
+   cat_name:'Chăm sóc tóc', sale:459000, orig:664000, off:'-31%',
+   note:'Giảm rụng tóc 70%',
+   desc:'Công nghệ nano exosome thế hệ mới thấm sâu vào nang tóc, giảm rụng tóc đến 70% sau 4 tuần. Thành phần: Nano Exosome, Centella Asiatica, Biotin. Hương Darjeeling Tea sang trọng, lưu hương cả ngày. Phù hợp với tóc mỏng yếu, da đầu nhạy cảm.',
+   cnt:247},
+  {id:2, cat:'hair', badge:'new',
    img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260204/6936c665dc5f729f75ae4ab4b290594c.jpg',
-   imgFb:'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=600&q=80',
-   name:'Dầu xả Exosome phục hồi tóc hư tổn cực nặng 519ml (bộ 2)',
-   cat_name:'Chăm sóc tóc',sale:559000,orig:998000,off:'-44%',
-   highlight:'Cải thiện tóc gãy 21%',rating:'★★★★★',count:189,
-   desc:'Dầu xả nano exosome cấu trúc lại từng sợi tóc từ bên trong, phục hồi tóc hư tổn nặng, mềm mướt ngay từ lần đầu sử dụng.'},
-  {id:3,cat:'hair',badge:'',
+   fb:'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=600&q=80',
+   name:'Dầu xả Exosome phục hồi tóc cực hư tổn — Darjeeling Tea 519ml (bộ 2)',
+   cat_name:'Chăm sóc tóc', sale:459000, orig:664000, off:'-31%',
+   note:'Cải thiện tóc gãy 21%',
+   desc:'Nano exosome cấu trúc lại từng sợi tóc từ bên trong, phục hồi tóc hư tổn nặng. Kết hợp cùng dầu gội Exosome cho hiệu quả tối ưu. Mềm mướt, bóng mượt ngay từ lần đầu sử dụng.',
+   cnt:189},
+  {id:3, cat:'hair', badge:'best',
    img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260109/f12b499814a821f67f25024978a45cb5.jpg',
-   imgFb:'https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=600&q=80',
-   name:'Dầu gội Beer Yeast ngừa rụng &amp; tăng thể tích 1059ml',
-   cat_name:'Chăm sóc tóc',sale:549000,orig:1198000,off:'-54%',
-   highlight:'Giảm rụng tóc 35%',rating:'★★★★☆',count:312,
-   desc:'Men bia Đức + protein keratin nuôi dưỡng chân tóc từ gốc, tăng thể tích tóc, giảm rụng 35% sau 4 tuần kiên trì sử dụng.'},
-  {id:4,cat:'hair',badge:'best',
+   fb:'https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=600&q=80',
+   name:'Dầu gội Beer Yeast ngừa rụng &amp; tăng thể tích — Purple Ocean 1059ml (bộ 2)',
+   cat_name:'Chăm sóc tóc', sale:459000, orig:664000, off:'-31%',
+   note:'Giảm rụng tóc 35%',
+   desc:'Men bia Đức (Beer Yeast) + protein keratin nuôi dưỡng chân tóc từ gốc rễ, giảm rụng tóc 35%, tăng độ dày và thể tích tóc. Hương Purple Ocean — tươi mát, phong cách. Đại dung tích 1059ml dùng lâu.',
+   cnt:312},
+  {id:4, cat:'hair', badge:'best',
+   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260109/f12b499814a821f67f25024978a45cb5.jpg',
+   fb:'https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=600&q=80',
+   name:'Dầu gội Beer Yeast ngừa rụng &amp; tăng thể tích — French Lavender 1059ml (bộ 2)',
+   cat_name:'Chăm sóc tóc', sale:459000, orig:664000, off:'-31%',
+   note:'Giảm rụng tóc 35%',
+   desc:'Men bia Đức + protein keratin phục hồi tóc. Hương French Lavender nhẹ nhàng, thư giãn. Phù hợp cho cả gia đình, dùng hàng ngày. Sản phẩm không chứa silicone, không gây bết tóc.',
+   cnt:198},
+  {id:5, cat:'hair', badge:'',
    img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260109/2dd2725ca57e5bdb25fff82555c86f06.jpg',
-   imgFb:'https://images.unsplash.com/photo-1600428853876-fb7ea814e7a0?w=600&q=80',
-   name:'Dầu xả Silk Repair phục hồi tóc cực hư tổn 1059ml',
-   cat_name:'Chăm sóc tóc',sale:549000,orig:1198000,off:'-54%',
-   highlight:'Tăng độ bóng 51%',rating:'★★★★★',count:278,
-   desc:'Protein tơ tằm + dầu hoa trà (camellia) tái tạo lớp cutin, tăng độ bóng 51%, tóc mềm mướt như tóc mới sau 1 lần dùng.'},
-  {id:5,cat:'hair',badge:'',
-   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260120/147186f0bbebc0ebf02fdfa7c6c9e7a2.jpg',
-   imgFb:'https://images.unsplash.com/photo-1565031491910-e57fac98c7be?w=600&q=80',
-   name:'Dầu xả Beer Yeast Protein Camellia 1059ml + Tặng kèm quà',
-   cat_name:'Chăm sóc tóc',sale:579000,orig:1198000,off:'-52%',
-   highlight:'Tăng độ bóng 51%',rating:'★★★★★',count:198,
-   desc:'Men bia + protein phân tử thấp phục hồi tóc. Tặng kèm nước rửa tay mini. Hương Camellia nồng nàn, tinh tế.'},
-  {id:6,cat:'hair',badge:'',
-   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260120/c41ba5e1a54bccc69e428cc870ce0702.jpg',
-   imgFb:'https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=600&q=80',
-   name:'Bộ đôi: Dầu gội Beer Yeast + Dầu xả Protein 1059ml',
-   cat_name:'Chăm sóc tóc',sale:549000,orig:1198000,off:'-54%',
-   highlight:'Bộ đôi chăm sóc tóc',rating:'★★★★★',count:156,
-   desc:'Combo hoàn hảo: Dầu gội Beer Yeast ngừa rụng 1059ml + Dầu xả Protein phục hồi 1059ml. Tiết kiệm hơn mua lẻ.'},
+   fb:'https://images.unsplash.com/photo-1600428853876-fb7ea814e7a0?w=600&q=80',
+   name:'Dầu xả Silk Repair phục hồi tóc hư tổn — Camellia 1059ml (bộ 2)',
+   cat_name:'Chăm sóc tóc', sale:459000, orig:664000, off:'-31%',
+   note:'Tăng độ bóng 51%',
+   desc:'Protein tơ tằm + dầu hoa trà (camellia) tái tạo lớp cutin bảo vệ, tăng độ bóng tóc 51%, giảm khô xơ gãy rụng. Hương Camellia nồng nàn, sang trọng. Dùng cho tóc khô xơ, tóc nhuộm và uốn.',
+   cnt:278},
+  {id:6, cat:'hair', badge:'',
+   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260109/2dd2725ca57e5bdb25fff82555c86f06.jpg',
+   fb:'https://images.unsplash.com/photo-1600428853876-fb7ea814e7a0?w=600&q=80',
+   name:'Dầu xả Treatment Beer Yeast — Camellia 1059ml (bộ 1 + hộp)',
+   cat_name:'Chăm sóc tóc', sale:259000, orig:370000, off:'-30%',
+   note:'Phiên bản boxed',
+   desc:'Phiên bản hộp quà (boxed) của dầu xả Beer Yeast Camellia. Thiết kế sang trọng, thích hợp làm quà tặng. Công thức men bia + protein nâng cơ tóc, dưỡng bóng và mềm mướt.',
+   cnt:145},
+  {id:7, cat:'hair', badge:'',
+   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260109/2dd2725ca57e5bdb25fff82555c86f06.jpg',
+   fb:'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=600&q=80',
+   name:'Dầu xả Treatment — Purple Ocean 1059ml (bộ 2)',
+   cat_name:'Chăm sóc tóc', sale:459000, orig:664000, off:'-31%',
+   note:'Tăng độ bóng 51%',
+   desc:'Dầu xả cặp đôi hoàn hảo với dầu gội Beer Yeast Purple Ocean. Phục hồi tóc từ bên trong, làm mịn bề mặt tóc, giảm xơ rối. Hương Purple Ocean — tươi sáng, hiện đại.',
+   cnt:156},
 
-  // ── BODY CARE ──
-  {id:7,cat:'body',badge:'best',
+  // ── CHĂM SÓC DA / CƠ THỂ ──
+  {id:8, cat:'body', badge:'best',
    img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260109/b252bfb450b6ce1a1fb4eb63037ec3b7.jpg',
-   imgFb:'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&q=80',
-   name:'Sữa tắm Cica Acne Care giảm mụn lưng 1059ml',
-   cat_name:'Chăm sóc da',sale:549000,orig:1198000,off:'-54%',
-   highlight:'Giảm bã nhờn 98%',rating:'★★★★★',count:203,
-   desc:'Centella Asiatica + Salicylic Acid nhẹ làm sạch sâu lỗ chân lông, kiểm soát mụn lưng và vai hiệu quả. Hương Aqua Forest mát lạnh.'},
-  {id:8,cat:'body',badge:'',
+   fb:'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&q=80',
+   name:'Sữa tắm Acne Care Functional — Aqua Forest 1059ml (bộ 2)',
+   cat_name:'Chăm sóc da', sale:459000, orig:664000, off:'-31%',
+   note:'Giảm bã nhờn 98%',
+   desc:'Centella Asiatica + BHA nhẹ làm sạch sâu lỗ chân lông, kiểm soát mụn lưng và vai hiệu quả. Được kiểm nghiệm lâm sàng: giảm bã nhờn 98%, giảm mụn viêm. Hương Aqua Forest mát lạnh, sảng khoái. Phù hợp da dầu mụn.',
+   cnt:203},
+  {id:9, cat:'body', badge:'',
+   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260109/b252bfb450b6ce1a1fb4eb63037ec3b7.jpg',
+   fb:'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&q=80',
+   name:'Sữa tắm Acne Care — Aqua Forest 1059ml (bộ 1 + hộp)',
+   cat_name:'Chăm sóc da', sale:249000, orig:370000, off:'-33%',
+   note:'Phiên bản boxed',
+   desc:'Phiên bản hộp quà của sữa tắm Acne Care Aqua Forest. Giảm bã nhờn 98%, kiểm soát mụn hiệu quả. Thiết kế hộp sang trọng, thích hợp làm quà tặng cho người thân.',
+   cnt:134},
+  {id:10, cat:'body', badge:'best',
    img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260109/5b7167ee9dbbba364a3dd0631277f4fe.jpg',
-   imgFb:'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=600&q=80',
-   name:'Sữa tắm Hotel Therapy tinh dầu hữu cơ 1059ml',
-   cat_name:'Chăm sóc da',sale:519000,orig:1198000,off:'-57%',
-   highlight:'Giảm mùi cơ thể 95%',rating:'★★★★★',count:167,
-   desc:'Blend 8 loại tinh dầu hữu cơ cao cấp cho làn da mịn màng như bước ra từ spa 5 sao. Mùi thơm lưu lâu suốt cả ngày.'},
-  {id:9,cat:'body',badge:'new',
+   fb:'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=600&q=80',
+   name:'Sữa tắm Aroma Deep Perfume — Lavender Soap 1059ml (bộ 2)',
+   cat_name:'Chăm sóc da', sale:439000, orig:664000, off:'-34%',
+   note:'Giảm mùi cơ thể 95%',
+   desc:'Blend tinh dầu hữu cơ cao cấp, mùi thơm lưu lâu suốt cả ngày. Giảm mùi cơ thể 95% theo kiểm nghiệm lâm sàng. Hương Lavender Soap — thư giãn, nhẹ nhàng. Da mềm mịn như sau khi spa.',
+   cnt:167},
+  {id:11, cat:'body', badge:'',
+   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260109/5b7167ee9dbbba364a3dd0631277f4fe.jpg',
+   fb:'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=600&q=80',
+   name:'Sữa tắm Aroma Deep Perfume — Lavender Soap 1059ml (bộ 1 + hộp)',
+   cat_name:'Chăm sóc da', sale:249000, orig:370000, off:'-33%',
+   note:'Phiên bản boxed',
+   desc:'Phiên bản hộp quà của sữa tắm Aroma Lavender. Tinh dầu hữu cơ, hương Lavender thư giãn. Thiết kế hộp cao cấp. Lý tưởng làm quà tặng sinh nhật, lễ tết.',
+   cnt:98},
+  {id:12, cat:'body', badge:'',
+   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260109/5b7167ee9dbbba364a3dd0631277f4fe.jpg',
+   fb:'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=600&q=80',
+   name:'Sữa tắm Aroma Deep Perfume — Mint Lavender 1059ml (bộ 2)',
+   cat_name:'Chăm sóc da', sale:439000, orig:664000, off:'-34%',
+   note:'Giảm mùi cơ thể 95%',
+   desc:'Hương Mint Lavender — kết hợp bạc hà mát lạnh và lavender thư giãn. Tinh dầu hữu cơ nuôi dưỡng da. Giảm mùi cơ thể 95%. Phù hợp dùng sau khi tập thể thao hoặc các ngày nóng bức.',
+   cnt:112},
+  {id:13, cat:'body', badge:'',
+   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260109/5b7167ee9dbbba364a3dd0631277f4fe.jpg',
+   fb:'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=600&q=80',
+   name:'Sữa tắm Aroma Deep Perfume — Almond Milk 1059ml (bộ 2)',
+   cat_name:'Chăm sóc da', sale:439000, orig:664000, off:'-34%',
+   note:'Dưỡng da ngọt dịu',
+   desc:'Hương Almond Milk — ngọt nhẹ, ấm áp. Dầu hạnh nhân dưỡng ẩm sâu, da mềm mịn. Giảm mùi cơ thể 95%. Phù hợp cho mùa đông hoặc da khô.',
+   cnt:89},
+  {id:14, cat:'body', badge:'new',
    img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260112/674e30dfcdab4eaf4073bd92c97cfd89.jpg',
-   imgFb:'https://images.unsplash.com/photo-1607602132700-068258431c8d?w=600&q=80',
-   name:'Sữa dưỡng thể Cupuaçu Butter dưỡng ẩm sâu 1059ml',
-   cat_name:'Chăm sóc da',sale:519000,orig:1198000,off:'-57%',
-   highlight:'Dưỡng ẩm 270%',rating:'★★★★★',count:143,
-   desc:'Bơ hạt Cupuaçu vàng + 8 loại dầu hữu cơ cấp ẩm tức thì, duy trì độ ẩm 24 giờ. Hương Almond Milk ngọt nhẹ dễ chịu.'},
-  {id:10,cat:'body',badge:'',
-   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260120/995098606c1d26ee9f43a2b86aacb695.jpg',
-   imgFb:'https://images.unsplash.com/photo-1629198688000-71f23e745b6e?w=600&q=80',
-   name:'Sữa dưỡng thể Cupuaçu Butter 1059ml + Tặng quà',
-   cat_name:'Chăm sóc da',sale:549000,orig:1198000,off:'-54%',
-   highlight:'Dưỡng ẩm 270%',rating:'★★★★★',count:128,
-   desc:'Sữa dưỡng thể Cupuaçu 1059ml cao cấp tặng kèm nước rửa tay mini. Dưỡng ẩm 270%, da mềm mịn và thơm mát suốt ngày.'},
-  {id:11,cat:'body',badge:'',
-   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260212/1c5590c595c27e93819f6d43ccc4f3c9.jpg',
-   imgFb:'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80',
-   name:'Tẩy tế bào chết Sugar Scrub Bergamot 519g (bộ 2)',
-   cat_name:'Chăm sóc da',sale:499000,orig:838000,off:'-40%',
-   highlight:'Cải thiện da sần 97%',rating:'★★★★☆',count:95,
-   desc:'Dầu thực vật + đường mía tẩy tế bào chết nhẹ nhàng, trả lại làn da mịn và sáng đều màu. An toàn cho da nhạy cảm. Hương Bergamot.'},
-  {id:12,cat:'body',badge:'',
-   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260120/5fb53f63227db2b5f71873ecc7989eee.jpg',
-   imgFb:'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&q=80',
-   name:'Sữa tắm Aroma Essential Oil 1059ml + Tặng quà',
-   cat_name:'Chăm sóc da',sale:549000,orig:1198000,off:'-54%',
-   highlight:'Giảm mùi cơ thể 95%',rating:'★★★★★',count:142,
-   desc:'Tinh dầu aroma thiên nhiên mang lại cảm giác thư giãn tuyệt đối. Hương thơm lưu lâu, da mềm mịn. Tặng kèm nước rửa tay.'},
-  {id:13,cat:'body',badge:'',
-   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260109/5943fde9b66df9cab45ba53caa68191a.jpg',
-   imgFb:'https://images.unsplash.com/photo-1629198688000-71f23e745b6e?w=600&q=80',
-   name:'Kem tẩy lông Centella nhạy cảm Forest Herb 200ml (bộ 2)',
-   cat_name:'Chăm sóc da',sale:399000,orig:738000,off:'-46%',
-   highlight:'Dưỡng sáng tông da',rating:'★★★★☆',count:134,
-   desc:'Centella Asiatica làm dịu da sau tẩy lông. Không gây kích ứng. Tẩy sạch sau 6–8 phút. Hương Forest Herb thơm nhẹ.'},
-  {id:14,cat:'body',badge:'',
-   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260120/590e83841c238fa4782db6a17bc5d22b.jpg',
-   imgFb:'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=600&q=80',
-   name:'Sữa tắm Cica Acne 1059ml + Tặng quà (Giảm bã nhờn 98%)',
-   cat_name:'Chăm sóc da',sale:579000,orig:1198000,off:'-52%',
-   highlight:'Giảm bã nhờn 98%',rating:'★★★★★',count:167,
-   desc:'Phiên bản đặc biệt sữa tắm Cica Acne 1059ml tặng kèm nước rửa tay mini. Giảm bã nhờn 98%, kiểm soát mụn lưng hiệu quả.'},
+   fb:'https://images.unsplash.com/photo-1607602132700-068258431c8d?w=600&q=80',
+   name:'Sữa dưỡng thể Body Lotion — Almond Milk 1059ml (bộ 2)',
+   cat_name:'Chăm sóc da', sale:439000, orig:664000, off:'-34%',
+   note:'Dưỡng ẩm 270%',
+   desc:'Bơ hạt Cupuaçu vàng + 8 loại dầu hữu cơ cấp ẩm tức thì, duy trì độ ẩm 270% liên tục 24 giờ. Không nhờn, thấm nhanh. Hương Almond Milk ngọt nhẹ, dễ chịu. Dùng sau tắm khi da còn ẩm.',
+   cnt:143},
+  {id:15, cat:'body', badge:'',
+   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260112/674e30dfcdab4eaf4073bd92c97cfd89.jpg',
+   fb:'https://images.unsplash.com/photo-1607602132700-068258431c8d?w=600&q=80',
+   name:'Sữa dưỡng thể Body Lotion — Almond Milk 1059ml (bộ 1)',
+   cat_name:'Chăm sóc da', sale:259000, orig:370000, off:'-30%',
+   note:'Dưỡng ẩm 270%',
+   desc:'Phiên bản 1 chai của sữa dưỡng thể Body Lotion Almond Milk. Bơ Cupuaçu + 8 dầu hữu cơ. Dưỡng ẩm 270%, da mềm mịn và thơm suốt ngày. Thích hợp thử trước khi mua bộ 2.',
+   cnt:87},
 
-  // ── HAND / SKIN CARE ──
-  {id:15,cat:'hand',badge:'best',
+  // ── CHĂM SÓC TAY ──
+  {id:16, cat:'hand', badge:'best',
    img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260109/b23c8789ee6db99e0b17e38d8c5bf4a4.jpg',
-   imgFb:'https://images.unsplash.com/photo-1617897903246-719242758050?w=600&q=80',
-   name:'Kem dưỡng tay Cupuaçu &amp; Centella dưỡng ẩm 59ml (bộ 2)',
-   cat_name:'Chăm sóc tay',sale:229000,orig:598000,off:'-62%',
-   highlight:'Dưỡng ẩm sâu 24%',rating:'★★★★★',count:321,
-   desc:'Bơ Cupuaçu + Centella Asiatica dưỡng ẩm sâu không nhờn tay, thấm nhanh. Dùng cả ngày văn phòng không bị bóng nhờn.'},
-  {id:16,cat:'hand',badge:'',
-   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260120/03a2677da902bab502b850193e16570d.jpg',
-   imgFb:'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=600&q=80',
-   name:'Nước rửa tay Deep Perfume Hinoki Forest 519ml (bộ 3)',
-   cat_name:'Chăm sóc tay',sale:369000,orig:1197000,off:'-69%',
-   highlight:'97% nguyên liệu tự nhiên',rating:'★★★★★',count:188,
-   desc:'Tạo bọt mịn từ 97% nguyên liệu tự nhiên, sát khuẩn hiệu quả. Hương Hinoki (Bách Nhật) thanh mát, dễ chịu cả ngày.'},
-  {id:17,cat:'hand',badge:'new',
-   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260109/bec52a146bb7a2c9e06c6976a3065e06.jpg',
-   imgFb:'https://images.unsplash.com/photo-1556909211-36987daf7b4d?w=600&q=80',
-   name:'Xà phòng Houttuynia + Black Charcoal thu lỗ chân lông 125g (bộ 4)',
-   cat_name:'Chăm sóc tay',sale:349000,orig:738000,off:'-53%',
-   highlight:'Thu nhỏ lỗ chân lông 24%',rating:'★★★★☆',count:76,
-   desc:'Than hoạt tính + Houttuynia Cordata (diếp cá) hút sạch bã nhờn, thu nhỏ lỗ chân lông 24%, làm trắng da. Hương Tea Tree.'},
+   fb:'https://images.unsplash.com/photo-1617897903246-719242758050?w=600&q=80',
+   name:'Nước rửa tay Deep Perfume — Hinoki Forest 519ml (bộ 3)',
+   cat_name:'Chăm sóc tay', sale:299000, orig:399000, off:'-25%',
+   note:'97% nguyên liệu tự nhiên',
+   desc:'Tạo bọt mịn từ 97% nguyên liệu tự nhiên, sát khuẩn hiệu quả. Hương Hinoki Forest (Bách Nhật) — thanh mát, tinh tế. Không làm khô tay. Bộ 3 chai kinh tế, dùng được cả năm.',
+   cnt:188},
+  {id:17, cat:'hand', badge:'',
+   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260109/b23c8789ee6db99e0b17e38d8c5bf4a4.jpg',
+   fb:'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=600&q=80',
+   name:'Kem dưỡng tay Cupuaçu &amp; Centella — 59ml (bộ 2)',
+   cat_name:'Chăm sóc tay', sale:199000, orig:299000, off:'-33%',
+   note:'Dưỡng ẩm sâu 24%',
+   desc:'Bơ Cupuaçu + Centella Asiatica dưỡng ẩm sâu không nhờn tay, thấm nhanh. Dùng cả ngày văn phòng không bóng nhờn. Size 59ml mini tiện mang theo túi xách. Bộ 2 cái dùng 1 để nhà, 1 bỏ túi.',
+   cnt:321},
 
-  // ── SETS ──
-  {id:18,cat:'set',badge:'best',
+  // ── BỘ SET ──
+  {id:18, cat:'set', badge:'best',
    img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260120/88abf512f1bef9a574927d63dba2b6d6.jpg',
-   imgFb:'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=600&q=80',
-   name:'Bộ set 3 món: Dầu gội + Dầu xả + Sữa tắm 1059ml',
-   cat_name:'Bộ set',sale:769000,orig:2394000,off:'-68%',
-   highlight:'Set tiết kiệm nhất',rating:'★★★★★',count:412,
-   desc:'Trọn bộ chăm sóc tóc & da tốt nhất: Dầu gội Beer Yeast 1059ml + Dầu xả Silk Repair 1059ml + Sữa tắm Aroma 1059ml.'},
-  {id:19,cat:'set',badge:'new',
+   fb:'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=600&q=80',
+   name:'Bộ set Shower 3 món: Dầu gội + Dầu xả + Sữa tắm 1059ml',
+   cat_name:'Bộ set', sale:899000, orig:1392000, off:'-35%',
+   note:'Tiết kiệm nhất',
+   desc:'Trọn bộ chăm sóc tóc &amp; da hoàn hảo: Dầu gội Beer Yeast 1059ml + Dầu xả Silk Repair 1059ml + Sữa tắm Aroma 1059ml. Đại dung tích, đủ dùng cho cả gia đình 3–4 tháng. Tiết kiệm hơn mua lẻ 35%.',
+   cnt:412},
+  {id:19, cat:'set', badge:'',
+   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260120/88abf512f1bef9a574927d63dba2b6d6.jpg',
+   fb:'https://images.unsplash.com/photo-1629198688000-71f23e745b6e?w=600&q=80',
+   name:'Bộ set Signature: Dầu gội Exosome + Dầu xả Exosome — Darjeeling Tea 519ml (bộ 2)',
+   cat_name:'Bộ set', sale:849000, orig:1328000, off:'-36%',
+   note:'Bộ đôi Exosome',
+   desc:'Combo cao cấp nhất: Dầu gội Exosome 519ml×2 + Dầu xả Exosome 519ml×2. Công nghệ nano exosome — giảm rụng tóc 70%, cải thiện tóc gãy 21%. Hương Darjeeling Tea thanh lịch. Lý tưởng cho tóc rụng nhiều và hư tổn nặng.',
+   cnt:234},
+  {id:20, cat:'set', badge:'new',
    img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260120/a0ffd407b05b97c0eebc5394c9dcb024.jpg',
-   imgFb:'https://images.unsplash.com/photo-1629198688000-71f23e745b6e?w=600&q=80',
-   name:'Bộ đôi: Sữa tắm Aroma + Sữa dưỡng thể Butter 1059ml',
-   cat_name:'Bộ set',sale:519000,orig:1196000,off:'-57%',
-   highlight:'Bộ đôi da mềm mịn',rating:'★★★★★',count:156,
-   desc:'Combo hoàn hảo: Sữa tắm Aroma Essential Oil 1059ml + Sữa dưỡng thể Cupuaçu Butter 1059ml. Da thơm và ẩm mượt suốt ngày.'},
-  {id:20,cat:'set',badge:'',
-   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260120/a0ffd407b05b97c0eebc5394c9dcb024.jpg',
-   imgFb:'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=600&q=80',
-   name:'Bộ đôi: Sữa tắm Acne + Sữa dưỡng thể 1059ml + Quà',
-   cat_name:'Bộ set',sale:579000,orig:1198000,off:'-52%',
-   highlight:'Combo giảm mụn lưng',rating:'★★★★★',count:167,
-   desc:'Bộ đôi cho da mụn: Sữa tắm Cica Acne Care 1059ml + Sữa dưỡng thể Butter 1059ml. Tặng kèm nước rửa tay mini.'},
+   fb:'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=600&q=80',
+   name:'Bộ set Body: Sữa tắm Aroma + Sữa dưỡng thể Butter 1059ml',
+   cat_name:'Bộ set', sale:799000, orig:1128000, off:'-29%',
+   note:'Bộ đôi dưỡng da',
+   desc:'Combo chăm sóc toàn thân: Sữa tắm Aroma Deep Perfume 1059ml + Sữa dưỡng thể Almond Milk 1059ml. Da thơm từ khi tắm đến khi bôi dưỡng. Tiết kiệm hơn mua lẻ, đủ dùng 3–4 tháng.',
+   cnt:156},
 ];
 
-// Mark best sellers and sale items
-PRODUCTS.forEach(p=>{
-  if([1,4,7,9,15,18].includes(p.id)) p.isBest=true;
-  if(p.off && parseInt(p.off)<-50) p.isSale=true;
+P.forEach(p => {
+  if([1,3,5,8,10,16,18,19].includes(p.id)) p.isBest = true;
 });
 
-/* ══ STATE ══ */
-let cartN=0, curQty=1, curProd=null, ridx=0;
+/* ═══ STATE ═══ */
+let cart=0, qty=1, cur=null, ri=0;
 
-/* ══ PAGE ROUTING ══ */
-function showHome(){
-  document.getElementById('page-home').style.display='block';
-  document.getElementById('page-products').style.display='none';
+/* ═══ ROUTING ═══ */
+function goHome(){
+  document.getElementById('pg-home').style.display='block';
+  document.getElementById('pg-plp').style.display='none';
   closeModal();
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-function showPLP(filter){
-  document.getElementById('page-home').style.display='none';
-  document.getElementById('page-products').style.display='block';
-  const labels={
-    all:{t:'Tất cả sản phẩm',s:'Toàn bộ dòng sản phẩm Monfri chính hãng từ Hàn Quốc'},
-    hair:{t:'Chăm sóc tóc & Da đầu',s:'Dầu gội, dầu xả ngừa rụng tóc, phục hồi tóc hư tổn'},
-    body:{t:'Chăm sóc da & Cơ thể',s:'Sữa tắm, sữa dưỡng thể, tẩy tế bào chết cao cấp'},
-    hand:{t:'Chăm sóc tay',s:'Kem dưỡng tay, nước rửa tay, xà phòng Monfri'},
-    set:{t:'Bộ set tiết kiệm',s:'Các bộ combo Monfri giá ưu đãi, tiết kiệm hơn mua lẻ'},
-    best:{t:'Best Seller',s:'Những sản phẩm được khách hàng yêu thích nhất'},
-    sale:{t:'Đang giảm giá',s:'Ưu đãi đặc biệt — tiết kiệm đến 68%'},
-  };
-  const lb=labels[filter]||labels.all;
-  document.getElementById('plp-title').textContent=lb.t;
-  document.getElementById('plp-sub').textContent=lb.s;
-  document.getElementById('plp-breadcrumb').textContent=lb.t;
-  // set active tab
-  document.querySelectorAll('#plp-filters .ftab').forEach(b=>{
-    b.classList.toggle('active', b.getAttribute('onclick').includes("'"+filter+"'"));
-  });
-  renderPLP(filter);
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-function scrollToSection(id){
-  showHome();
-  setTimeout(()=>{
-    const el=document.getElementById(id);
-    if(el) el.scrollIntoView({behavior:'smooth'});
-  },100);
+  scrollTo({top:0,behavior:'smooth'});
+  setNav(null);
 }
 
-/* ══ RENDER HELPERS ══ */
+const PLPmeta = {
+  all:{t:'Tất cả sản phẩm',s:'Toàn bộ dòng sản phẩm Monfri chính hãng — ArtheL, Hàn Quốc'},
+  hair:{t:'Chăm sóc tóc & Da đầu',s:'Dầu gội, dầu xả ngừa rụng tóc — công nghệ nano exosome & beer yeast'},
+  body:{t:'Chăm sóc da & Cơ thể',s:'Sữa tắm, sữa dưỡng thể, kem tẩy lông cao cấp từ Hàn Quốc'},
+  hand:{t:'Chăm sóc tay',s:'Nước rửa tay, kem dưỡng tay — 97% thành phần tự nhiên'},
+  set:{t:'Bộ set tiết kiệm',s:'Các combo Monfri tiết kiệm hơn mua lẻ 25–36%'},
+  best:{t:'Best Seller',s:'Những sản phẩm được khách hàng Việt yêu thích nhất'},
+};
+
+function goPlp(cat){
+  document.getElementById('pg-home').style.display='none';
+  document.getElementById('pg-plp').style.display='block';
+  const m=PLPmeta[cat]||PLPmeta.all;
+  document.getElementById('plp-t').textContent=m.t;
+  document.getElementById('plp-s').textContent=m.s;
+  document.getElementById('plp-bc').textContent=m.t;
+  document.querySelectorAll('#plp-ft .ft').forEach(b=>{
+    b.classList.toggle('on', b.getAttribute('onclick').includes("'"+cat+"'"));
+  });
+  renderGrid('plp-grid', cat);
+  scrollTo({top:0,behavior:'smooth'});
+  setNav('na-'+cat);
+}
+
+function setNav(act){
+  document.querySelectorAll('.nav a').forEach(a=>{
+    a.classList.toggle('act', a.id===act);
+  });
+}
+
+/* ═══ FILTER / RENDER ═══ */
+function filterP(cat){
+  if(cat==='all') return P;
+  if(cat==='best') return P.filter(p=>p.isBest);
+  return P.filter(p=>p.cat===cat);
+}
+
 function cardHTML(p){
-  const img=`<img src="${p.img}" alt="${p.name.replace(/&amp;/g,'&')}" loading="lazy" onerror="this.src='${p.imgFb}'" referrerpolicy="no-referrer">`;
-  const badge=p.badge?`<div class="pbadge ${p.badge}">${p.badge==='best'?'Best Seller':p.badge==='new'?'Mới':'Sale'}</div>`:'';
-  return `
-  <div class="pcard" onclick="openModal(${p.id})">
-    <div class="pcard-img">
-      ${img}${badge}
-      <div class="pcard-actions">
-        <button class="pact" onclick="event.stopPropagation();quickAdd(${p.id})" title="Thêm vào giỏ">
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></svg>
+  const b=p.badge?`<div class="pbadge ${p.badge[0]}">${p.badge==='best'?'Best Seller':p.badge==='new'?'Mới':'Giảm'}</div>`:'';
+  return`<div class="pc" onclick="openM(${p.id})">
+    <div class="pcard-img pc-img">
+      <img src="${p.img}" alt="${p.name.replace(/&amp;/g,'&').replace(/"/g,'')}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='${p.fb}'">
+      ${b}
+      <div class="pactions">
+        <button class="pa" onclick="event.stopPropagation();qAdd(${p.id})" title="Thêm vào giỏ">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></svg>
         </button>
-        <button class="pact" onclick="event.stopPropagation();toast('Đã thêm vào yêu thích ♡')" title="Yêu thích">
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <button class="pa" onclick="event.stopPropagation();toast('Đã thêm vào yêu thích')" title="Yêu thích">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
         </button>
       </div>
     </div>
-    <div class="pcard-info">
-      <div class="pcat">${p.cat_name} · ${p.highlight}</div>
+    <div class="pinfo">
+      <div class="pcat">${p.cat_name} · ${p.note}</div>
       <div class="pname">${p.name}</div>
-      <div class="pprices">
-        <span class="psale">${p.sale.toLocaleString('vi-VN')}đ</span>
-        <span class="porig">${p.orig.toLocaleString('vi-VN')}đ</span>
-        <span class="poff">${p.off}</span>
+      <div class="ppr">
+        <span class="pp">${p.sale.toLocaleString('vi-VN')}đ</span>
+        <span class="po">${p.orig.toLocaleString('vi-VN')}đ</span>
+        <span class="pd">${p.off}</span>
       </div>
-      <div class="prating"><span class="stars">${p.rating}</span><span class="rcount">(${p.count})</span></div>
+      <div class="prt"><span class="stars">★★★★★</span><span class="rcnt">(${p.cnt})</span></div>
     </div>
   </div>`;
 }
-function filterProds(cat){
-  if(cat==='all') return PRODUCTS;
-  if(cat==='best') return PRODUCTS.filter(p=>p.isBest);
-  if(cat==='sale') return PRODUCTS.filter(p=>p.isSale);
-  return PRODUCTS.filter(p=>p.cat===cat);
+
+function renderGrid(id, cat){
+  document.getElementById(id).innerHTML=filterP(cat).map(cardHTML).join('');
 }
 
-function homeFilter(cat,btn){
-  document.querySelectorAll('#home-filters .ftab').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  const g=document.getElementById('home-grid');
-  g.innerHTML=filterProds(cat).slice(0,8).map(cardHTML).join('');
+function hFilter(cat,btn){
+  document.querySelectorAll('#h-ft .ft').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  renderGrid('h-grid', cat);
 }
 function plpFilter(cat,btn){
-  document.querySelectorAll('#plp-filters .ftab').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  renderPLP(cat);
-}
-function renderPLP(cat){
-  document.getElementById('plp-grid').innerHTML=filterProds(cat).map(cardHTML).join('');
+  document.querySelectorAll('#plp-ft .ft').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  renderGrid('plp-grid', cat);
 }
 
-/* ══ MODAL ══ */
-function openModal(id){
-  const p=PRODUCTS.find(x=>x.id===id);
+/* ═══ MODAL ═══ */
+function openM(id){
+  const p=P.find(x=>x.id===id);
   if(!p) return;
-  curProd=p; curQty=1;
-  document.getElementById('mimg').src=p.img;
-  document.getElementById('mimg').onerror=function(){this.src=p.imgFb;};
+  cur=p; qty=1;
+  const mi=document.getElementById('mimg');
+  mi.src=p.img;
+  mi.onerror=function(){this.onerror=null;this.src=p.fb};
+  mi.referrerPolicy='no-referrer';
   document.getElementById('mcat').textContent=p.cat_name;
   document.getElementById('mname').innerHTML=p.name;
-  document.getElementById('mprices').innerHTML=`<span class="modal-sale">${p.sale.toLocaleString('vi-VN')}đ</span><span class="modal-orig">${p.orig.toLocaleString('vi-VN')}đ</span><span class="modal-off">${p.off}</span>`;
+  document.getElementById('mpr').innerHTML=`<span class="mp">${p.sale.toLocaleString('vi-VN')}đ</span><span class="mo">${p.orig.toLocaleString('vi-VN')}đ</span><span class="md2">${p.off}</span>`;
   document.getElementById('mdesc').innerHTML=p.desc;
-  document.getElementById('qval').textContent=1;
-  document.getElementById('modal').classList.add('open');
+  document.getElementById('qv').textContent=1;
+  document.getElementById('modal').classList.add('on');
   document.body.style.overflow='hidden';
 }
 function closeModal(){
-  document.getElementById('modal').classList.remove('open');
+  document.getElementById('modal').classList.remove('on');
   document.body.style.overflow='';
 }
-function chgQty(d){curQty=Math.max(1,curQty+d);document.getElementById('qval').textContent=curQty;}
-function addCart(){
-  cartN+=curQty;
-  document.getElementById('cbadge').textContent=cartN;
-  toast(`✓ Đã thêm ${curQty} sản phẩm vào giỏ hàng`);
+function chQ(d){qty=Math.max(1,qty+d);document.getElementById('qv').textContent=qty}
+function doAdd(){
+  cart+=qty;
+  document.getElementById('cbg').textContent=cart;
+  toast(`✓ Đã thêm ${qty} sản phẩm vào giỏ hàng`);
   closeModal();
 }
-function quickAdd(id){
-  const p=PRODUCTS.find(x=>x.id===id);
-  cartN++;
-  document.getElementById('cbadge').textContent=cartN;
-  toast(`✓ Thêm vào giỏ: ${p.name.replace(/&amp;/g,'&').substring(0,42)}...`);
+function qAdd(id){
+  const p=P.find(x=>x.id===id);
+  cart++;
+  document.getElementById('cbg').textContent=cart;
+  toast(`✓ ${p.name.replace(/&amp;/g,'&').substring(0,40)}...`);
 }
 
-/* ══ SEARCH ══ */
+/* ═══ SEARCH ═══ */
 document.getElementById('sbtn').onclick=()=>{
-  document.getElementById('sov').classList.add('open');
-  setTimeout(()=>document.getElementById('sinput').focus(),100);
+  document.getElementById('sov').classList.add('on');
+  setTimeout(()=>document.getElementById('sinp').focus(),100);
 };
-document.getElementById('sclose').onclick=()=>document.getElementById('sov').classList.remove('open');
-document.getElementById('sinput').addEventListener('keydown',e=>{
-  if(e.key==='Escape') document.getElementById('sov').classList.remove('open');
+document.getElementById('scbtn').onclick=()=>document.getElementById('sov').classList.remove('on');
+document.getElementById('sinp').addEventListener('keydown',e=>{
+  if(e.key==='Escape'){document.getElementById('sov').classList.remove('on');return}
   if(e.key==='Enter'){
-    const q=e.target.value.trim();
-    document.getElementById('sov').classList.remove('open');
-    if(q){
-      const found=PRODUCTS.filter(p=>p.name.toLowerCase().includes(q.toLowerCase())||p.cat_name.toLowerCase().includes(q.toLowerCase()));
-      if(found.length){
-        document.getElementById('page-home').style.display='none';
-        document.getElementById('page-products').style.display='block';
-        document.getElementById('plp-title').textContent=`Kết quả cho "${q}"`;
-        document.getElementById('plp-sub').textContent=`${found.length} sản phẩm được tìm thấy`;
-        document.getElementById('plp-grid').innerHTML=found.map(cardHTML).join('');
-        window.scrollTo({top:0,behavior:'smooth'});
-      } else toast(`Không tìm thấy sản phẩm nào cho "${q}"`);
-    }
+    const q=e.target.value.trim().toLowerCase();
+    document.getElementById('sov').classList.remove('on');
+    if(!q) return;
+    const found=P.filter(p=>
+      p.name.toLowerCase().includes(q)||
+      p.cat_name.toLowerCase().includes(q)||
+      p.note.toLowerCase().includes(q)
+    );
+    document.getElementById('pg-home').style.display='none';
+    document.getElementById('pg-plp').style.display='block';
+    document.getElementById('plp-t').textContent=`Kết quả: "${e.target.value.trim()}"`;
+    document.getElementById('plp-s').textContent=found.length?`${found.length} sản phẩm được tìm thấy`:'Không tìm thấy sản phẩm nào';
+    document.getElementById('plp-grid').innerHTML=found.map(cardHTML).join('');
+    scrollTo({top:0,behavior:'smooth'});
+    e.target.value='';
   }
 });
 
-/* ══ MOBILE DRAWER ══ */
+/* ═══ DRAWER ═══ */
 document.getElementById('mbtn').onclick=()=>{
-  document.getElementById('drawer').classList.add('open');
-  document.getElementById('dov').classList.add('open');
+  document.getElementById('drw').classList.add('on');
+  document.getElementById('dov').classList.add('on');
 };
-function closeDrawer(){
-  document.getElementById('drawer').classList.remove('open');
-  document.getElementById('dov').classList.remove('open');
+function cdrw(){
+  document.getElementById('drw').classList.remove('on');
+  document.getElementById('dov').classList.remove('on');
 }
-document.getElementById('dclose').onclick=closeDrawer;
-document.getElementById('dov').onclick=closeDrawer;
+document.getElementById('dclose').onclick=cdrw;
+document.getElementById('dov').onclick=cdrw;
 
-/* ══ REVIEWS CAROUSEL ══ */
-let ridx2=0;
-function updateReviews(){
-  const t=document.getElementById('rtrack');
-  if(!t.children.length) return;
-  if(window.innerWidth<=768){t.style.transform='';return;}
-  const vis=window.innerWidth<=1024?2:3;
-  const max=t.children.length-vis;
-  ridx2=Math.max(0,Math.min(ridx2,max));
-  t.style.transform=`translateX(-${ridx2*(t.children[0].offsetWidth+24)}px)`;
+/* ═══ REVIEWS ═══ */
+let ri2=0;
+function updRv(){
+  const tr=document.getElementById('rvtr');
+  if(!tr.children.length) return;
+  if(window.innerWidth<=768){tr.style.transform='';return}
+  const vis=window.innerWidth<=1100?2:3;
+  const max=tr.children.length-vis;
+  ri2=Math.max(0,Math.min(ri2,max));
+  tr.style.transform=`translateX(-${ri2*(tr.children[0].offsetWidth+24)}px)`;
 }
-document.getElementById('rnext').onclick=()=>{ridx2++;updateReviews()};
-document.getElementById('rprev').onclick=()=>{ridx2--;updateReviews()};
-window.addEventListener('resize',updateReviews);
+document.getElementById('rvn').onclick=()=>{ri2++;updRv()};
+document.getElementById('rvp').onclick=()=>{ri2--;updRv()};
+window.addEventListener('resize',updRv);
 
-/* ══ SCROLL ══ */
+/* ═══ SCROLL ═══ */
 window.addEventListener('scroll',()=>{
   const y=window.scrollY;
-  document.getElementById('hdr').classList.toggle('scrolled',y>30);
-  document.getElementById('btt').classList.toggle('vis',y>600);
-  document.querySelectorAll('.fade-up:not(.vis)').forEach(el=>{
-    const r=el.getBoundingClientRect();
-    if(r.top<window.innerHeight-60) el.classList.add('vis');
+  document.getElementById('hdr').style.boxShadow=y>30?'0 2px 20px rgba(0,0,0,.07)':'none';
+  document.getElementById('btt').classList.toggle('on',y>600);
+  document.querySelectorAll('.fu:not(.on)').forEach(el=>{
+    if(el.getBoundingClientRect().top<window.innerHeight-50) el.classList.add('on');
   });
 });
 
-/* ══ NEWSLETTER ══ */
-function handleNL(){
-  const e=document.getElementById('nlemail').value.trim();
-  if(!e||!e.includes('@')){toast('Vui lòng nhập email hợp lệ');return;}
+/* ═══ NEWSLETTER ═══ */
+function doNL(){
+  const e=document.getElementById('nle');
+  if(!e.value.trim()||!e.value.includes('@')){toast('Vui lòng nhập email hợp lệ');return}
   toast('🎉 Đăng ký thành công! Mã 15% đã gửi về email của bạn');
-  document.getElementById('nlemail').value='';
+  e.value='';
 }
 
-/* ══ TOAST ══ */
-let tTimer;
-function toast(msg){
+/* ═══ TOAST ═══ */
+let tt;
+function toast(m){
   const el=document.getElementById('toast');
-  el.textContent=msg;el.classList.add('show');
-  clearTimeout(tTimer);
-  tTimer=setTimeout(()=>el.classList.remove('show'),3000);
+  el.textContent=m;el.classList.add('on');
+  clearTimeout(tt);tt=setTimeout(()=>el.classList.remove('on'),3000);
 }
 
-/* ══ INIT ══ */
-document.getElementById('home-grid').innerHTML=PRODUCTS.slice(0,8).map(cardHTML).join('');
+/* ═══ INIT ═══ */
+renderGrid('h-grid','all');
 setTimeout(()=>{
-  document.querySelectorAll('.fade-up').forEach(el=>{
-    const r=el.getBoundingClientRect();
-    if(r.top<window.innerHeight) el.classList.add('vis');
+  document.querySelectorAll('.fu').forEach(el=>{
+    if(el.getBoundingClientRect().top<window.innerHeight) el.classList.add('on');
   });
-},100);
+},80);
 </script>
 </body>
 </html>
