@@ -477,6 +477,7 @@ footer{background:#111;padding:3.5rem 0 2rem;color:rgba(255,255,255,.4)}
     <li><a href="#" onclick="goPlp('hand');cdrw()">Chăm sóc tay</a></li>
     <li><a href="#" onclick="goPlp('set');cdrw()">Bộ set</a></li>
     <li><a href="#" onclick="goPlp('best');cdrw()">Best Seller</a></li>
+    <li><a href="#" onclick="goPlp('flocam');cdrw()">🌿 Nước hoa phòng</a></li>
     <li><a href="#" onclick="goHome();cdrw()">Trang chủ</a></li>
   </ul>
 </div>
@@ -492,6 +493,7 @@ footer{background:#111;padding:3.5rem 0 2rem;color:rgba(255,255,255,.4)}
       <li><a href="#" id="na-hand" onclick="goPlp('hand');return false">Chăm sóc tay</a></li>
       <li><a href="#" id="na-set" onclick="goPlp('set');return false">Bộ set</a></li>
       <li><a href="#" id="na-best" onclick="goPlp('best');return false">Best Seller</a></li>
+      <li><a href="#" id="na-flocam" onclick="goPlp('flocam');return false">🌿 Nước hoa phòng</a></li>
     </ul>
     <div class="hdr-r">
       <button class="icon-btn" id="sbtn"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
@@ -563,6 +565,7 @@ footer{background:#111;padding:3.5rem 0 2rem;color:rgba(255,255,255,.4)}
       <button class="ft" onclick="hFilter('hand',this)">Chăm sóc tay</button>
       <button class="ft" onclick="hFilter('set',this)">Bộ set</button>
       <button class="ft" onclick="hFilter('best',this)">Best Seller</button>
+      <button class="ft" onclick="hFilter('flocam',this)">🌿 Nước hoa phòng</button>
     </div>
     <div class="pg" id="h-grid"></div>
   </div>
@@ -661,6 +664,7 @@ footer{background:#111;padding:3.5rem 0 2rem;color:rgba(255,255,255,.4)}
         <button class="ft" onclick="plpFilter('hand',this)">Chăm sóc tay</button>
         <button class="ft" onclick="plpFilter('set',this)">Bộ set</button>
         <button class="ft" onclick="plpFilter('best',this)">Best Seller</button>
+        <button class="ft" onclick="plpFilter('flocam',this)">🌿 Nước hoa phòng</button>
       </div>
       <div class="pg" id="plp-grid"></div>
     </div>
@@ -718,6 +722,7 @@ footer{background:#111;padding:3.5rem 0 2rem;color:rgba(255,255,255,.4)}
           <li><a href="#" onclick="goPlp('body');return false">Sữa tắm thơm cao cấp</a></li>
           <li><a href="#" onclick="goPlp('hand');return false">Kem dưỡng tay &amp; Xà phòng</a></li>
           <li><a href="#" onclick="goPlp('set');return false">Bộ set tiết kiệm</a></li>
+          <li><a href="#" onclick="goPlp('flocam');return false">Nước hoa phòng Flocam</a></li>
         </ul>
       </div>
       <div>
@@ -937,7 +942,43 @@ const P = [
    cat_name:'Bộ set', sale:799000, orig:1128000, off:'-29%',
    note:'Bộ đôi dưỡng da',
    desc:'Combo chăm sóc toàn thân: Sữa tắm Aroma Deep Perfume 1059ml + Sữa dưỡng thể Almond Milk 1059ml. Da thơm từ khi tắm đến khi bôi dưỡng. Tiết kiệm hơn mua lẻ, đủ dùng 3–4 tháng.',
-   cnt:156},
+   cnt:156},,
+  // ── FLOCAM DIFFUSER — Nước hoa phòng nghệ thuật Hàn Quốc ──
+  {id:21,cat:'flocam',badge:'new',
+   img:'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=600&q=85',
+   fb:'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=600&q=85',
+   name:'Nước hoa phòng Flocam — Gogh Bombshell 519ml (bộ 2)',
+   cat_name:'Nước hoa phòng',sale:459000,orig:700000,off:'-34%',
+   note:'Hương Bombshell quyến rũ',
+   desc:'Flocam Diffuser lấy cảm hứng từ danh họa Van Gogh. Hương Bombshell — ngọt ngào, quyến rũ, nồng nàn. Dung tích 519ml×2, lưu hương đến 3 tháng. Bao bì nghệ thuật sang trọng, lý tưởng làm quà tặng.',cnt:89},
+  {id:22,cat:'flocam',badge:'',
+   img:'https://images.unsplash.com/photo-1602928321679-560bb453f190?w=600&q=85',
+   fb:'https://images.unsplash.com/photo-1602928321679-560bb453f190?w=600&q=85',
+   name:'Nước hoa phòng Flocam — Monet Ylang-Ylang 519ml (bộ 2)',
+   cat_name:'Nước hoa phòng',sale:459000,orig:700000,off:'-34%',
+   note:'Hương hoa Ylang thanh nhã',
+   desc:'Flocam Diffuser lấy cảm hứng từ danh họa Monet. Hương Ylang-Ylang — hoa lài nhiệt đới, ngọt dịu, nữ tính. 519ml×2. Thích hợp phòng ngủ, phòng khách.',cnt:67},
+  {id:23,cat:'flocam',badge:'',
+   img:'https://images.unsplash.com/photo-1585421514738-01798e348b17?w=600&q=85',
+   fb:'https://images.unsplash.com/photo-1585421514738-01798e348b17?w=600&q=85',
+   name:'Nước hoa phòng Flocam — Hesse Garden 519ml (bộ 2)',
+   cat_name:'Nước hoa phòng',sale:459000,orig:700000,off:'-34%',
+   note:'Hương vườn xanh thiên nhiên',
+   desc:'Flocam Diffuser cảm hứng từ nhà văn Hermann Hesse. Hương Garden — cỏ xanh, gỗ tươi, thiên nhiên thuần khiết. Tạo không gian thư giãn bình yên.',cnt:54},
+  {id:24,cat:'flocam',badge:'',
+   img:'https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600&q=85',
+   fb:'https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600&q=85',
+   name:'Nước hoa phòng Flocam — Picasso Woody 519ml (bộ 2)',
+   cat_name:'Nước hoa phòng',sale:459000,orig:700000,off:'-34%',
+   note:'Hương gỗ trầm nam tính',
+   desc:'Flocam Diffuser cảm hứng từ Picasso. Hương Woody — gỗ trầm, xạ hương tinh tế. Thích hợp phòng làm việc, thư phòng.',cnt:48},
+  {id:25,cat:'flocam',badge:'',
+   img:'https://images.unsplash.com/photo-1547637589-f54c34f5d7a4?w=600&q=85',
+   fb:'https://images.unsplash.com/photo-1547637589-f54c34f5d7a4?w=600&q=85',
+   name:'Nước hoa phòng Flocam — Millet Forest Path 519ml (bộ 2)',
+   cat_name:'Nước hoa phòng',sale:459000,orig:700000,off:'-34%',
+   note:'Hương rừng trong lành',
+   desc:'Flocam Diffuser cảm hứng từ Millet. Hương Forest Path — con đường rừng, bạch dương, sương sớm. Mùi hương trong lành, dịu mát, phù hợp mọi không gian.',cnt:41}
 ];
 
 P.forEach(p => {
@@ -962,6 +1003,7 @@ const PLPmeta = {
   body:{t:'Chăm sóc da & Cơ thể',s:'Sữa tắm, sữa dưỡng thể, kem tẩy lông cao cấp từ Hàn Quốc'},
   hand:{t:'Chăm sóc tay',s:'Nước rửa tay, kem dưỡng tay — 97% thành phần tự nhiên'},
   set:{t:'Bộ set tiết kiệm',s:'Các combo Monfri tiết kiệm hơn mua lẻ 25–36%'},
+  flocam:{t:'Nước hoa phòng Flocam',s:'Nước hoa phòng cao cấp Hàn Quốc — lấy cảm hứng từ các danh họa thế giới'},
   best:{t:'Best Seller',s:'Những sản phẩm được khách hàng Việt yêu thích nhất'},
 };
 
@@ -990,6 +1032,7 @@ function setNav(act){
 function filterP(cat){
   if(cat==='all') return P;
   if(cat==='best') return P.filter(p=>p.isBest);
+  if(cat==='flocam') return P.filter(p=>p.cat==='flocam');
   return P.filter(p=>p.cat===cat);
 }
 
