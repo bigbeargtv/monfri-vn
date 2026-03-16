@@ -2,9 +2,11 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Monfri Vietnam — Mỹ Phẩm Chính Hãng Hàn Quốc</title>
-<meta name="description" content="Nhà phân phối độc quyền Monfri tại Việt Nam. Dầu gội ngừa rụng tóc, sữa tắm, kem dưỡng tay Hàn Quốc chính hãng.">
+<meta name="description" content="Nhà phân phối chính hãng Monfri tại Việt Nam. Dầu gội ngừa rụng tóc, sữa tắm, kem dưỡng tay Hàn Quốc chính hãng.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -449,12 +451,21 @@ footer{background:#111;padding:3.5rem 0 2rem;color:rgba(255,255,255,.4)}
   .pdp-perks{grid-template-columns:1fr}
 }
 
+
+/* Tier badges */
+.tier-badge{display:inline-block;font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.15rem .5rem;border-radius:2px;margin-bottom:.3rem}
+.tier-premium{background:#1a1410;color:#e8b44b}
+.tier-mid-plus{background:#c0253c;color:#fff}
+.tier-mid{background:#5c4f43;color:#fff}
+.tier-basic{background:var(--pale);color:var(--mid)}
+.tier-flocam{background:linear-gradient(135deg,#4a1a6b,#8b3ab5);color:#fff}
+
 </style>
 </head>
 <body>
 
 <!-- TOP BAR -->
-<div class="topbar">🇰🇷 Nhà phân phối <b>độc quyền</b> Monfri Hàn Quốc tại Việt Nam &nbsp;·&nbsp; Freeship từ <b>499.000đ</b> &nbsp;·&nbsp; Đổi trả 30 ngày</div>
+<div class="topbar">🇰🇷 Nhà phân phối <b>chính hãng</b> Monfri Hàn Quốc tại Việt Nam &nbsp;·&nbsp; Freeship từ <b>499.000đ</b> &nbsp;·&nbsp; Đổi trả 30 ngày</div>
 
 <!-- SEARCH -->
 <div class="sov" id="sov">
@@ -523,7 +534,7 @@ footer{background:#111;padding:3.5rem 0 2rem;color:rgba(255,255,255,.4)}
     </div>
     <!-- Content -->
     <div style="position:relative;z-index:1">
-      <div class="h-tag">Nhà phân phối độc quyền tại Việt Nam</div>
+      <div class="h-tag">Nhà phân phối chính thức tại Việt Nam</div>
       <h1 class="h-title">Chăm sóc tóc<br>chuẩn <i>Hàn Quốc</i><br>mỗi ngày</h1>
       <p class="h-sub">Monfri — thương hiệu wellness từ ArtheL, Hàn Quốc. Công nghệ nano exosome &amp; thiên nhiên 97%. Kiểm nghiệm lâm sàng.</p>
       <div class="h-stats">
@@ -707,7 +718,7 @@ footer{background:#111;padding:3.5rem 0 2rem;color:rgba(255,255,255,.4)}
     <div class="fg2">
       <div>
         <div class="flo">MON<em>FRI</em></div>
-        <p class="fdesc">Nhà phân phối độc quyền Monfri (ArtheL, Hàn Quốc) tại Việt Nam. Cam kết 100% chính hãng, nhập khẩu trực tiếp.</p>
+        <p class="fdesc">Nhà phân phối chính hãng Monfri (ArtheL, Hàn Quốc) tại Việt Nam. Cam kết 100% chính hãng, nhập khẩu trực tiếp.</p>
         <div style="font-size:11px;color:rgba(255,255,255,.18);line-height:1.8">
           Công ty: đang đăng ký GPKD<br>
           © 2025 Monfri Vietnam. All rights reserved.
@@ -729,7 +740,7 @@ footer{background:#111;padding:3.5rem 0 2rem;color:rgba(255,255,255,.4)}
         <div class="fc-t">Thông tin</div>
         <ul class="fl">
           <li><a href="#">Về Monfri Vietnam</a></li>
-          <li><a href="#">Phân phối độc quyền</a></li>
+          <li><a href="#">Phân phối chính hãng</a></li>
           <li><a href="#">Chứng nhận nhập khẩu</a></li>
           <li><a href="#">Chính sách đại lý</a></li>
           <li><a href="#">Chính sách đổi trả</a></li>
@@ -744,7 +755,7 @@ footer{background:#111;padding:3.5rem 0 2rem;color:rgba(255,255,255,.4)}
       </div>
     </div>
     <div class="fb">
-      <span class="fcp">© 2025 Monfri Vietnam · Nhà phân phối độc quyền ArtheL Korea tại Việt Nam</span>
+      <span class="fcp">© 2025 Monfri Vietnam · Nhà phân phối chính hãng ArtheL Korea tại Việt Nam</span>
       <div class="fleg"><a href="#">Bảo mật</a><a href="#">Điều khoản</a><a href="#">Đổi trả</a></div>
     </div>
   </div>
@@ -776,213 +787,252 @@ footer{background:#111;padding:3.5rem 0 2rem;color:rgba(255,255,255,.4)}
 ═══════════════════════════════════════════════════ */
 
 const P = [
-  // ── CHĂM SÓC TÓC ──
-  {id:1, cat:'hair', badge:'best',
-   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260204/105f5c438924f4cf113f3b80481466f9.jpg',
-   fb:'https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=600&q=80',
+  // ══ CHĂM SÓC TÓC — CAO CẤP ══
+  {id:1,cat:'hair',badge:'best',tier:'Cao cấp',
+   img:'https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=600&q=85',
+   fb:'https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=600&q=85',
    name:'Dầu gội Exosome chuyên sâu ngừa rụng tóc — Darjeeling Tea 519ml (bộ 2)',
-   cat_name:'Chăm sóc tóc', sale:459000, orig:664000, off:'-31%',
-   note:'Giảm rụng tóc 70%',
-   desc:'Công nghệ nano exosome thế hệ mới thấm sâu vào nang tóc, giảm rụng tóc đến 70% sau 4 tuần. Thành phần: Nano Exosome, Centella Asiatica, Biotin. Hương Darjeeling Tea sang trọng, lưu hương cả ngày. Phù hợp với tóc mỏng yếu, da đầu nhạy cảm.',
+   cat_name:'Chăm sóc tóc',sale:459000,orig:998000,off:'-54%',
+   note:'Giảm rụng tóc 70% · Exosome',
+   desc:'Công nghệ nano exosome thế hệ mới thấm sâu vào nang tóc, giảm rụng tóc đến 70% sau 4 tuần. Kiểm nghiệm lâm sàng. Hương Darjeeling Tea sang trọng.',
    cnt:247},
-  {id:2, cat:'hair', badge:'new',
-   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260204/6936c665dc5f729f75ae4ab4b290594c.jpg',
-   fb:'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=600&q=80',
-   name:'Dầu xả Exosome phục hồi tóc cực hư tổn — Darjeeling Tea 519ml (bộ 2)',
-   cat_name:'Chăm sóc tóc', sale:459000, orig:664000, off:'-31%',
-   note:'Cải thiện tóc gãy 21%',
-   desc:'Nano exosome cấu trúc lại từng sợi tóc từ bên trong, phục hồi tóc hư tổn nặng. Kết hợp cùng dầu gội Exosome cho hiệu quả tối ưu. Mềm mướt, bóng mượt ngay từ lần đầu sử dụng.',
+  {id:2,cat:'hair',badge:'new',tier:'Cao cấp',
+   img:'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=600&q=85',
+   fb:'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=600&q=85',
+   name:'Dầu xả Exosome phục hồi tóc hư tổn — Darjeeling Tea 519ml (bộ 2)',
+   cat_name:'Chăm sóc tóc',sale:459000,orig:998000,off:'-54%',
+   note:'Cải thiện tóc gãy 21% · Exosome',
+   desc:'Nano exosome cấu trúc lại từng sợi tóc từ bên trong, phục hồi tóc hư tổn nặng. Dùng kết hợp dầu gội Exosome cho hiệu quả tối ưu.',
    cnt:189},
-  {id:3, cat:'hair', badge:'best',
-   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260109/f12b499814a821f67f25024978a45cb5.jpg',
-   fb:'https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=600&q=80',
-   name:'Dầu gội Beer Yeast ngừa rụng &amp; tăng thể tích — Purple Ocean 1059ml (bộ 2)',
-   cat_name:'Chăm sóc tóc', sale:459000, orig:664000, off:'-31%',
-   note:'Giảm rụng tóc 35%',
-   desc:'Men bia Đức (Beer Yeast) + protein keratin nuôi dưỡng chân tóc từ gốc rễ, giảm rụng tóc 35%, tăng độ dày và thể tích tóc. Hương Purple Ocean — tươi mát, phong cách. Đại dung tích 1059ml dùng lâu.',
+
+  // ══ CHĂM SÓC TÓC — TẦM TRUNG+ ══
+  {id:3,cat:'hair',badge:'best',tier:'Tầm trung+',
+   img:'https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=600&q=85',
+   fb:'https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=600&q=85',
+   name:'Dầu gội Beer Yeast ngừa rụng & tăng thể tích — Purple Ocean 1059ml (bộ 2)',
+   cat_name:'Chăm sóc tóc',sale:529000,orig:1198000,off:'-56%',
+   note:'Giảm rụng tóc 35% · 2.118ml',
+   desc:'Men bia Đức + protein keratin nuôi dưỡng chân tóc từ gốc rễ, tăng thể tích tóc, giảm rụng 35%. Bộ 2 chai 1059ml đại dung tích.',
    cnt:312},
-  {id:4, cat:'hair', badge:'best',
-   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260109/f12b499814a821f67f25024978a45cb5.jpg',
-   fb:'https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=600&q=80',
-   name:'Dầu gội Beer Yeast ngừa rụng &amp; tăng thể tích — French Lavender 1059ml (bộ 2)',
-   cat_name:'Chăm sóc tóc', sale:459000, orig:664000, off:'-31%',
-   note:'Giảm rụng tóc 35%',
-   desc:'Men bia Đức + protein keratin phục hồi tóc. Hương French Lavender nhẹ nhàng, thư giãn. Phù hợp cho cả gia đình, dùng hàng ngày. Sản phẩm không chứa silicone, không gây bết tóc.',
+  {id:4,cat:'hair',badge:'',tier:'Tầm trung+',
+   img:'https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=600&q=85',
+   fb:'https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=600&q=85',
+   name:'Dầu gội Beer Yeast ngừa rụng & tăng thể tích — French Lavender 1059ml (bộ 2)',
+   cat_name:'Chăm sóc tóc',sale:529000,orig:1198000,off:'-56%',
+   note:'Giảm rụng tóc 35% · 2.118ml',
+   desc:'Men bia Đức + protein keratin. Hương French Lavender nhẹ nhàng, thư giãn. Phù hợp cả gia đình dùng hàng ngày.',
    cnt:198},
-  {id:5, cat:'hair', badge:'',
-   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260109/2dd2725ca57e5bdb25fff82555c86f06.jpg',
-   fb:'https://images.unsplash.com/photo-1600428853876-fb7ea814e7a0?w=600&q=80',
+  {id:5,cat:'hair',badge:'best',tier:'Tầm trung+',
+   img:'https://images.unsplash.com/photo-1600428853876-fb7ea814e7a0?w=600&q=85',
+   fb:'https://images.unsplash.com/photo-1600428853876-fb7ea814e7a0?w=600&q=85',
    name:'Dầu xả Silk Repair phục hồi tóc hư tổn — Camellia 1059ml (bộ 2)',
-   cat_name:'Chăm sóc tóc', sale:459000, orig:664000, off:'-31%',
-   note:'Tăng độ bóng 51%',
-   desc:'Protein tơ tằm + dầu hoa trà (camellia) tái tạo lớp cutin bảo vệ, tăng độ bóng tóc 51%, giảm khô xơ gãy rụng. Hương Camellia nồng nàn, sang trọng. Dùng cho tóc khô xơ, tóc nhuộm và uốn.',
+   cat_name:'Chăm sóc tóc',sale:529000,orig:1198000,off:'-56%',
+   note:'Tăng độ bóng 51% · 2.118ml',
+   desc:'Protein tơ tằm + dầu hoa trà tái tạo lớp cutin, tăng độ bóng 51%. Tóc mềm mướt như tóc mới ngay từ lần đầu.',
    cnt:278},
-  {id:6, cat:'hair', badge:'',
-   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260109/2dd2725ca57e5bdb25fff82555c86f06.jpg',
-   fb:'https://images.unsplash.com/photo-1600428853876-fb7ea814e7a0?w=600&q=80',
-   name:'Dầu xả Treatment Beer Yeast — Camellia 1059ml (bộ 1 + hộp)',
-   cat_name:'Chăm sóc tóc', sale:259000, orig:370000, off:'-30%',
-   note:'Phiên bản boxed',
-   desc:'Phiên bản hộp quà (boxed) của dầu xả Beer Yeast Camellia. Thiết kế sang trọng, thích hợp làm quà tặng. Công thức men bia + protein nâng cơ tóc, dưỡng bóng và mềm mướt.',
-   cnt:145},
-  {id:7, cat:'hair', badge:'',
-   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260109/2dd2725ca57e5bdb25fff82555c86f06.jpg',
-   fb:'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=600&q=80',
+  {id:6,cat:'hair',badge:'',tier:'Tầm trung+',
+   img:'https://images.unsplash.com/photo-1565031491910-e57fac98c7be?w=600&q=85',
+   fb:'https://images.unsplash.com/photo-1565031491910-e57fac98c7be?w=600&q=85',
    name:'Dầu xả Treatment — Purple Ocean 1059ml (bộ 2)',
-   cat_name:'Chăm sóc tóc', sale:459000, orig:664000, off:'-31%',
-   note:'Tăng độ bóng 51%',
-   desc:'Dầu xả cặp đôi hoàn hảo với dầu gội Beer Yeast Purple Ocean. Phục hồi tóc từ bên trong, làm mịn bề mặt tóc, giảm xơ rối. Hương Purple Ocean — tươi sáng, hiện đại.',
+   cat_name:'Chăm sóc tóc',sale:529000,orig:1198000,off:'-56%',
+   note:'Tăng độ bóng 51% · 2.118ml',
+   desc:'Dầu xả cặp đôi với dầu gội Beer Yeast Purple Ocean. Phục hồi tóc từ bên trong, làm mịn bề mặt, giảm xơ rối.',
    cnt:156},
 
-  // ── CHĂM SÓC DA / CƠ THỂ ──
-  {id:8, cat:'body', badge:'best',
-   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260109/b252bfb450b6ce1a1fb4eb63037ec3b7.jpg',
-   fb:'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&q=80',
+  // ══ CHĂM SÓC TÓC — PHỔ THÔNG (BOXED) ══
+  {id:7,cat:'hair',badge:'sale',tier:'Phổ thông',
+   img:'https://images.unsplash.com/photo-1631390309660-5f0e5e4e9a1e?w=600&q=85',
+   fb:'https://images.unsplash.com/photo-1631390309660-5f0e5e4e9a1e?w=600&q=85',
+   name:'Dầu xả Beer Yeast Camellia 1059ml — Hộp quà tặng',
+   cat_name:'Chăm sóc tóc',sale:349000,orig:664000,off:'-47%',
+   note:'Hộp quà sang trọng · 1 chai',
+   desc:'Phiên bản hộp quà (boxed) của dầu xả Beer Yeast Camellia. Thiết kế sang trọng, thích hợp làm quà. Men bia + protein nâng cơ tóc.',
+   cnt:145},
+
+  // ══ CHĂM SÓC DA — TẦM TRUNG+ ══
+  {id:8,cat:'body',badge:'best',tier:'Tầm trung+',
+   img:'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&q=85',
+   fb:'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&q=85',
    name:'Sữa tắm Acne Care Functional — Aqua Forest 1059ml (bộ 2)',
-   cat_name:'Chăm sóc da', sale:459000, orig:664000, off:'-31%',
-   note:'Giảm bã nhờn 98%',
-   desc:'Centella Asiatica + BHA nhẹ làm sạch sâu lỗ chân lông, kiểm soát mụn lưng và vai hiệu quả. Được kiểm nghiệm lâm sàng: giảm bã nhờn 98%, giảm mụn viêm. Hương Aqua Forest mát lạnh, sảng khoái. Phù hợp da dầu mụn.',
+   cat_name:'Chăm sóc da',sale:529000,orig:1198000,off:'-56%',
+   note:'Giảm bã nhờn 98% · 2.118ml',
+   desc:'Centella Asiatica + BHA nhẹ kiểm soát mụn lưng và vai. Giảm bã nhờn 98% theo kiểm nghiệm lâm sàng. Hương Aqua Forest mát lạnh.',
    cnt:203},
-  {id:9, cat:'body', badge:'',
-   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260109/b252bfb450b6ce1a1fb4eb63037ec3b7.jpg',
-   fb:'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&q=80',
-   name:'Sữa tắm Acne Care — Aqua Forest 1059ml (bộ 1 + hộp)',
-   cat_name:'Chăm sóc da', sale:249000, orig:370000, off:'-33%',
-   note:'Phiên bản boxed',
-   desc:'Phiên bản hộp quà của sữa tắm Acne Care Aqua Forest. Giảm bã nhờn 98%, kiểm soát mụn hiệu quả. Thiết kế hộp sang trọng, thích hợp làm quà tặng cho người thân.',
-   cnt:134},
-  {id:10, cat:'body', badge:'best',
-   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260109/5b7167ee9dbbba364a3dd0631277f4fe.jpg',
-   fb:'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=600&q=80',
+
+  // ══ CHĂM SÓC DA — TẦM TRUNG ══
+  {id:9,cat:'body',badge:'',tier:'Tầm trung',
+   img:'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=600&q=85',
+   fb:'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=600&q=85',
    name:'Sữa tắm Aroma Deep Perfume — Lavender Soap 1059ml (bộ 2)',
-   cat_name:'Chăm sóc da', sale:439000, orig:664000, off:'-34%',
-   note:'Giảm mùi cơ thể 95%',
-   desc:'Blend tinh dầu hữu cơ cao cấp, mùi thơm lưu lâu suốt cả ngày. Giảm mùi cơ thể 95% theo kiểm nghiệm lâm sàng. Hương Lavender Soap — thư giãn, nhẹ nhàng. Da mềm mịn như sau khi spa.',
+   cat_name:'Chăm sóc da',sale:479000,orig:1198000,off:'-60%',
+   note:'Giảm mùi cơ thể 95% · 2.118ml',
+   desc:'Tinh dầu hữu cơ cao cấp, mùi thơm lưu lâu cả ngày. Hương Lavender Soap thư giãn, da mềm mịn như sau khi spa.',
    cnt:167},
-  {id:11, cat:'body', badge:'',
-   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260109/5b7167ee9dbbba364a3dd0631277f4fe.jpg',
-   fb:'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=600&q=80',
-   name:'Sữa tắm Aroma Deep Perfume — Lavender Soap 1059ml (bộ 1 + hộp)',
-   cat_name:'Chăm sóc da', sale:249000, orig:370000, off:'-33%',
-   note:'Phiên bản boxed',
-   desc:'Phiên bản hộp quà của sữa tắm Aroma Lavender. Tinh dầu hữu cơ, hương Lavender thư giãn. Thiết kế hộp cao cấp. Lý tưởng làm quà tặng sinh nhật, lễ tết.',
-   cnt:98},
-  {id:12, cat:'body', badge:'',
-   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260109/5b7167ee9dbbba364a3dd0631277f4fe.jpg',
-   fb:'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=600&q=80',
+  {id:10,cat:'body',badge:'',tier:'Tầm trung',
+   img:'https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=600&q=85',
+   fb:'https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=600&q=85',
    name:'Sữa tắm Aroma Deep Perfume — Mint Lavender 1059ml (bộ 2)',
-   cat_name:'Chăm sóc da', sale:439000, orig:664000, off:'-34%',
-   note:'Giảm mùi cơ thể 95%',
-   desc:'Hương Mint Lavender — kết hợp bạc hà mát lạnh và lavender thư giãn. Tinh dầu hữu cơ nuôi dưỡng da. Giảm mùi cơ thể 95%. Phù hợp dùng sau khi tập thể thao hoặc các ngày nóng bức.',
+   cat_name:'Chăm sóc da',sale:479000,orig:1198000,off:'-60%',
+   note:'Giảm mùi cơ thể 95% · 2.118ml',
+   desc:'Hương Mint Lavender — bạc hà mát lạnh kết hợp lavender thư giãn. Phù hợp sau khi tập thể thao hoặc ngày nóng bức.',
    cnt:112},
-  {id:13, cat:'body', badge:'',
-   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260109/5b7167ee9dbbba364a3dd0631277f4fe.jpg',
-   fb:'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=600&q=80',
+  {id:11,cat:'body',badge:'new',tier:'Tầm trung',
+   img:'https://images.unsplash.com/photo-1607602132700-068258431c8d?w=600&q=85',
+   fb:'https://images.unsplash.com/photo-1607602132700-068258431c8d?w=600&q=85',
    name:'Sữa tắm Aroma Deep Perfume — Almond Milk 1059ml (bộ 2)',
-   cat_name:'Chăm sóc da', sale:439000, orig:664000, off:'-34%',
-   note:'Dưỡng da ngọt dịu',
-   desc:'Hương Almond Milk — ngọt nhẹ, ấm áp. Dầu hạnh nhân dưỡng ẩm sâu, da mềm mịn. Giảm mùi cơ thể 95%. Phù hợp cho mùa đông hoặc da khô.',
+   cat_name:'Chăm sóc da',sale:479000,orig:1198000,off:'-60%',
+   note:'Dưỡng da ngọt dịu · 2.118ml',
+   desc:'Hương Almond Milk ngọt nhẹ, ấm áp. Dầu hạnh nhân dưỡng ẩm sâu, da mềm mịn. Phù hợp mùa đông hoặc da khô.',
    cnt:89},
-  {id:14, cat:'body', badge:'new',
-   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260112/674e30dfcdab4eaf4073bd92c97cfd89.jpg',
-   fb:'https://images.unsplash.com/photo-1607602132700-068258431c8d?w=600&q=80',
+  {id:12,cat:'body',badge:'',tier:'Tầm trung',
+   img:'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&q=85',
+   fb:'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&q=85',
    name:'Sữa dưỡng thể Body Lotion — Almond Milk 1059ml (bộ 2)',
-   cat_name:'Chăm sóc da', sale:439000, orig:664000, off:'-34%',
-   note:'Dưỡng ẩm 270%',
-   desc:'Bơ hạt Cupuaçu vàng + 8 loại dầu hữu cơ cấp ẩm tức thì, duy trì độ ẩm 270% liên tục 24 giờ. Không nhờn, thấm nhanh. Hương Almond Milk ngọt nhẹ, dễ chịu. Dùng sau tắm khi da còn ẩm.',
+   cat_name:'Chăm sóc da',sale:479000,orig:1198000,off:'-60%',
+   note:'Dưỡng ẩm 270% · 2.118ml',
+   desc:'Bơ Cupuaçu vàng + 8 dầu hữu cơ cấp ẩm tức thì, duy trì 24 giờ. Hương Almond Milk. Dùng sau tắm khi da còn ẩm.',
    cnt:143},
-  {id:15, cat:'body', badge:'',
-   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260112/674e30dfcdab4eaf4073bd92c97cfd89.jpg',
-   fb:'https://images.unsplash.com/photo-1607602132700-068258431c8d?w=600&q=80',
-   name:'Sữa dưỡng thể Body Lotion — Almond Milk 1059ml (bộ 1)',
-   cat_name:'Chăm sóc da', sale:259000, orig:370000, off:'-30%',
-   note:'Dưỡng ẩm 270%',
-   desc:'Phiên bản 1 chai của sữa dưỡng thể Body Lotion Almond Milk. Bơ Cupuaçu + 8 dầu hữu cơ. Dưỡng ẩm 270%, da mềm mịn và thơm suốt ngày. Thích hợp thử trước khi mua bộ 2.',
+  {id:13,cat:'body',badge:'',tier:'Tầm trung',
+   img:'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=85',
+   fb:'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=85',
+   name:'Tẩy tế bào chết Sugar Scrub — Bergamot Forest 519g (bộ 2)',
+   cat_name:'Chăm sóc da',sale:479000,orig:838000,off:'-43%',
+   note:'Cải thiện da sần 97% · 1.038g',
+   desc:'Đường mía + dầu thực vật tẩy tế bào chết nhẹ nhàng, da mịn và sáng đều màu. An toàn cho da nhạy cảm. Hương Bergamot.',
+   cnt:95},
+  {id:14,cat:'body',badge:'',tier:'Tầm trung',
+   img:'https://images.unsplash.com/photo-1629198688000-71f23e745b6e?w=600&q=85',
+   fb:'https://images.unsplash.com/photo-1629198688000-71f23e745b6e?w=600&q=85',
+   name:'Kem tẩy lông Centella nhạy cảm — Forest Herb 200ml (bộ 2)',
+   cat_name:'Chăm sóc da',sale:479000,orig:738000,off:'-35%',
+   note:'Dưỡng sáng tông da · 400ml',
+   desc:'Centella Asiatica làm dịu da sau tẩy lông. Hiệu quả sau 6-8 phút, không gây kích ứng. Hương Forest Herb thơm nhẹ.',
+   cnt:134},
+
+  // ══ CHĂM SÓC DA — PHỔ THÔNG (BOXED & ĐƠN) ══
+  {id:15,cat:'body',badge:'sale',tier:'Phổ thông',
+   img:'https://images.unsplash.com/photo-1557053910-d9eadeed1c58?w=600&q=85',
+   fb:'https://images.unsplash.com/photo-1557053910-d9eadeed1c58?w=600&q=85',
+   name:'Sữa tắm Acne Care — Aqua Forest 1059ml — Hộp quà tặng',
+   cat_name:'Chăm sóc da',sale:349000,orig:664000,off:'-47%',
+   note:'Hộp quà sang trọng · 1 chai',
+   desc:'Phiên bản hộp quà của sữa tắm Acne Care Aqua Forest. Giảm bã nhờn 98%. Thiết kế sang trọng cho quà tặng người thân.',
+   cnt:134},
+  {id:16,cat:'body',badge:'sale',tier:'Phổ thông',
+   img:'https://images.unsplash.com/photo-1583241475880-083f84372725?w=600&q=85',
+   fb:'https://images.unsplash.com/photo-1583241475880-083f84372725?w=600&q=85',
+   name:'Sữa tắm Aroma Lavender Soap 1059ml — Hộp quà tặng',
+   cat_name:'Chăm sóc da',sale:349000,orig:664000,off:'-47%',
+   note:'Hộp quà sang trọng · 1 chai',
+   desc:'Phiên bản hộp quà sữa tắm Aroma Lavender. Tinh dầu hữu cơ, hương Lavender thư giãn. Lý tưởng làm quà sinh nhật, lễ tết.',
+   cnt:98},
+  {id:17,cat:'body',badge:'sale',tier:'Phổ thông',
+   img:'https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600&q=85',
+   fb:'https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600&q=85',
+   name:'Sữa dưỡng thể Body Lotion Almond Milk 1059ml — 1 chai',
+   cat_name:'Chăm sóc da',sale:349000,orig:664000,off:'-47%',
+   note:'Dưỡng ẩm 270% · Thử trước mua sau',
+   desc:'Phiên bản 1 chai của Body Lotion Almond Milk. Bơ Cupuaçu + 8 dầu hữu cơ. Thích hợp thử trước khi mua bộ 2.',
    cnt:87},
 
-  // ── CHĂM SÓC TAY ──
-  {id:16, cat:'hand', badge:'best',
-   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260109/b23c8789ee6db99e0b17e38d8c5bf4a4.jpg',
-   fb:'https://images.unsplash.com/photo-1617897903246-719242758050?w=600&q=80',
-   name:'Nước rửa tay Deep Perfume — Hinoki Forest 519ml (bộ 3)',
-   cat_name:'Chăm sóc tay', sale:299000, orig:399000, off:'-25%',
-   note:'97% nguyên liệu tự nhiên',
-   desc:'Tạo bọt mịn từ 97% nguyên liệu tự nhiên, sát khuẩn hiệu quả. Hương Hinoki Forest (Bách Nhật) — thanh mát, tinh tế. Không làm khô tay. Bộ 3 chai kinh tế, dùng được cả năm.',
-   cnt:188},
-  {id:17, cat:'hand', badge:'',
-   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260109/b23c8789ee6db99e0b17e38d8c5bf4a4.jpg',
-   fb:'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=600&q=80',
-   name:'Kem dưỡng tay Cupuaçu &amp; Centella — 59ml (bộ 2)',
-   cat_name:'Chăm sóc tay', sale:199000, orig:299000, off:'-33%',
-   note:'Dưỡng ẩm sâu 24%',
-   desc:'Bơ Cupuaçu + Centella Asiatica dưỡng ẩm sâu không nhờn tay, thấm nhanh. Dùng cả ngày văn phòng không bóng nhờn. Size 59ml mini tiện mang theo túi xách. Bộ 2 cái dùng 1 để nhà, 1 bỏ túi.',
+  // ══ CHĂM SÓC TAY ══
+  {id:18,cat:'hand',badge:'best',tier:'Phổ thông',
+   img:'https://images.unsplash.com/photo-1617897903246-719242758050?w=600&q=85',
+   fb:'https://images.unsplash.com/photo-1617897903246-719242758050?w=600&q=85',
+   name:'Kem dưỡng tay Cupuaçu & Centella — 59ml (bộ 2)',
+   cat_name:'Chăm sóc tay',sale:299000,orig:598000,off:'-50%',
+   note:'Dưỡng ẩm sâu · Không nhờn tay',
+   desc:'Bơ Cupuaçu + Centella Asiatica dưỡng ẩm sâu không nhờn, thấm nhanh. Size 59ml mini tiện mang theo. Bộ 2 cái.',
    cnt:321},
+  {id:19,cat:'hand',badge:'',tier:'Tầm trung',
+   img:'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=600&q=85',
+   fb:'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=600&q=85',
+   name:'Nước rửa tay Deep Perfume — Hinoki Forest 519ml (bộ 3)',
+   cat_name:'Chăm sóc tay',sale:379000,orig:797000,off:'-52%',
+   note:'97% tự nhiên · 1.557ml',
+   desc:'97% nguyên liệu tự nhiên, sát khuẩn hiệu quả. Hương Hinoki Forest (Bách Nhật) thanh mát. Bộ 3 chai siêu tiết kiệm.',
+   cnt:188},
+  {id:20,cat:'hand',badge:'',tier:'Phổ thông',
+   img:'https://images.unsplash.com/photo-1547637589-f54c34f5d7a4?w=600&q=85',
+   fb:'https://images.unsplash.com/photo-1547637589-f54c34f5d7a4?w=600&q=85',
+   name:'Xà phòng Houttuynia + Black Charcoal — Tea Tree 125g (bộ 4)',
+   cat_name:'Chăm sóc tay',sale:349000,orig:664000,off:'-47%',
+   note:'Thu nhỏ lỗ chân lông 24%',
+   desc:'Than hoạt tính + Houttuynia Cordata hút sạch bã nhờn, thu nhỏ lỗ chân lông. Hương Tea Tree tươi mát. Bộ 4 bánh.',
+   cnt:76},
 
-  // ── BỘ SET ──
-  {id:18, cat:'set', badge:'best',
-   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260120/88abf512f1bef9a574927d63dba2b6d6.jpg',
-   fb:'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=600&q=80',
-   name:'Bộ set Shower 3 món: Dầu gội + Dầu xả + Sữa tắm 1059ml',
-   cat_name:'Bộ set', sale:899000, orig:1392000, off:'-35%',
-   note:'Tiết kiệm nhất',
-   desc:'Trọn bộ chăm sóc tóc &amp; da hoàn hảo: Dầu gội Beer Yeast 1059ml + Dầu xả Silk Repair 1059ml + Sữa tắm Aroma 1059ml. Đại dung tích, đủ dùng cho cả gia đình 3–4 tháng. Tiết kiệm hơn mua lẻ 35%.',
+  // ══ BỘ SET — CAO CẤP ══
+  {id:21,cat:'set',badge:'best',tier:'Cao cấp',
+   img:'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=600&q=85',
+   fb:'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=600&q=85',
+   name:'🎁 Bộ set Shower 3 món — Dầu gội + Dầu xả + Sữa tắm 1059ml',
+   cat_name:'Bộ set',sale:899000,orig:2394000,off:'-62%',
+   note:'Tiết kiệm nhất · 3.177ml tổng',
+   desc:'Trọn bộ hoàn hảo: Dầu gội Beer Yeast 1059ml + Dầu xả Silk Repair 1059ml + Sữa tắm Aroma 1059ml. Đủ dùng 3-4 tháng.',
    cnt:412},
-  {id:19, cat:'set', badge:'',
-   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260120/88abf512f1bef9a574927d63dba2b6d6.jpg',
-   fb:'https://images.unsplash.com/photo-1629198688000-71f23e745b6e?w=600&q=80',
-   name:'Bộ set Signature: Dầu gội Exosome + Dầu xả Exosome — Darjeeling Tea 519ml (bộ 2)',
-   cat_name:'Bộ set', sale:849000, orig:1328000, off:'-36%',
-   note:'Bộ đôi Exosome',
-   desc:'Combo cao cấp nhất: Dầu gội Exosome 519ml×2 + Dầu xả Exosome 519ml×2. Công nghệ nano exosome — giảm rụng tóc 70%, cải thiện tóc gãy 21%. Hương Darjeeling Tea thanh lịch. Lý tưởng cho tóc rụng nhiều và hư tổn nặng.',
+  {id:22,cat:'set',badge:'new',tier:'Cao cấp',
+   img:'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=85',
+   fb:'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=85',
+   name:'🎁 Bộ set Signature Exosome — Dầu gội + Dầu xả Darjeeling Tea 519ml×4',
+   cat_name:'Bộ set',sale:999000,orig:1996000,off:'-50%',
+   note:'Bộ cao cấp nhất · Exosome',
+   desc:'Combo cao cấp: Dầu gội Exosome 519ml×2 + Dầu xả Exosome 519ml×2. Giảm rụng 70%, phục hồi tóc gãy 21%. Hương Darjeeling Tea.',
    cnt:234},
-  {id:20, cat:'set', badge:'new',
-   img:'https://ecimg.cafe24img.com/pg1724b85512632068/arthel/web/product/medium/20260120/a0ffd407b05b97c0eebc5394c9dcb024.jpg',
-   fb:'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=600&q=80',
-   name:'Bộ set Body: Sữa tắm Aroma + Sữa dưỡng thể Butter 1059ml',
-   cat_name:'Bộ set', sale:799000, orig:1128000, off:'-29%',
-   note:'Bộ đôi dưỡng da',
-   desc:'Combo chăm sóc toàn thân: Sữa tắm Aroma Deep Perfume 1059ml + Sữa dưỡng thể Almond Milk 1059ml. Da thơm từ khi tắm đến khi bôi dưỡng. Tiết kiệm hơn mua lẻ, đủ dùng 3–4 tháng.',
-   cnt:156},,
-  // ── FLOCAM DIFFUSER — Nước hoa phòng nghệ thuật Hàn Quốc ──
-  {id:21,cat:'flocam',badge:'new',
+  {id:23,cat:'set',badge:'',tier:'Cao cấp',
+   img:'https://images.unsplash.com/photo-1570194065650-d99fb4b38a17?w=600&q=85',
+   fb:'https://images.unsplash.com/photo-1570194065650-d99fb4b38a17?w=600&q=85',
+   name:'🎁 Bộ set Body — Sữa tắm Aroma + Sữa dưỡng thể Butter 1059ml',
+   cat_name:'Bộ set',sale:799000,orig:1596000,off:'-50%',
+   note:'Bộ đôi dưỡng da · 2.118ml',
+   desc:'Combo chăm sóc toàn thân: Sữa tắm Aroma 1059ml + Sữa dưỡng thể Almond Milk 1059ml. Da thơm mịn suốt cả ngày.',
+   cnt:156},
+
+  // ══ FLOCAM — NƯỚC HOA PHÒNG ══
+  {id:24,cat:'flocam',badge:'new',tier:'Nước hoa phòng',
    img:'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=600&q=85',
    fb:'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=600&q=85',
    name:'Nước hoa phòng Flocam — Gogh Bombshell 519ml (bộ 2)',
    cat_name:'Nước hoa phòng',sale:459000,orig:700000,off:'-34%',
-   note:'Hương Bombshell quyến rũ',
-   desc:'Flocam Diffuser lấy cảm hứng từ danh họa Van Gogh. Hương Bombshell — ngọt ngào, quyến rũ, nồng nàn. Dung tích 519ml×2, lưu hương đến 3 tháng. Bao bì nghệ thuật sang trọng, lý tưởng làm quà tặng.',cnt:89},
-  {id:22,cat:'flocam',badge:'',
+   note:'Hương Bombshell · Cảm hứng Van Gogh',
+   desc:'Flocam Diffuser lấy cảm hứng từ danh họa Van Gogh. Hương Bombshell quyến rũ, ngọt ngào. Lưu hương đến 3 tháng. Bao bì nghệ thuật.',
+   cnt:89},
+  {id:25,cat:'flocam',badge:'',tier:'Nước hoa phòng',
    img:'https://images.unsplash.com/photo-1602928321679-560bb453f190?w=600&q=85',
    fb:'https://images.unsplash.com/photo-1602928321679-560bb453f190?w=600&q=85',
    name:'Nước hoa phòng Flocam — Monet Ylang-Ylang 519ml (bộ 2)',
    cat_name:'Nước hoa phòng',sale:459000,orig:700000,off:'-34%',
-   note:'Hương hoa Ylang thanh nhã',
-   desc:'Flocam Diffuser lấy cảm hứng từ danh họa Monet. Hương Ylang-Ylang — hoa lài nhiệt đới, ngọt dịu, nữ tính. 519ml×2. Thích hợp phòng ngủ, phòng khách.',cnt:67},
-  {id:23,cat:'flocam',badge:'',
+   note:'Hương Ylang · Cảm hứng Monet',
+   desc:'Flocam Diffuser cảm hứng từ danh họa Monet. Hương Ylang-Ylang hoa lài nhiệt đới, ngọt dịu. Thích hợp phòng ngủ, phòng khách.',
+   cnt:67},
+  {id:26,cat:'flocam',badge:'',tier:'Nước hoa phòng',
    img:'https://images.unsplash.com/photo-1585421514738-01798e348b17?w=600&q=85',
    fb:'https://images.unsplash.com/photo-1585421514738-01798e348b17?w=600&q=85',
    name:'Nước hoa phòng Flocam — Hesse Garden 519ml (bộ 2)',
    cat_name:'Nước hoa phòng',sale:459000,orig:700000,off:'-34%',
-   note:'Hương vườn xanh thiên nhiên',
-   desc:'Flocam Diffuser cảm hứng từ nhà văn Hermann Hesse. Hương Garden — cỏ xanh, gỗ tươi, thiên nhiên thuần khiết. Tạo không gian thư giãn bình yên.',cnt:54},
-  {id:24,cat:'flocam',badge:'',
+   note:'Hương vườn xanh · Cảm hứng Hesse',
+   desc:'Cảm hứng từ nhà văn Hermann Hesse. Hương Garden — cỏ xanh, gỗ tươi, thiên nhiên thuần khiết. Tạo không gian bình yên.',
+   cnt:54},
+  {id:27,cat:'flocam',badge:'',tier:'Nước hoa phòng',
    img:'https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600&q=85',
    fb:'https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600&q=85',
    name:'Nước hoa phòng Flocam — Picasso Woody 519ml (bộ 2)',
    cat_name:'Nước hoa phòng',sale:459000,orig:700000,off:'-34%',
-   note:'Hương gỗ trầm nam tính',
-   desc:'Flocam Diffuser cảm hứng từ Picasso. Hương Woody — gỗ trầm, xạ hương tinh tế. Thích hợp phòng làm việc, thư phòng.',cnt:48},
-  {id:25,cat:'flocam',badge:'',
+   note:'Hương gỗ trầm · Cảm hứng Picasso',
+   desc:'Cảm hứng từ Picasso. Hương Woody — gỗ trầm, xạ hương tinh tế. Thích hợp phòng làm việc, thư phòng, không gian sáng tạo.',
+   cnt:48},
+  {id:28,cat:'flocam',badge:'',tier:'Nước hoa phòng',
    img:'https://images.unsplash.com/photo-1547637589-f54c34f5d7a4?w=600&q=85',
    fb:'https://images.unsplash.com/photo-1547637589-f54c34f5d7a4?w=600&q=85',
    name:'Nước hoa phòng Flocam — Millet Forest Path 519ml (bộ 2)',
    cat_name:'Nước hoa phòng',sale:459000,orig:700000,off:'-34%',
-   note:'Hương rừng trong lành',
-   desc:'Flocam Diffuser cảm hứng từ Millet. Hương Forest Path — con đường rừng, bạch dương, sương sớm. Mùi hương trong lành, dịu mát, phù hợp mọi không gian.',cnt:41}
+   note:'Hương rừng trong lành · Cảm hứng Millet',
+   desc:'Cảm hứng từ danh họa Millet. Hương Forest Path — bạch dương, sương sớm, trong lành. Phù hợp mọi không gian sống.',
+   cnt:41},
 ];
 
 P.forEach(p => {
-  if([1,3,5,8,10,16,18,19].includes(p.id)) p.isBest = true;
+  if([1,3,5,8,12,18,21,22].includes(p.id)) p.isBest = true;
+  if(p.badge==='sale') p.isSale = true;
 });
 
 /* ═══ STATE ═══ */
@@ -1003,6 +1053,7 @@ const PLPmeta = {
   body:{t:'Chăm sóc da & Cơ thể',s:'Sữa tắm, sữa dưỡng thể, kem tẩy lông cao cấp từ Hàn Quốc'},
   hand:{t:'Chăm sóc tay',s:'Nước rửa tay, kem dưỡng tay — 97% thành phần tự nhiên'},
   set:{t:'Bộ set tiết kiệm',s:'Các combo Monfri tiết kiệm hơn mua lẻ 25–36%'},
+  sale:{t:'Đang giảm giá',s:'Ưu đãi đặc biệt — hộp quà & sản phẩm thử nghiệm giá tốt'},
   flocam:{t:'Nước hoa phòng Flocam',s:'Nước hoa phòng cao cấp Hàn Quốc — lấy cảm hứng từ các danh họa thế giới'},
   best:{t:'Best Seller',s:'Những sản phẩm được khách hàng Việt yêu thích nhất'},
 };
@@ -1052,6 +1103,7 @@ function cardHTML(p){
       </div>
     </div>
     <div class="pinfo">
+      <div style="margin-bottom:.25rem">${p.tier?`<span class="tier-badge ${p.tier==='Cao cấp'?'tier-premium':p.tier==='Tầm trung+'?'tier-mid-plus':p.tier==='Tầm trung'?'tier-mid':p.tier==='Nước hoa phòng'?'tier-flocam':'tier-basic'}">${p.tier}</span>`:''}</div>
       <div class="pcat">${p.cat_name} · ${p.note}</div>
       <div class="pname">${p.name}</div>
       <div class="ppr">
@@ -1503,7 +1555,7 @@ function renderRevs(filter) {
     <div class="rev-item">
       <div class="rev-item-head">
         <div class="rev-avatar">
-          <img src="https://i.pravatar.cc/36?u=${r.id}" alt="${r.user}">
+          
         </div>
         <div>
           <div class="rev-uname">${r.user} <span style="font-size:10.5px;color:var(--mid);font-weight:300">— ${r.loc}</span></div>
@@ -1669,7 +1721,7 @@ setTimeout(()=>{
                 <ul>
                   <li><b>Thương hiệu:</b> Monfri (ArtheL Co., Ltd.)</li>
                   <li><b>Xuất xứ:</b> Hàn Quốc</li>
-                  <li><b>Nhà phân phối:</b> Monfri Vietnam (độc quyền)</li>
+                  <li><b>Nhà phân phối:</b> Monfri Vietnam (chính hãng)</li>
                   <li id="pdp-info-vol"></li>
                   <li><b>Hạn sử dụng:</b> 36 tháng kể từ ngày sản xuất</li>
                   <li><b>Bảo quản:</b> Nơi khô ráo, tránh ánh nắng trực tiếp</li>
