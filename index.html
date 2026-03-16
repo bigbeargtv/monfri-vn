@@ -132,7 +132,7 @@ header{position:sticky;top:0;z-index:90;background:rgba(250,250,248,.97);backdro
 .bt{font-family:var(--serif);font-size:clamp(24px,2.8vw,36px);color:#fff;font-weight:400;line-height:1.2;margin-bottom:1.2rem}
 .bt i{font-style:italic;color:rgba(255,255,255,.4)}
 .bd{font-size:13.5px;color:rgba(255,255,255,.45);line-height:1.95;max-width:400px;margin-bottom:2rem;font-weight:300}
-.bpillars{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2.5rem}
+.bpillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:2.5rem}
 .bp{padding:1rem;border:1px solid rgba(255,255,255,.06)}
 .bp-t{font-size:12px;font-weight:500;color:#fff;margin-bottom:.2rem}
 .bp-d{font-size:11px;color:rgba(255,255,255,.35);line-height:1.5}
@@ -459,6 +459,35 @@ footer{background:#111;padding:3.5rem 0 2rem;color:rgba(255,255,255,.4)}
 .tier-mid{background:#5c4f43;color:#fff}
 .tier-basic{background:var(--pale);color:var(--mid)}
 .tier-flocam{background:linear-gradient(135deg,#4a1a6b,#8b3ab5);color:#fff}
+
+
+/* Detail content styles */
+.detail-section{margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid var(--pale)}
+.detail-section:last-child{border-bottom:none;margin-bottom:0}
+.detail-section-title{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:1rem}
+.clinical-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem;margin-bottom:1rem}
+@media(min-width:540px){.clinical-grid{grid-template-columns:repeat(4,1fr)}}
+.clinical-card{background:var(--warm);border:1px solid var(--pale);border-radius:8px;padding:1rem;text-align:center}
+.clinical-num{font-family:var(--serif);font-size:28px;font-weight:400;color:var(--red);line-height:1}
+.clinical-label{font-size:11px;color:var(--mid);margin-top:.3rem;line-height:1.4}
+.clinical-note{font-size:11px;color:var(--mid);text-align:center;opacity:.7;margin-top:.3rem}
+.story-card{display:flex;gap:1rem;align-items:flex-start;padding:.8rem 0;border-bottom:1px solid var(--pale)}
+.story-card:last-child{border-bottom:none}
+.story-ico{width:40px;height:40px;border-radius:8px;background:var(--warm);border:1px solid var(--pale);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.story-t{font-size:13px;font-weight:500;color:var(--c);margin-bottom:.25rem}
+.story-d{font-size:12.5px;color:var(--mid);line-height:1.75}
+.value-row{display:flex;justify-content:space-between;align-items:center;padding:.6rem 0;border-bottom:1px solid var(--pale);font-size:13px}
+.value-row:last-child{border-bottom:none}
+.value-label{color:var(--mid)}
+.value-val{font-weight:500;color:var(--c)}
+.value-win{color:var(--red);font-weight:600}
+.promise-list{display:flex;flex-direction:column;gap:.6rem}
+.promise-item{display:flex;align-items:center;gap:.7rem;font-size:13px;color:var(--c)}
+.promise-ico{width:20px;height:20px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mini-rev{background:var(--warm);border:1px solid var(--pale);border-radius:8px;padding:1rem;margin-bottom:.6rem}
+.mini-rev-stars{color:#e8a020;font-size:12px;margin-bottom:.4rem}
+.mini-rev-text{font-size:13px;color:var(--c);line-height:1.7;font-style:italic}
+.mini-rev-author{font-size:11px;color:var(--mid);margin-top:.4rem}
 
 </style>
 </head>
@@ -1092,26 +1121,244 @@ function renderDetailImgs(pid) {
   const imgs = PRODUCT_DETAIL_IMGS[pid];
   const vn = VN_DESC[pid];
   let h = '<div style="max-width:860px;margin:0 auto;background:#fff">';
-  if (vn) {
-    h += '<div style="padding:1.5rem 1.2rem 1rem;border-bottom:2px solid #c0253c;margin-bottom:.5rem">';
-    h += '<h3 style="font-size:15px;font-weight:600;color:#1a1410;margin-bottom:1rem;line-height:1.4">' + vn.title + '</h3>';
-    h += '<ul style="list-style:none;padding:0;margin:0 0 1rem">';
-    vn.points.forEach(function(p){h += '<li style="font-size:13px;line-height:1.8;color:#3a3530;margin-bottom:.3rem">'+p+'</li>';});
-    h += '</ul>';
-    h += '<div style="background:#f8f3f0;border-radius:6px;padding:.8rem 1rem;margin-bottom:.8rem">';
-    h += '<p style="font-size:12px;font-weight:600;color:#c0253c;margin-bottom:.3rem">📋 CÁCH DÙNG</p>';
-    h += '<p style="font-size:12.5px;color:#555;line-height:1.7;margin:0">' + vn.howto + '</p>';
-    h += '</div>';
-    h += '<div style="background:#f8f3f0;border-radius:6px;padding:.8rem 1rem">';
-    h += '<p style="font-size:12px;font-weight:600;color:#c0253c;margin-bottom:.3rem">🧪 THÀNH PHẦN CHÍNH</p>';
-    h += '<p style="font-size:12px;color:#666;line-height:1.7;margin:0">' + vn.ingredients + '</p>';
-    h += '</div></div>';
-    h += '<p style="font-size:11px;color:#999;text-align:center;padding:.6rem 0;margin:0">— Hình ảnh mô tả từ nhà sản xuất ArtheL, Hàn Quốc —</p>';
-  }
+
+  // Ảnh chi tiết từ Hàn TRƯỚC
   if (imgs && imgs.length) {
-    imgs.forEach(function(u){h += '<img src="'+u+'" style="width:100%;display:block" loading="lazy">';});
+    imgs.forEach(function(u){
+      h += '<img src="'+u+'" style="width:100%;display:block" loading="lazy">';
+    });
   }
+
+  // Box tiếng Việt PHÍA DƯỚI
+  if (vn) {
+    h += '<div style="padding:1.8rem 1.4rem;border-top:3px solid #c0253c;background:#fdf9f7">';
+    h += '<h3 style="font-size:16px;font-weight:700;color:#1a1410;margin:0 0 1.2rem;line-height:1.4;border-bottom:1px solid #e8e0d8;padding-bottom:.8rem">📌 '+vn.title+'</h3>';
+    
+    // Điểm nổi bật
+    h += '<div style="margin-bottom:1.2rem">';
+    h += '<p style="font-size:11px;font-weight:700;color:#c0253c;letter-spacing:.08em;margin:0 0 .6rem;text-transform:uppercase">Điểm nổi bật</p>';
+    h += '<ul style="list-style:none;padding:0;margin:0">';
+    vn.points.forEach(function(p){
+      h += '<li style="font-size:13px;line-height:1.85;color:#3a3530;padding:.2rem 0;border-bottom:1px solid #f0ebe6">'+p+'</li>';
+    });
+    h += '</ul></div>';
+
+    // Cách dùng + Thành phần side by side
+    h += '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem">';
+    h += '<div style="background:#fff;border:1px solid #e8e0d8;border-radius:8px;padding:1rem">';
+    h += '<p style="font-size:11px;font-weight:700;color:#c0253c;letter-spacing:.08em;margin:0 0 .5rem">📋 CÁCH DÙNG</p>';
+    h += '<p style="font-size:12.5px;color:#555;line-height:1.75;margin:0">'+vn.howto+'</p>';
+    h += '</div>';
+    h += '<div style="background:#fff;border:1px solid #e8e0d8;border-radius:8px;padding:1rem">';
+    h += '<p style="font-size:11px;font-weight:700;color:#c0253c;letter-spacing:.08em;margin:0 0 .5rem">🧪 THÀNH PHẦN CHÍNH</p>';
+    h += '<p style="font-size:12px;color:#666;line-height:1.75;margin:0">'+vn.ingredients+'</p>';
+    h += '</div>';
+    h += '</div>';
+
+    h += '<p style="font-size:10.5px;color:#aaa;text-align:center;margin:1rem 0 0">Hình ảnh mô tả từ nhà sản xuất ArtheL Co., Ltd — Hàn Quốc</p>';
+    h += '</div>';
+  }
+
   h += '</div>';
+  return h;
+}
+
+
+// Map clinical data & story per product type
+const DETAIL_DATA = {
+  exosome: {
+    clinical: [
+      {num:'70%', label:'Giảm rụng tóc', note:'Sau 4 tuần'},
+      {num:'21%', label:'Giảm gãy tóc', note:'Kiểm nghiệm lâm sàng'},
+      {num:'97%', label:'Thành phần tự nhiên', note:'Không Paraben'},
+      {num:'4T', label:'Hiệu quả rõ rệt', note:'Dùng liên tục'},
+    ],
+    stories: [
+      {ico:'🔬', t:'Tại sao Nano Exosome lại hiệu quả?', d:'Exosome là "túi nano" từ tế bào gốc — kích thước chỉ 100-200nm, nhỏ hơn nang tóc 100 lần. Nhờ đó thấm sâu trực tiếp vào nhân nang tóc, kích thích tế bào gốc hoạt động và mọc tóc mới. Đây là công nghệ tương tự dùng trong phẫu thuật thẩm mỹ, nay ứng dụng vào dầu gội.'},
+      {ico:'💊', t:'Mỹ phẩm chức năng — không phải dầu gội thông thường', d:'Sản phẩm được Bộ Y tế Hàn Quốc cấp phép là "mỹ phẩm chức năng ngừa rụng tóc" (기능성 화장품). Đây là tiêu chuẩn cao nhất, yêu cầu thử nghiệm lâm sàng trên người trước khi được cấp phép.'},
+      {ico:'🌿', t:'97% nguyên liệu tự nhiên — an toàn dùng hàng ngày', d:'Không chứa Paraben, Silicon, SLS/SLES hay hương liệu độc hại. Phù hợp cho da đầu nhạy cảm, dùng được hàng ngày mà không lo tích tụ hóa chất.'},
+    ],
+    compare: [
+      {label:'Dầu gội Ryo (500ml)', val:'~350.000đ', note:'70.000đ/100ml'},
+      {label:'Monfri Exosome (519ml×2)', val:'459.000đ', win:'44.000đ/100ml — Rẻ hơn 37%'},
+      {label:'Hiệu quả lâm sàng', val:'✓ Giảm rụng 70%', win:'Cao hơn'},
+    ],
+    reviews: [
+      {stars:5, text:'"Dùng 3 tuần tóc đã bớt rụng rõ rệt. Trước đây chải tóc là đầy lược giờ không còn nữa. Hương thơm rất dễ chịu, không hắc như nhiều loại dầu gội trị rụng khác."', author:'Nguyễn T.H., Hà Nội'},
+      {stars:5, text:'"Da đầu mình hay bị ngứa và gàu, dùng loại này sau 2 tuần hết hẳn. Tóc cũng mượt hơn hẳn, không cần dùng dầu xả."', author:'Trần M.L., TP.HCM'},
+    ]
+  },
+  beer: {
+    clinical: [
+      {num:'35%', label:'Giảm rụng tóc', note:'Sau 4 tuần'},
+      {num:'51%', label:'Tăng độ bóng', note:'Kiểm nghiệm lâm sàng'},
+      {num:'2.1L', label:'Tổng dung tích', note:'1059ml × 2'},
+      {num:'97%', label:'Thành phần tự nhiên', note:'Không SLS'},
+    ],
+    stories: [
+      {ico:'🍺', t:'Men bia Đức — bí quyết từ ngành nấu bia thế kỷ', d:'Men bia Saccharomyces cerevisiae từ Đức chứa hàm lượng Vitamin B (B1, B2, B3, B5, B6, B7), amino acid và khoáng chất cao nhất trong tự nhiên. Những dưỡng chất này nuôi dưỡng nang tóc từ gốc rễ, giúp tóc dày và chắc khoẻ từ bên trong.'},
+      {ico:'💪', t:'Protein Keratin phân tử thấp — thấm sâu hơn', d:'Keratin thông thường có phân tử quá lớn, chỉ bọc bên ngoài sợi tóc. Keratin thủy phân (Hydrolyzed Keratin) được cắt nhỏ đến kích thước nano, thấm vào bên trong trục tóc, phục hồi từ lõi ra ngoài.'},
+      {ico:'📦', t:'Dung tích 2.118ml — tiết kiệm nhất phân khúc', d:'Mỗi chai 1059ml dùng được 2-3 tháng cho tóc ngắn-trung bình. Bộ 2 chai đủ dùng 4-6 tháng cho cả gia đình, tương đương mua 4-5 chai dầu gội thông thường.'},
+    ],
+    compare: [
+      {label:'Dầu gội Obsidian (1000ml)', val:'570.000đ', note:'57.000đ/100ml'},
+      {label:'Monfri Beer Yeast (1059ml×2)', val:'529.000đ', win:'25.000đ/100ml — Rẻ hơn 56%'},
+      {label:'Dung tích', val:'2.118ml vs 1000ml', win:'Gấp đôi'},
+    ],
+    reviews: [
+      {stars:5, text:'"Dùng được 1 tháng thì thấy tóc dày hẳn lên, chân tóc mọc ra nhiều. Chai 1L dùng rất lâu, đáng tiền hơn nhiều loại đắt tiền mình từng dùng."', author:'Lê V.A., Đà Nẵng'},
+      {stars:5, text:'"Mùi hương rất thơm, dùng xong tóc mềm mướt không cần dầu xả. Rụng tóc giảm đáng kể sau 3 tuần."', author:'Phạm T.N., Hà Nội'},
+    ]
+  },
+  body: {
+    clinical: [
+      {num:'95%', label:'Giảm mùi cơ thể', note:'Lưu hương cả ngày'},
+      {num:'8', label:'Loại tinh dầu hữu cơ', note:'Chứng nhận COSMOS'},
+      {num:'1L', label:'Dung tích mỗi chai', note:'1059ml × 2'},
+      {num:'97%', label:'Thành phần tự nhiên', note:'Không Paraben'},
+    ],
+    stories: [
+      {ico:'🌸', t:'8 tinh dầu hữu cơ — khác gì dầu tắm thông thường?', d:'Dầu tắm thông thường dùng hương liệu tổng hợp tan trong nước, bay hết khi tắm xong. Monfri dùng 8 loại tinh dầu hữu cơ thực sự (Lavender, Jojoba, Sweet Almond...) — phân tử hương bám vào lớp dầu tự nhiên trên da, lưu hương 6-8 giờ.'},
+      {ico:'💧', t:'Dưỡng ẩm trong lúc tắm — không cần kem dưỡng sau', d:'Jojoba Oil và Sweet Almond Oil có cấu trúc phân tử tương tự dầu da tự nhiên (sebum), thấm vào da ngay khi tắm. Nhiều khách hàng phản hồi bỏ được bước dưỡng thể sau tắm.'},
+    ],
+    compare: [
+      {label:'Dầu tắm Sữa Tươi Vinamilk (900ml)', val:'180.000đ', note:'20.000đ/100ml'},
+      {label:'Monfri Aroma (1059ml×2)', val:'479.000đ', win:'22.600đ/100ml — Tinh dầu hữu cơ thật'},
+      {label:'Lưu hương', val:'Cả ngày (6-8 giờ)', win:'Vượt trội'},
+    ],
+    reviews: [
+      {stars:5, text:'"Mùi thơm đỉnh, dùng xong cả ngày vẫn còn thơm nhẹ. Da mềm mịn không cần thêm kem dưỡng. Chai to dùng rất lâu, xứng đáng từng đồng."', author:'Hoàng M.T., TP.HCM'},
+    ]
+  },
+  acne_body: {
+    clinical: [
+      {num:'98%', label:'Giảm bã nhờn', note:'Sau 2 tuần'},
+      {num:'0.5%', label:'BHA Salicylic Acid', note:'Nồng độ tối ưu'},
+      {num:'2.1L', label:'Tổng dung tích', note:'1059ml × 2'},
+      {num:'✓', label:'Mỹ phẩm chức năng', note:'Bộ Y tế HQ cấp phép'},
+    ],
+    stories: [
+      {ico:'🏥', t:'Mỹ phẩm chức năng — được cấp phép điều trị mụn lưng', d:'BHA (Salicylic Acid 0.5%) tan trong dầu, thấm sâu vào lỗ chân lông, phá vỡ nhân mụn từ bên trong. Centella Asiatica làm dịu vùng viêm đỏ. Kết hợp hai thành phần này đã được Bộ Y tế Hàn Quốc công nhận hiệu quả điều trị mụn lưng/vai.'},
+      {ico:'🌊', t:'Aqua Forest — tại sao hương này?', d:'Hương biển rừng mát lạnh giúp kích thích cảm giác sạch sâu. Tinh dầu tự nhiên trong công thức cũng có tác dụng kháng khuẩn bổ sung, không chỉ là hương thơm đơn thuần.'},
+    ],
+    compare: [
+      {label:'Sữa tắm Acne thông thường (300ml)', val:'~250.000đ', note:'83.000đ/100ml'},
+      {label:'Monfri Acne Care (1059ml×2)', val:'529.000đ', win:'25.000đ/100ml — Rẻ hơn 70%'},
+      {label:'Chứng nhận', val:'✓ Mỹ phẩm chức năng HQ', win:'Duy nhất phân khúc'},
+    ],
+    reviews: [
+      {stars:5, text:'"Mụn lưng của mình rất nặng, dùng loại này 3 tuần thì mụn xẹp hết. Da lưng giờ mịn như da mặt. Chai to dùng mãi không hết."', author:'Ngô T.B., Cần Thơ'},
+    ]
+  },
+  body_lotion: {
+    clinical: [
+      {num:'270%', label:'Tăng độ ẩm da', note:'Đo lường lâm sàng'},
+      {num:'24h', label:'Dưỡng ẩm liên tục', note:'Không cần thoa lại'},
+      {num:'8', label:'Dầu hữu cơ', note:'Chứng nhận COSMOS'},
+      {num:'2.1L', label:'Tổng dung tích', note:'1059ml × 2'},
+    ],
+    stories: [
+      {ico:'🥑', t:'Bơ Cupuaçu — tại sao tốt hơn Shea Butter?', d:'Shea Butter nổi tiếng nhưng Cupuaçu Butter ít biết hơn và ưu việt hơn: khả năng hút và giữ ẩm gấp 4 lần, thấm nhanh hơn, không để lại cặn nhờn. Người Amazon đã dùng từ hàng nghìn năm để bảo vệ da khỏi khí hậu khắc nghiệt.'},
+      {ico:'⏰', t:'Thoa sau tắm khi da còn ẩm — vì sao?', d:'Hyaluronic Acid và Glycerin trong công thức hoạt động bằng cách "bắt" các phân tử nước. Khi da còn ẩm sau tắm, chúng giữ lại lượng nước đó và khóa vào da. Thoa khi da đã khô sẽ giảm hiệu quả dưỡng ẩm tới 60%.'},
+    ],
+    compare: [
+      {label:'Dưỡng thể Vaseline (400ml)', val:'~120.000đ', note:'30.000đ/100ml'},
+      {label:'Monfri Body Lotion (1059ml×2)', val:'479.000đ', win:'22.600đ/100ml — 8 dầu hữu cơ'},
+      {label:'Hiệu quả dưỡng ẩm', val:'+270% độ ẩm da', win:'Lâm sàng chứng minh'},
+    ],
+    reviews: [
+      {stars:5, text:'"Dùng sau tắm là da mềm mịn ngay, mùi thơm dịu mà lưu được cả ngày. Không nhờn chút nào, thấm rất nhanh. Mình mua cho cả nhà dùng."', author:'Đinh L.H., Hà Nội'},
+    ]
+  },
+};
+
+function getDetailKey(p) {
+  if(p.detailFolder==='premium_shampoo'||p.id===1||p.id===2) return 'exosome';
+  if(p.cat==='hair') return 'beer';
+  if(p.id===8||p.id===15) return 'acne_body';
+  if(p.id===12||p.id===17) return 'body_lotion';
+  if(p.cat==='body') return 'body';
+  return 'beer';
+}
+
+function renderDetailContent(p) {
+  const key = getDetailKey(p);
+  const d = DETAIL_DATA[key];
+  if(!d) return '';
+  
+  let h = '';
+  
+  // 1. Bằng chứng lâm sàng
+  h += `<div class="detail-section">`;
+  h += `<div class="detail-section-title">Bằng chứng lâm sàng</div>`;
+  h += `<div class="clinical-grid">`;
+  d.clinical.forEach(c => {
+    h += `<div class="clinical-card">
+      <div class="clinical-num">${c.num}</div>
+      <div class="clinical-label">${c.label}</div>
+      <div style="font-size:10px;color:var(--mid);margin-top:.2rem;opacity:.7">${c.note}</div>
+    </div>`;
+  });
+  h += `</div>`;
+  h += `<p class="clinical-note">* Số liệu từ kiểm nghiệm lâm sàng của ArtheL Co., Ltd. Hiệu quả có thể khác nhau tùy cơ địa.</p>`;
+  h += `</div>`;
+  
+  // 2. Câu chuyện thành phần
+  h += `<div class="detail-section">`;
+  h += `<div class="detail-section-title">Tại sao hiệu quả?</div>`;
+  d.stories.forEach(s => {
+    h += `<div class="story-card">
+      <div class="story-ico">${s.ico}</div>
+      <div>
+        <div class="story-t">${s.t}</div>
+        <div class="story-d">${s.d}</div>
+      </div>
+    </div>`;
+  });
+  h += `</div>`;
+  
+  // 3. So sánh giá trị
+  h += `<div class="detail-section">`;
+  h += `<div class="detail-section-title">So sánh giá trị</div>`;
+  d.compare.forEach(c => {
+    h += `<div class="value-row">
+      <span class="value-label">${c.label}</span>
+      <div style="text-align:right">
+        <span class="value-val">${c.val}</span>
+        ${c.win ? `<br><span class="value-win" style="font-size:11px">✓ ${c.win}</span>` : `<br><span style="font-size:11px;color:var(--mid)">${c.note||''}</span>`}
+      </div>
+    </div>`;
+  });
+  h += `</div>`;
+  
+  // 4. Cam kết
+  h += `<div class="detail-section">`;
+  h += `<div class="detail-section-title">Cam kết từ Monfri Vietnam</div>`;
+  h += `<div class="promise-list">`;
+  ['100% chính hãng — nhập khẩu trực tiếp từ ArtheL Co., Ltd., Hàn Quốc',
+   'Tem chống hàng giả trên từng sản phẩm',
+   'Đổi trả trong 30 ngày nếu sản phẩm lỗi',
+   'Hỗ trợ tư vấn qua Zalo/Facebook 8h-22h'].forEach(item => {
+    h += `<div class="promise-item">
+      <div class="promise-ico"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span>${item}</span>
+    </div>`;
+  });
+  h += `</div></div>`;
+  
+  // 5. Review nổi bật
+  h += `<div class="detail-section">`;
+  h += `<div class="detail-section-title">Khách hàng nói gì?</div>`;
+  d.reviews.forEach(r => {
+    const stars = '★'.repeat(r.stars) + '☆'.repeat(5-r.stars);
+    h += `<div class="mini-rev">
+      <div class="mini-rev-stars">${stars}</div>
+      <div class="mini-rev-text">${r.text}</div>
+      <div class="mini-rev-author">— ${r.author}</div>
+    </div>`;
+  });
+  h += `</div>`;
+  
   return h;
 }
 
@@ -1398,18 +1645,18 @@ const PDP_DATA = {
   // Ingredients by category
   ingredients: {
     hair_exosome: [
-      {ico:'🧬', n:'Nano Exosome', d:'Thấm sâu vào nang tóc, tái tạo tế bào'},
-      {ico:'🌿', n:'Centella Asiatica', d:'Làm dịu da đầu, giảm viêm'},
+      {ico:'🧬', n:'Nano Exosome (PDRN)', d:'Thấm sâu vào nang tóc, tái tạo tế bào'},
+      {ico:'🌿', n:'Centella Asiatica (Rau má Hàn Quốc)', d:'Làm dịu da đầu, giảm viêm'},
       {ico:'💊', n:'Biotin', d:'Vitamin B7, nuôi dưỡng nang tóc'},
       {ico:'🍺', n:'Beer Yeast Extract', d:'Protein tự nhiên tăng thể tích tóc'},
       {ico:'🌸', n:'Camellia Oil', d:'Dưỡng bóng, giảm xơ rối'},
-      {ico:'🧪', n:'Keratin', d:'Phục hồi cấu trúc tóc hư tổn'},
+      {ico:'🧪', n:'Keratin', d:'Protein tự nhiên lấp đầy các khoảng trống trên bề mặt sợi tóc, phục hồi tóc nhuộm/uốn/tẩy bị hư tổn, tăng độ bóng và mượt mà tức thì'},
     ],
     hair_beer: [
       {ico:'🍺', n:'Beer Yeast', d:'Men bia Đức, protein tự nhiên'},
-      {ico:'💪', n:'Hydrolyzed Keratin', d:'Keratin thủy phân phục hồi tóc'},
+      {ico:'💪', n:'Keratin thủy phân (Hydrolyzed Keratin)', d:'Keratin thủy phân phục hồi tóc'},
       {ico:'🌱', n:'Biotin Complex', d:'Tăng cường nang tóc'},
-      {ico:'🌺', n:'Panthenol (B5)', d:'Dưỡng ẩm, tăng độ bóng'},
+      {ico:'🌺', n:'Panthenol (Pro-Vitamin B5)', d:'Dưỡng ẩm, tăng độ bóng'},
       {ico:'🍃', n:'Green Tea Extract', d:'Chống oxy hóa, bảo vệ tóc'},
       {ico:'💧', n:'Hyaluronic Acid', d:'Giữ ẩm cho da đầu'},
     ],
@@ -1417,9 +1664,9 @@ const PDP_DATA = {
       {ico:'🌿', n:'Centella Asiatica', d:'Làm dịu, chống viêm mụn'},
       {ico:'⚗️', n:'Salicylic Acid', d:'BHA làm sạch lỗ chân lông'},
       {ico:'🌊', n:'Sea Salt Extract', d:'Kháng khuẩn tự nhiên'},
-      {ico:'🌲', n:'Tea Tree Oil', d:'Kháng khuẩn, kiểm soát dầu'},
-      {ico:'💧', n:'Niacinamide', d:'Thu nhỏ lỗ chân lông'},
-      {ico:'🌸', n:'Allantoin', d:'Làm dịu và tái tạo da'},
+      {ico:'🌲', n:'Tea Tree Oil (Tinh dầu Tràm Trà Úc)', d:'Kháng khuẩn, kiểm soát dầu'},
+      {ico:'💧', n:'Niacinamide (Vitamin B3)', d:'Thu nhỏ lỗ chân lông'},
+      {ico:'🌸', n:'Allantoin (Chiết xuất cây Comfrey)', d:'Làm dịu và tái tạo da'},
     ],
     body_aroma: [
       {ico:'💜', n:'Lavender Essential Oil', d:'Thư giãn, khử mùi tự nhiên'},
@@ -1430,17 +1677,17 @@ const PDP_DATA = {
       {ico:'💧', n:'Aloe Vera', d:'Dưỡng ẩm, làm mát da'},
     ],
     body_lotion: [
-      {ico:'🧈', n:'Cupuaçu Butter', d:'Dưỡng ẩm 270%, thấm nhanh'},
-      {ico:'🌿', n:'Organic Argan Oil', d:'Nuôi dưỡng sâu, chống lão hóa'},
+      {ico:'🧈', n:'Bơ Cupuaçu (Theobroma grandiflorum)', d:'Dưỡng ẩm 270%, thấm nhanh'},
+      {ico:'🌿', n:'Organic Argan Oil', d:'Vàng lỏng của Maroc — giàu Vitamin E và axit béo thiết yếu, chống lão hóa, tăng độ đàn hồi và độ bóng da, thấm nhanh không để lại cặn nhờn'},
       {ico:'🥛', n:'Almond Milk', d:'Làm mềm da, hương thơm nhẹ'},
       {ico:'💧', n:'Hyaluronic Acid', d:'Giữ ẩm 24 giờ'},
       {ico:'🌺', n:'Shea Butter', d:'Dưỡng ẩm, phục hồi da khô'},
       {ico:'🌸', n:'Centella Asiatica', d:'Phục hồi da, chống viêm'},
     ],
     hand: [
-      {ico:'🧈', n:'Cupuaçu Butter', d:'Dưỡng ẩm sâu, không nhờn'},
+      {ico:'🧈', n:'Bơ Cupuaçu vàng', d:'Dưỡng ẩm sâu, không nhờn'},
       {ico:'🌿', n:'Centella Asiatica', d:'Phục hồi da tay khô nứt'},
-      {ico:'🌸', n:'Allantoin', d:'Làm mềm và tái tạo da'},
+      {ico:'🌸', n:'Allantoin', d:'Thành phần làm dịu và tái tạo hàng đầu trong dược mỹ phẩm — kích thích tăng sinh tế bào mới, làm mềm da sần, lành hóa vết nứt nẻ trên tay'},
       {ico:'💧', n:'Glycerin', d:'Giữ ẩm tự nhiên lâu dài'},
       {ico:'🌾', n:'Vitamin E', d:'Chống oxy hóa, bảo vệ da'},
       {ico:'🌲', n:'Hinoki Extract', d:'Kháng khuẩn, hương thơm tinh tế'},
@@ -1593,9 +1840,22 @@ function goPDP(id) {
     <div class="pdp-stat"><span>✓</span>Lâm sàng</div>`;
 
   document.getElementById('pdp-qv').textContent=1;
-  document.getElementById('pdp-desc-acc').innerHTML = PRODUCT_DETAIL_IMGS[p.id]
-    ? renderDetailImgs(p.id)
-    : `<p>${p.desc}</p>`;
+  // Tab detail content + images
+  const detailEl = document.getElementById('pdp-detail-imgs');
+  const detailContentEl = document.getElementById('pdp-detail-content');
+  const detailBtn = document.getElementById('pdp-tab-detail-btn');
+  // Luôn hiển thị tab detail (có content tiếng Việt)
+  if(detailBtn) detailBtn.style.display = '';
+  // Render VN content
+  if(detailContentEl) detailContentEl.innerHTML = renderDetailContent(p);
+  // Render ảnh Hàn (nếu có)
+  if (PRODUCT_DETAIL_IMGS[p.id]) {
+    detailEl.innerHTML = renderDetailImgs(p.id);
+  } else {
+    detailEl.innerHTML = '';
+  }
+  // Mô tả ngắn trong accordion
+  document.getElementById('pdp-desc-acc').innerHTML = `<p>${p.desc}</p>`;
   document.getElementById('pdp-info-vol').innerHTML=`<b>Dung tích:</b> ${p.name.match(/\d+ml/)?p.name.match(/\d+ml/)[0]:'—'}`;
 
   // How to use
@@ -1617,9 +1877,25 @@ function goPDP(id) {
       <div class="ingr-name">${i.n}</div>
       <div class="ingr-desc">${i.d}</div>
     </div>`).join('');
+  const fullIngrMap = {
+    hair_exosome: 'Aqua, Sodium Lauryl Sulfoacetate, Cocamidopropyl Betaine, Sodium Cocoamphoacetate, Glycerin, Panthenol, Niacinamide, Biotin, Hydrolyzed Keratin, Centella Asiatica Extract, PDRN (Exosome), Allantoin, Cetrimonium Chloride, Citric Acid, Sodium Benzoate, Phenoxyethanol, Parfum.',
+    hair_beer: 'Aqua, Sodium Lauryl Sulfoacetate, Cocamidopropyl Betaine, Saccharomyces Ferment Extract (Beer Yeast), Hydrolyzed Keratin, Panthenol, Niacinamide, Biotin, Allantoin, Glycerin, Cetrimonium Chloride, Citric Acid, Sodium Benzoate, Phenoxyethanol, Parfum.',
+    hair_treatment: 'Aqua, Cetearyl Alcohol, Behentrimonium Chloride, Glycerin, Silk Amino Acids, Camellia Sinensis Seed Oil, Hydrolyzed Collagen, Hydrolyzed Keratin, Argan Oil, Ceramide NP, Panthenol, Vitamin E (Tocopheryl Acetate), Citric Acid, Phenoxyethanol, Parfum.',
+    body_acne: 'Aqua, Sodium Lauryl Sulfoacetate, Cocamidopropyl Betaine, Salicylic Acid (0.5%), Centella Asiatica Extract, Niacinamide, Tea Tree Oil, Aloe Barbadensis Leaf Extract, Sea Salt, Allantoin, Glycerin, Citric Acid, Sodium Benzoate, Phenoxyethanol, Parfum.',
+    body_aroma: 'Aqua, Sodium Lauryl Sulfoacetate, Cocamidopropyl Betaine, Glycerin, Lavandula Angustifolia Oil (Lavender), Simmondsia Chinensis Oil (Jojoba), Prunus Amygdalus Dulcis Oil (Sweet Almond), Rosa Canina Seed Oil, Chamomilla Recutita Extract, Vitamin E, Aloe Vera, Citric Acid, Phenoxyethanol, Parfum.',
+    body_lotion: 'Aqua, Theobroma Grandiflorum Seed Butter (Cupuaçu), Prunus Amygdalus Dulcis Oil, Argania Spinosa Kernel Oil (Argan), Simmondsia Chinensis Oil (Jojoba), Butyrospermum Parkii Butter (Shea), Sodium Hyaluronate, Vitamin C (Ascorbyl Glucoside), Vitamin E, Allantoin, Glycerin, Cetearyl Alcohol, Phenoxyethanol, Parfum.',
+    body_scrub: 'Sucrose (Sugar Cane), Prunus Amygdalus Dulcis Oil, Simmondsia Chinensis Oil, Citrus Bergamia Peel Oil, Vitamin E (Tocopheryl Acetate), Aloe Barbadensis Leaf Extract, Allantoin, Phenoxyethanol.',
+    hand_cream: 'Aqua, Theobroma Grandiflorum Seed Butter (Cupuaçu), Centella Asiatica Extract, Allantoin, Glycerin, Chamaecyparis Obtusa Extract (Hinoki), Panthenol, Vitamin E, Cetearyl Alcohol, Phenoxyethanol, Parfum.',
+    hand_wash: 'Aqua, Sodium Lauryl Sulfoacetate (Coconut-derived), Cocamidopropyl Betaine, Chamaecyparis Obtusa Extract (Hinoki), Centella Asiatica Extract, Aloe Barbadensis Leaf Extract, Allantoin, Glycerin, Citric Acid, Sodium Benzoate, Phenoxyethanol, Parfum.',
+    remove_cream: 'Aqua, Thioglycolic Acid, Centella Asiatica Extract, Allantoin, Aloe Barbadensis Leaf Extract, Glycerin, Chamaecyparis Obtusa Oil (Forest Herb), Cetearyl Alcohol, Phenoxyethanol, Parfum.',
+    soap: 'Sodium Olivate, Sodium Cocoate, Aqua, Activated Charcoal, Houttuynia Cordata Extract, Melaleuca Alternifolia Leaf Oil (Tea Tree), Glycerin, Citric Acid.',
+  };
+  const fullIngrKey = getIngredientKey(p);
+  const fullIngrList = fullIngrMap[fullIngrKey] || ingrs.map(i=>i.n).join(', ') + ', Aqua, Sodium Laureth Sulfate, Glycerin, Citric Acid, Parfum.';
   document.getElementById('pdp-full-ingr').innerHTML=`
-    <strong style="color:var(--c)">Thành phần đầy đủ:</strong><br>
-    <span style="font-size:11.5px">${ingrs.map(i=>i.n).join(', ')}, Aqua, Sodium Laureth Sulfate, Cocamidopropyl Betaine, Glycerin, Citric Acid, Sodium Benzoate, Parfum.</span>`;
+    <strong style="color:var(--c);display:block;margin-bottom:.5rem">Thành phần đầy đủ (INCI):</strong>
+    <span style="font-size:11.5px;line-height:1.9;color:var(--mid)">${fullIngrList}</span>
+    <span style="display:block;margin-top:.5rem;font-size:11px;color:var(--mid);opacity:.6">* Danh sách theo tiêu chuẩn INCI quốc tế. Nồng độ cao nhất xếp trước.</span>`;
   document.getElementById('pdp-ingr-acc').innerHTML=`<div class="ingr-grid" style="margin-top:.5rem">${ingrs.slice(0,4).map(i=>`<div class="ingr-item"><div class="ingr-ico">${i.ico}</div><div class="ingr-name">${i.n}</div></div>`).join('')}</div>`;
 
   // Reviews
@@ -1826,6 +2102,7 @@ setTimeout(()=>{
     <div class="pdp-tabs">
       <button class="pdp-tab on" onclick="switchTab('howto')">Cách dùng</button>
       <button class="pdp-tab" onclick="switchTab('ingr')">Thành phần</button>
+      <button class="pdp-tab" id="pdp-tab-detail-btn" onclick="switchTab('detail')">Thông tin chi tiết</button>
       <button class="pdp-tab" onclick="switchTab('reviews')">Đánh giá (<span id="pdp-tab-rcnt">0</span>)</button>
       <button class="pdp-tab" onclick="switchTab('related')">Sản phẩm liên quan</button>
     </div>
@@ -1839,6 +2116,12 @@ setTimeout(()=>{
     <div class="pdp-tab-panel" id="tab-ingr">
       <div class="ingr-grid" id="pdp-ingr-grid"></div>
       <div style="margin-top:1.5rem;padding:1rem;background:var(--warm);border:1px solid var(--pale);font-size:12.5px;color:var(--mid);line-height:1.8" id="pdp-full-ingr"></div>
+    </div>
+
+    <!-- Detail Info -->
+    <div class="pdp-tab-panel" id="tab-detail">
+      <div id="pdp-detail-content"></div>
+      <div id="pdp-detail-imgs"></div>
     </div>
 
     <!-- Reviews -->
